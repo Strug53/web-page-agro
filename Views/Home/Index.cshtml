@@ -1,0 +1,381 @@
+﻿
+@{
+    ViewData["Title"] = "Home Page";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link type="text/css" href="/css/base.css" rel="stylesheet"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+    <title>Agrokorm</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet"> 
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&family=Rubik:wght@700&display=swap" rel="stylesheet"> 
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai+Looped&family=Roboto:wght@700&family=Rubik:wght@700&display=swap" rel="stylesheet"> 
+
+
+     
+
+</head>
+<body>
+<!-- Header -->
+<header class="header">
+    <section class="headerNav">
+        <div class="logo"><a asp-controller="Home" asp-action="Index"><img src="/images/Logo.png" alt="Logo"></a></div>
+        <div class="menu_list">
+            <ul>
+                <li><a asp-controller="Home" asp-action="Seeds">Семена</a>
+                    <div class="Sub-menu" id="SB1" >
+                        <ul>
+                            <li class="seed"><a href="#" class="seed0">Яровые семена</a></li>
+                            <li class="seed"><a href="#" class="seed1">Озимые семена</a></li>
+                            <!--
+                            <li><a href="#">Сорго-суданковый гибрид</a></li>
+                            <li><a href="#">Озимая рожь</a></li>
+                            <li><a href="#">Рапс</a></li>
+                            <li><a href="#">Люцерна</a></li>  
+                            --> 
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="#">Биоконсерванты</a>
+                    <div class="Sub-menu" id="SB2" >
+                        <ul>
+                            <li class="bio"><a href="#" class="bio0">Биоконсервант Sila ALG GOLD</a></li>
+                            <li class="bio"><a href="#" class="bio1">Биоконсервант Sila-Prime</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a asp-controller="Membrane" asp-action="Product">Силосная пленка</a></li>
+                <li><a href="#">Техника</a>
+                    <div class="Sub-menu" id="SB3" >
+                        <ul>
+                            <li><a href="#" class="technic">С.К.У.П. (смесь кормовая углеводно-протеиновая)</a></li>
+                            <li><a href="#" class="technic">С.У.П. (смесь углеводно-протеиновая)</a></li>
+                            
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="#">Агрострейч</a></li>
+                <li><a asp-controller="Home" asp-action="Fertilizers">Удобрения</a>
+                    <div class="Sub-menu" id="SB4" >
+                        <ul>
+                            <li class="fertilizers"><a href="#" class="fertilizer0">Биополимер «Нутричардж»</a></li>
+                            <li class="fertilizers"><a href="#" class="fertilizer1">Глицерол Бор</a></li>
+                            <li class="fertilizers"><a href="#" class="fertilizer2">Глицерол Калий</a></li>
+                            <li class="fertilizers"><a href="#" class="fertilizer3">Глицерол Комплекс</a></li>
+                            <li class="fertilizers"><a href="#" class="fertilizer4">Глицерол Цинк</a></li>
+                            <li class="fertilizers"><a href="#" class="fertilizer5">Листовая подкормка «Гроугрин»</a></li> 
+                            <li class="fertilizers"><a href="#" class="fertilizer6">Повышение эффективности навоза</a></li>
+                            <li class="fertilizers"><a href="#" class="fertilizer7">Глицерол азот</a></li>
+                              
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="about">
+            <ul>
+                <li><a>О компании</a></li>
+                <li><a>Новости</a></li>
+                <li><a>Контакты</a></li>
+            </ul>
+            <div class="email">
+                <div class="email_text"><p>agro36korm@mail.ru</p></div>
+                <div class="email_icon"><img src="/images/mail.svg" alt="email"></div>
+            </div>
+        </div>
+        <div class="telephone">
+            <p> +7 (930) 417 31 32 </p>
+        </div>
+    </section>
+</header>
+<section class="header_mob">
+    <div class="header_mob_burger"><label for="LOpen"><img src="/images/menu.svg" alt="" ></label></div>
+    <div class="header_mob_logo"><img src="/images/Logo.png" alt="logo"></div>
+    <div class="header_mob_tele"><p>+7 (930) 417 31 32</p></div>
+    
+</section>
+
+<input type="radio" name="l" id="Standart" checked>
+<input type="radio" name="l" id="LClose">
+<input type="radio" name="l" id="LOpen">
+
+
+<section class="left_menu">
+    <h5> Меню </h5>
+    <p> +7 (930) 417 31 32 </p>
+    <ul>
+       <li>
+           <a href="#">Семена</a>
+           <img src="/images/white-forward-50.png" alt="" class="seed_">
+
+        </li>
+       <li>
+           <a href="#">Биоконсерванты</a>
+           <img src="/images/white-forward-50.png" alt="" class="bio_">
+        </li>
+       <li><a asp-controller="Home" asp-action="Plenka">Силосная пленка</a></li>
+       <li>
+           <a href="#">Техника</a>
+           <img src="/images/white-forward-50.png" alt="" class="technic_">
+        </li>
+       <li><a href="#">Агрострейч</a></li>
+       <li>
+           <a href="#">Удобрения</a>
+           <img src="/images/white-forward-50.png" alt="" class="fertilizer_">
+        </li>
+       <li><a href="#">О компании</a></li>
+       <li><a href="#">Новости</a></li>
+       <li><a href="#">Контакты</a></li>
+
+    </ul>
+    <label for="LClose"><img src="/images/close.svg"></label>
+
+    <section class="left_menu_burger">
+        <div class="left_menu_burger_head">
+            <img src="/images/white-back-50.png" alt="" class="back">
+            <h5 class="script_title_above"></h5>
+        </div>
+        <ul class="ul">
+            <li class="EL0 EL"><a href="#" class="El0"></a></li>
+            <li class="EL1 EL"><a href="#" class="El1"></a></li>
+            <!--Add another if needed-->
+        </ul>
+    </section>
+
+</section>
+
+
+
+<section class="main_info" style="background-image: url('/images/backgr.jpg');">
+    <div class="main_title">
+        <p>Современные</p>
+        <p>технологии</p>
+        <p>животноводства</p>
+    </div>
+    <div class="main_text">
+        <p>Мы работаем, чтобы сделать сельскохозяйственные предприятия<br> более эффективными, предлагая самый лучший ассортимент<br> качественных товаров для получения полноценного,<br> сбалансированного корма, с которого начинается<br> «Путь к большому молоку»</p>
+    </div>
+    <div class="main_button">
+        <img src="/images/arrow.svg" alt="arrow">
+        <a href="#"> Перейти в каталог </a>
+    </div>
+</section>
+
+<section class="us">
+    <div class="mainContent">
+    <img src="/images/Content.jpg" alt="">
+    </div>
+    <section class="textAbout">
+    <div class="about_text">
+        <p><span class="agrokormAb">Агрокорм</span> - объединяет высококвалифицированных<br> 
+            специалистов в области кормопроизводства, кормозаготовки<br>
+            и кормления. Компания является поставщиком продукции<br>
+            самого высокого качества, соответствующей мировым стандартам<br>
+            и уровню сервиса. Знания и опыт наших<br>
+            специалистов гарантируют слаженную работу всех<br>
+            направлений компании.</p>
+    </div>
+    <div class="about_text2">
+        <p>Наша задача — помочь животноводческим предприятиям<br>
+        занять лидирующие позиции и обеспечить их устойчивое<br>
+        развитие. Для этого мы выявляем факторы, негативно<br>
+        сказывающиеся на продуктивности животных и<br>
+        разрабатываем компенсационные мероприятия.</p>
+    </div>
+    </section>
+</section>
+
+
+<section class="advantages">
+    <div class="advantages_topic">
+        <h3>Почему <span>работать с нами</span>
+    </div>
+    <div class="advantages_topic2">
+        <h3><span>выгодно</span> и удобно:</h3>
+    </div>
+    <div class="advantages_main_circle">
+        <img src="/images/circ.jpg" alt="circle" class="main_circle">
+        <div class="cow circle">
+            <img src="/images/cow.png" alt="cow">
+        </div>
+        <div class="partner circle">
+            <img src="/images/partner.png" alt="partner">
+        </div>
+        <div class="farm circle">
+            <img src="/images/field.png" alt="farm">            
+        </div>
+        <div class="bull circle">
+            <img src="/images/pit-bull.png" alt="bull">
+        </div>
+        <div class="tractor circle">
+            <img src="/images/tractor.png" alt="tractor">
+        </div>
+        <div class="counter zeroOne"><p>01</p></div>
+        <div class="counter zeroTwo"><p>02</p></div>
+        <div class="counter zeroThree"><p>03</p></div>
+        <div class="counter zeroFour"><p>04</p></div>
+        <div class="counter zeroFive"><p>05</p></div>
+        <div class="OneText CountText"><p>Использование <span>самых современных технологий</span> молочного животноводства.</p></div>
+        <div class="TwoText CountText"><p><span>Профессиональное сопровождение </span>специалистов по основным направлениям с/х деятельности</p></div>
+        <div class="ThreeText CountText"><p><span>Подбор лучших решений</span> с учетом климатических особенностей, типов почв, хозяйственного использования, вектора развития хозяйства</p> </div>
+        <div class="FourText CountText"><p><span>Профессиональные консультации</span> и  оперативная обработка заказов</p></div>
+        <div class="FiveText CountText"><p><span>Наличие товаров на складе</span>, оперативная и  своевременная доставка</p></div>
+    </div>
+
+
+</section>
+
+<section class="solutions" style="background-image: url(images/backSolution.jpg);">
+    <div class="solutions_text"><h3>Наши решения</h3></div>
+    <div class="solutions_slider_width">
+        
+
+
+        <div class="solutions_slider_visible">
+
+
+
+
+            <div class="solutions_slider_unvisible">
+                          
+                <!--Дивы слайдов-->
+                <div class="list_slides_1">
+                    <div class="trambovshik9 slides" id="sl1">
+                        <a href="#" class="slides_img"><img src="/images/trambovshik-300x200.png" alt=""></a>
+                        <a href="#" class="slides_title"> Трамбовщик 9 колесный </a>
+                        <p>надежная конструкция модели <br> обеспечивает ширину 2.5 м</p>
+                        <a class="slides_reference trambovshik9_button"><div><img src="/images/arrow.svg" alt="arrow"><p>Узнать подробнее</p></div></a>
+                    </div>
+                    <div class="alexis slides" id="sl2">
+                        <a href="#" class="slides_img"><img src="/images/alexis.jpg" alt=""></a>
+                        <a href="#" class="slides_title"> АЛЕКСИС </a>
+                        <p>Обладает высокой зимостойкостью <br> и морозостойкостью, подходит для <br> многолетнего использования</p>
+                        <a class="slides_reference alexis_button" href="#"><div><img src="/images/arrow.svg" alt="arrow"><p>Узнать подробнее</p></div></a>
+                    </div>
+                    <div class="biopolimer slides" id="sl3">
+                        <a href="#" class="slides_img"><img src="/images/Polimer-300x300.jpg" alt=""></a>
+                        <a href="#" class="slides_title"> Биополимер «Нутричардж» </a>
+                        <p>Биоразлагаемый полимер <br> «Нутричардж» делает минеральные <br> вещества удобрений доступными для <br> поглощения корнями</p>
+                        <a class="slides_reference biopolimer_button" href="#"><div><img src="/images/arrow.svg" alt="arrow"><p>Узнать подробнее</p></div></a>
+                    </div>
+                </div>
+                <div class="list_slides_2">
+                    <div class="trambovshik9 slides" id="sl4">
+                        <a href="#" class="slides_img"><img src="/images/trambovshik-300x200.png" alt=""></a>
+                        <a href="#" class="slides_title"> Трамбовщик 9 колесный </a>
+                        <p>надежная конструкция модели <br> обеспечивает ширину 2.5 м</p>
+                        <a class="slides_reference trambovshik9_button"><div><img src="/images/arrow.svg" alt="arrow"><p>Узнать подробнее</p></div></a>
+                    </div>
+                    <div class="alexis slides" id="sl5">
+                        <a href="#" class="slides_img"><img src="/images/alexis.jpg" alt=""></a>
+                        <a href="#" class="slides_title"> АЛЕКСИС </a>
+                        <p>Обладает высокой зимостойкостью <br> и морозостойкостью, подходит для <br> многолетнего использования</p>
+                        <a class="slides_reference alexis_button" href="#"><div><img src="/images/arrow.svg" alt="arrow"><p>Узнать подробнее</p></div></a>
+                    </div>
+                    <div class="biopolimer slides" id="sl6">
+                        <a href="#" class="slides_img"><img src="/images/Polimer-300x300.jpg" alt=""></a>
+                        <a href="#" class="slides_title"> Биополимер «Нутричардж» </a>
+                        <p>Биоразлагаемый полимер <br> «Нутричардж» делает минеральные <br> вещества удобрений доступными для <br> поглощения корнями</p>
+                        <a class="slides_reference biopolimer_button" href="#"><div><img src="/images/arrow.svg" alt="arrow"><p>Узнать подробнее</p></div></a>
+                    </div>
+
+                </div>
+                
+                
+
+            </div>
+
+
+
+        </div>
+
+
+    </div>
+    <div class="solutions_bar">
+        <div class="Bar OneBar"></div>
+        <div class="Bar TwoBar"></div>
+    </div>
+    <div class="solutions_bar_arrows">
+        <img src="/images/white-back-50.png" alt="arrow" class="arrow arrow1">
+        <img src="/images/white-forward-50.png" alt="arrow" class="arrow arrow2">
+    </div>
+
+
+
+</section>
+
+
+<section class="cooperation">
+    <section class="cooperation_main">
+        <div class="cooperation_text">
+            <h3>С нами <span>сотрудничают</span></h3>
+        </div>
+        <div class="cooperation_company">
+            <div class="moloko">
+                <img src="/images/moloko-590x600.jpg" alt="">
+            </div>
+        </div>
+    </section>
+
+</section>
+
+<section class="bottom" style="background-image: url('/images/bottom.jpg');">
+    <section class="bottom_main">
+        <div class="bottom_img"><img src="/images/Logo.png" alt="Logo"></div>
+        <div class="under_img_text"><p>2015 - 2022 ©<br>Все права защищены</p></div>
+        <div class="bottom_prod">
+            <h4>Продукция</h4>
+            <ul>
+               <li><a href="#">Удобрения</a></li>
+               <li><a href="#">Кормовые добавки</a></li> 
+               <li><a href="#">Семена</a></li> 
+               <li><a href="#">Биоконсерванты</a></li> 
+               <li><a href="#">Техника</a></li> 
+               <li><a href="#">Силосная пленка</a></li>  
+            </ul>
+        </div>
+        <div class="bottom_company">
+            <h4>О компании</h4>
+            <ul>
+               <li><a href="#">О компании</a></li>
+               <li><a href="#">Контакты</a></li> 
+            </ul>
+        </div>
+        <div class="inst">
+            <a href="#"><img src="/images/instagram.png" alt=""></a>
+        </div>
+        <div class="bottom_number">
+            <h4>Контакты</h4>
+            <ul>
+               <li><p>+7 (930) 417 31 32</p></li>
+               <li><p>+7 (930) 417 31 32</p></li>
+               <li><p>agro36korm@mail.ru</p></li>  
+            </ul>
+            
+        </div>
+    </section>
+</section>
+
+
+<!--           Body           -->
+<script src="/js/leftMenuScript.js"></script>
+<script src="/js/slider_mob.js"></script>
+<script src="/js/slider_main.js"></script>
+
+
+</body>
+</html>

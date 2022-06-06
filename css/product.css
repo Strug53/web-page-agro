@@ -1,0 +1,139 @@
+.navigator{
+    position: relative;
+    top: 150px;
+    width: 100%;
+    height: 230px;
+    background-color: #203237;
+}
+.navigator h2{
+    position: absolute;
+    color: white;
+    left: 350px;
+    top: 50px;
+    font-size: 50px;
+    font-family: "Roboto", sans-serif;
+}
+.navigator_adress{
+    position: absolute;
+    color: white;
+    font-size:20px;
+    left: 342px;
+    top: 140px;
+}
+.navigator_adress a{
+    color: rgb(207, 207, 207);
+    font-size: 20px;
+    font-weight: 500;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+    .navigator_adress a:link{
+         color: rgb(207, 207, 207);
+    }
+    .navigator_adress a:visited{
+         color: rgb(207, 207, 207);
+    }
+    .navigator_adress a:hover{
+         color: #36c457;
+    }
+
+
+.main{
+    position: relative;
+    top: 150px;
+    width: 100%;
+    min-height: 1000px;
+/*
+    background-color: bisque;
+*/
+}
+.main_main{
+    position: absolute;
+    height: 100%;
+    width: 1344px;
+/*
+    background-color: aqua ;
+*/
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/*------------*/
+
+.block{
+    position: absolute;
+    width: 450px;
+    height: 570px;
+/*
+    background-color: crimson;
+*/
+}
+.firstLine{
+    top: 70px;
+}
+    .image{
+        position: absolute;
+        width: 400px;
+        height: 250px;
+        overflow-y: hidden;
+    }
+    .image img{
+        width: 100%;
+        height: auto;
+        position: absolute;
+    }
+    /*------*/
+    
+    .hyperTitle{
+        position: absolute;
+        top: 270px;
+        font-size: 30px;
+        font-weight: 700;
+    }
+
+    /*------*/
+    .advantages{
+        position: absolute;
+        top: 350px;
+        padding-left: 2px;
+    }
+    .advantages li{
+        font-family: "Roboto",sans-serif;
+        font-size: 22px;
+        margin-bottom: 15px;
+    }
+    /*-----*/
+    .button{
+        position: absolute;
+        bottom: 0;
+        height: 70px;
+        width: 350px;
+        background-color: #2fb14e;
+    }
+    .button p{
+        position: absolute;
+        left: 100px;
+        top: 20px;
+        font-size: 20px;
+        color: white;
+
+    }
+    .button img{
+        position: absolute;
+        top: 8px;
+        left: 20px;
+        height: 50px;
+        width: auto;
+    }
+    .button_hover:hover .button{
+        background-color: #1f7733;
+    }
+        /*ID block*/
+        #second{
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        #third{
+            right: 0;
+        }
+    

@@ -1,0 +1,96 @@
+﻿@using agrokorm.Models
+@using agrokorm.Service.Response;
+@using agrokorm.Models.Products;
+
+@model List<Membrane>;
+@{
+    ViewData["Title"] = "Силосная пленка";
+    Layout = Layout;
+}
+
+
+
+
+
+
+
+
+
+
+
+<link type="text/css" href="/css/plenka.css" rel="stylesheet"/>
+<section class="main">
+    <div class="greenLine"></div>
+    <section class="main_main">
+        <div class="InHeader">
+            <h1>Силосная пленка</h1>
+            <ul class="ListOfAdvantages">
+                <li>Прочность</li>
+                <li>Стойкость</li>
+                <li>Цена</li>
+            </ul>
+            
+        </div>
+        <img class="HeadPlenka" src=~/images/sil-plenka.png  />
+        <img class="HeadImage" src=~/images/headPlenka.jpg />
+
+        <section class="adressRoute"><a asp-controller= "Home" asp-action="Index"  >Главная</a> /  <a >Силосная пленка</a>  </section>
+
+        <section class="description">
+            <h2>Купить силосную <br /> пленку</h2>
+            <ul>
+                <li><p class="Paragraph firstParagraph">
+                    <span>Силосная пленка</span> – это укрывной материал,
+                    позволяющий герметично запечатать зеленую кормовую
+                    массу в силосных ямах и траншеях. Использование силосной пленки
+                    предотвращает порчу сочных кормов и защищает их от негативного влияния
+                    внешней среды.
+                </p></li>
+                <li><p class="Paragraph secondParagraph">
+                    Также пленка играет важную роль в процессе ферментации,
+                    подходит для хранения зерна, сена и силоса. Сейчас выпускается большое
+                    количество разных по свойствам силосных пленок – подобрать оптимальный
+                    вариант именно для своего сельскохозяйственного производства не составит
+                    труда.
+                </p></li>
+                <li><p class="Paragraph thirdParagraph">
+                    Купить силосную пленку с доставкой
+                    в любой регион России можно в компании AgroKorm.
+                </p></li>
+            </ul>
+        </section>
+
+        <ul class="Products">
+            @foreach(var product in Model){
+            <li>    
+                <div class="Product">
+                    <h2>@product.Name</h2>
+                    <img src=~/images/silosnaya-plenka-black.jpg />
+
+                    <ul class="InsideDescription">
+                        <li><p>@product.Description</p>
+                        </li>
+                        <li>
+                            <p>Уникальная технология изготовления пленки для силосных ям обеспечивает:</p>
+                            <ul class="InsideInsideDescription">
+                                <li>прочность и стойкость на разрыв и прокол;</li>
+                                <li>световую изоляцию;</li>
+                                <li>морозостойкость;</li>
+                                <li>ширина пленки до 24 метров и длина до 50 метров, позволяет укрывать силосные ямы и траншеи одним полотном без стыков; </li>
+                                <li>непроницаемость для внешней влаги и внутреннего испарения.</li>  
+                            </ul>
+                        </li>
+                        <li><p>Купить силосную пленку черную (Россия) можно, сделав заказ в форме обратной связи.</p> </li>
+                    </ul>
+                    <div class="Price"><p>@product.Price</p></div>
+                </div>
+            </li>
+            }
+            
+        </ul>
+        
+        
+
+    </section>
+
+</section>

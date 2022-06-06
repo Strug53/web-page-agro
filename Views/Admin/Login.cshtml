@@ -1,0 +1,27 @@
+﻿@using agrokorm.Models;
+@model Admin;
+@{
+    ViewData["Title"] = "View";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <section>
+        <form class="form" asp-controller="Admin" asp-action="Login">
+            <div asp-validation-summary=ModelOnly></div>
+            <label>Введите пароль:</label>
+            <input type="password" asp-for= "Password" />
+            <button type= "submit" >Войти</button>
+        </form>
+    </section>
+</body>
+</html>
+
