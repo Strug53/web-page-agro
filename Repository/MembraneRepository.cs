@@ -32,8 +32,8 @@ namespace agrokorm.Repository
 
         public List<MembraneConfiguration> GetConfigurationsByFK(int id)
         {
-            var items = _db.MembraneConfigurations.ToList().Where(x => x.MembraneId == id);
-            return (List<MembraneConfiguration>)items;
+            var items = _db.MembraneConfigurations.Where(x => x.MembraneId == id).ToList();
+            return items;
         }
 
         public Membrane Select(int id)

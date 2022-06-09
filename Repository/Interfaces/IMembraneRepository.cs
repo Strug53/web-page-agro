@@ -3,7 +3,7 @@ using agrokorm.Models.Products.Configurations;
 
 namespace agrokorm.Repository.Interfaces
 {
-    public interface IMembraneRepository : IMembraneRepository<Membrane, MembraneConfiguration>
+    public interface IMembraneRepository : IBaseRepository<Membrane, MembraneConfiguration>
     {
     }
 }

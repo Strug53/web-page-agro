@@ -82,7 +82,27 @@
                         </li>
                         <li><p>Купить силосную пленку черную (Россия) можно, сделав заказ в форме обратной связи.</p> </li>
                     </ul>
-                    <div class="Price"><p>@product.Price</p></div>
+                    <table>
+                        <tr>
+                            <th>Цвет</th>
+                            <th>Ширина</th>
+                            <th>Длина</th>
+                            <th>Тип</th>
+                            <th>Цена</th>
+                        </tr>
+                        <!-- Foreach -->
+                        @foreach(var configuration in product.membraneConfigurations)
+                        {    
+                        <tr>
+                            <td>@configuration.Color</td>
+                            <td>@configuration.Width</td>
+                            <td>@configuration.Length</td>
+                            <td>@configuration.Type</td>
+                            <td>@configuration.Price</td>
+                        </tr>
+                        }
+                    </table>
+                    <div class="Price"><p>@product.Price рублей</p></div>
                 </div>
             </li>
             }

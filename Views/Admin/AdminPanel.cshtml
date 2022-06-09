@@ -1,4 +1,5 @@
-﻿
+﻿@using agrokorm.Models.Products;
+@model List<Membrane>
 @{
     ViewData["Title"] = "View";
     Layout = null;
@@ -23,32 +24,36 @@
     <div class="Head">
         <h2>Админ-панель</h2>
     </div>
-
     <section class="left_menu">
             <!-- Полный список -->
             <div class="wholeList">
                 <img src="~/images/Admin/list-96.png" alt="list" height="40px">
-                <div class="notice"><p>Просмотр полного списка товаров</p></div>
+                
+            </div>
+
+            <div class="New">
+                <img src="~/images/Admin/plus-100.png" alt="list" height="40px">
+                
             </div>
 
             <!-- Название -->
             <div class="Name">
                 <img src="~/images/Admin/title-100.png" alt="list" height="40px">
-                <div class="notice"><p>Изменение заголовка товара</p></div>
+                
                 
             </div>
 
             <!-- Цена -->
             <div class="Price">
                 <img src="~/images/Admin/ruble-96.png" alt="list" height="40px">
-                <div class="notice"><p>Изменение цены</p></div>
+            
 
             </div>
 
             <!-- Описание -->
             <div class="Description">
                 <img src="~/images/Admin/text-96.png" alt="list" height="40px">
-                <div class="notice"><p>Изменение описания</p></div>
+                
 
             </div>
 
@@ -56,9 +61,40 @@
         
     </section>
 
+    <div class="Main">
+        <div class="title"><h2>Просмотр продукции</h2></div>
+        <div class="wholeList_rightSide">
+            <ul>
+                <li>
+                    Семена
+                    <div class="wholeList_rightSide_show">Показать</div>
+                </li>
+                <li>
+                    Пленка
+                    <div class="wholeList_rightSide_show">Показать</div>
+                </li>
+                <li>
+                    Чет
+                    <div class="wholeList_rightSide_show">Показать</div>
+                </li>
+                <li>
+                    митыло
+                    <div class="wholeList_rightSide_show">Показать</div>
+                </li>
+                <li>
+                    да
+                    <div class="wholeList_rightSide_show">Показать</div>
+                </li>
+            </ul>
+        </div>
 
 
 
+    </div>
+
+
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.js"></script>
+<script src="~/js/admin/leftMenuAdmin.js"></script>
 </body>
 </html>
 

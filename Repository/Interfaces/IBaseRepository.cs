@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace agrokorm.Repository.Interfaces
 {
-    public interface IMembraneRepository<T, Configuration>
+    public interface IBaseRepository<T, Configuration>
     {
         public bool Create(int id);
 

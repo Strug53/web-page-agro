@@ -14,7 +14,7 @@
 
 .Head {
     position: relative;
-    width: 100%;
+    width: 100vw;
     height: 100px;
     background-color: rgb(25, 189, 39);
 }
@@ -31,13 +31,30 @@
 
 .left_menu {
     position: fixed;
-    top: 100px;
+    left: -60px;
     width: 70px;
-    height: 100%;
+    height: 100vw;
     background-color: rgb(25, 189, 39);
+    transition: all .3s ease;
+    z-index: 50;
 }
 
-.wholeList, .Name, .Price, .Description {
+.Main{
+    position: relative;
+    width: 100%;
+    min-height: 800px;
+    left: 50%;
+    transform: translateX(-50%);
+    /*
+    background-color: crimson;
+    */
+    overflow-x: hidden;
+}
+/*
+           
+*/
+
+.wholeList, .Name, .Price, .Description,.New {
     position: absolute;
     width: 99%;
     height: 70px;
@@ -45,7 +62,7 @@
     transition: all 1s ease;
 }
 
-    .wholeList img, .Name img, .Price img, .Description img {
+    .wholeList img, .Name img, .Price img, .Description img, .New img {
         position: absolute;
         top: 15px;
         left: 15px;
@@ -56,49 +73,106 @@
     top: 50px;
 }
 
+.New{
+    top: 170px;
+}
+
 .Name {
-    top: 250px;
+    top: 300px;
 }
 
 .Price {
-    top: 450px;
+    top: 420px;
 }
 
 .Description {
-    top: 650px;
+    top: 550px;
 }
 
-    .wholeList:hover img, .Name:hover img, .Price:hover img, .Description:hover img {
+    .wholeList:hover img, .Name:hover img, .Price:hover img, .Description:hover img, .New:hover img {
         transform: scale(1.2);
     }
 
-    .wholeList:hover, .Name:hover, .Price:hover, .Description:hover {
+    .wholeList:hover, .Name:hover, .Price:hover, .Description:hover,.New:hover {
         box-shadow: 0px 0px 20px rgb(70, 70, 70);
     }
+    
+    .wholeList_rightSide{
+        position: fixed;
+        top: 0;
+        right:-270px;
+        width: 300px;
+        height: 100%;
+        background-color: rgb(25, 189, 39);
 
-.notice {
-    display: block;
-    opacity: 0;
-    position: absolute;
-    width: 400px;
-    height: 75px;
-    left: 100px;
-    transition: all 1s ease;
-    border: 2px solid rgb(25, 189, 39);
-}
+        transition: all .4s ease;
+        border-top-left-radius: 30px;
+        border-bottom-left-radius: 30px;
 
-    .notice p {
+    }
+        .wholeList_rightSide ul{
+            position: absolute;
+            top: 50px;
+            height: 100%;
+            width: 100%;
+            
+        }
+        .wholeList_rightSide ul li{
+            color: white;
+            font-size: 20px;
+            margin-bottom: 50px;
+        }
+        .wholeList_rightSide_show{
+            text-align: center;
+            width: 120px;
+            height: 35px;
+            background-color: dimgray;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+       
+    .title{
         position: absolute;
-        color: rgb(25, 189, 39);
-        top: 15px;
-        left: 10px;
-        font-size: 18px;
+        width: 400px;
+        height: 70px;
+        justify-content: center;
+        left: 39.5vw;
+        background-color: rgb(25, 189, 39);
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px; 
+
+    }
+    .title h2{
+        position: absolute;
+        width: 100%;
+        height: auto;
+        top: 10px;
+        text-align: center;
+        color: white;
+    }
+    .title::before{
+        content: "";
+        position: absolute;
+        top: -2px;
+        left: -30px;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        box-shadow: 10px -15px rgb(25, 189, 39);
+        background-color: transparent;
+    }
+    .title::after{
+        content: "";
+        position: absolute;
+        top: -2px;
+        right: -30px;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        box-shadow: -10px -15px rgb(25, 189, 39);
+        background-color: transparent;
     }
 
-.wholeList:hover .notice, .Name:hover .notice, .Price:hover .notice, .Description:hover .notice {
-    opacity: 1;
-}
-
-
+    
 
     

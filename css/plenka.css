@@ -227,3 +227,27 @@ p{
         font-weight: 700;
         color: white;
     }
+
+        table{
+            position: absolute;
+            top: 700px;
+            left: 0;
+            width: 600px;
+            height: auto;
+            border-collapse: collapse;
+        }
+        th{
+            background-color:#35cf59;
+            font-family: "Roboto";
+            font-size: 15px;
+            color: black;
+        }
+        tr:hover{
+            background-color: rgb(202, 255, 237);
+        }
+        td{
+            font-family: "Roboto";
+            font-size: 15px;
+            color: black;
+            padding: 8px;
+        }
