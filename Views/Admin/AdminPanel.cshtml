@@ -1,5 +1,5 @@
 ﻿@using agrokorm.Models.Products;
-@model List<Membrane>
+
 @{
     ViewData["Title"] = "View";
     Layout = null;
@@ -24,6 +24,7 @@
     <div class="Head">
         <h2>Админ-панель</h2>
     </div>
+
     <section class="left_menu">
             <!-- Полный список -->
             <div class="wholeList">
@@ -61,40 +62,138 @@
         
     </section>
 
-    <div class="Main">
-        <div class="title"><h2>Просмотр продукции</h2></div>
-        <div class="wholeList_rightSide">
+    <div class="title"><h2>Просмотр продукции</h2></div>
+
+    <div class="wholeList_rightSide">
             <ul>
                 <li>
                     Семена
-                    <div class="wholeList_rightSide_show">Показать</div>
+                    <div class="wholeList_rightSide_show" id="Seed">Показать</div>
                 </li>
                 <li>
                     Пленка
-                    <div class="wholeList_rightSide_show">Показать</div>
+                    <div class="wholeList_rightSide_show" id="Membrane">Показать</div>
                 </li>
                 <li>
                     Чет
-                    <div class="wholeList_rightSide_show">Показать</div>
+                    <div class="wholeList_rightSide_show" id="chet">Показать</div>
                 </li>
                 <li>
-                    митыло
-                    <div class="wholeList_rightSide_show">Показать</div>
+                    нет
+                    <div class="wholeList_rightSide_show" id="net">Показать</div>
                 </li>
                 <li>
                     да
-                    <div class="wholeList_rightSide_show">Показать</div>
+                    <div class="wholeList_rightSide_show" id="da">Показать</div>
                 </li>
             </ul>
         </div>
 
+    <div class="Main">
+        <!--<div class="title"><h2>Просмотр продукции</h2></div>-->
+        <h3>Семена</h3>
+        <div class="Main_section">
+            <table class="wholeList_table" id="seedTable">
+                        <tr>
+                            <th>ID</th>
+                            <th>Название</th>
+                            <th>Страна-производитель</th>
+                            <th>Цена</th>
+                        </tr>
+                        <!-- Foreach -->
+                        @foreach(var product in ViewBag.SeedConfiguraions)
+                        {    
+                        <tr>
+                            <td>@product.Id</td>
+                            <td>@product.Name</td>
+                            <td>@product.PlaceOfProduction</td>
+                            <td>@product.Price</td>
+                            
+                            
+                        </tr>
+                        }
+            </table>
+            <table class="wholeList_table membrane" id="membraneTable">
+                        <tr>
+                            <th>ID</th>
+                            <th>Название</th>
+                            <th>Цвет</th>
+                            <th>Ширина</th>
+                            <th>Длина</th>
+                            <th>Тип</th>
+                            <th>Цена</th>
+                        </tr>
+                        <!-- Foreach -->
+                        @foreach(var product in ViewBag.Membranes)
+                {
+                    <tr>
+                            <td>@product.Id</td>
+                            <td>@product.Name</td>
+                            <td>@product.Color</td>
+                            <td>@product.Width</td>
+                            <td>@product.Lenght</td>
+                            <td>@product.Type</td>
+                            <td>@product.Price</td>
+                            <td>
+                                @if(@product.IsVisible)
+                                {
+                                    <img src="~/images/Admin/icons8-done.svg" alt="yes" height="25px">
+                                }
+                                else
+                                {
+                                    <img src="~/images/Admin/icons8-close.svg" alt="no" height="25px">
+                                
+                                }
+                            </td>
+                            <td><div class="button_conf">Конфигурация</div></td>
+                        </tr>
+                        
+                    
+                       } 
+            </table>
+        </div>
+      
 
 
     </div>
 
+    <div class="Membrane_popup">
+        <img src="~/images/Admin/icons8-close.svg">
+        <table class="configuration">
+            <tr>
+                <th>ID</th>
+                <th>Цвет</th>
+                <th>Ширина</th>
+                <th>Длина</th>
+                <th>Тип</th>
+                <th>Цена</th
+            </tr>
+            
+                    @foreach(var conf in ViewBag.MembraneConfigurations)
+                    {
+                    <tr>
+                    <td>@conf.Id</td>
+                    <td>@conf.Color</td>
+                    <td>@conf.Width</td>
+                    <td>@conf.Length</td>
+                    <td>@conf.Type</td>
+                    <td>@conf.Price</td>
+                    </tr>
+                    }
+                
+            
+            
+            
+
+                     
+        </table>
+
+                    
+    </div>
+
 
 <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.js"></script>
-<script src="~/js/admin/leftMenuAdmin.js"></script>
+<script src="~/js/admin/Admin.js"></script>
 </body>
 </html>
 

@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace agrokorm.Repository
 {
-    public class SeedRepository : IBaseRepository<Seed, SeedConfiguration>
+    public class SeedRepository : ISeedRepository
     {
         private readonly ProductContext _db;
 

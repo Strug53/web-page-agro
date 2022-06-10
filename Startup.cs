@@ -18,6 +18,7 @@ using agrokorm.Models.Products;
 using agrokorm.Service.ProductServices.MembraneService;
 using agrokorm.Service.Interfaces;
 using agrokorm.Models.Products.Configurations;
+using agrokorm.Service.Implementation.SeedService;
 
 namespace agrokorm
 {
@@ -40,10 +41,17 @@ namespace agrokorm
 
 
             services.AddScoped<IMembraneRepository, MembraneRepository>();
+            services.AddScoped<ISeedRepository, SeedRepository>();
+            services.AddScoped<IGlobalRepository, GlobalRepository>();
+
+
+
             services.AddScoped<IMembraneService, MembraneService>();
+            services.AddScoped<IBaseProductService<Seed,SeedConfiguration>,SeedService>();
 
 
 
+            
         }
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

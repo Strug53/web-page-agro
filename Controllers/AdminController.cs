@@ -1,4 +1,6 @@
 ﻿using agrokorm.Models;
+using agrokorm.Repository;
+using agrokorm.Repository.Interfaces;
 using agrokorm.Service.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -7,9 +9,9 @@ namespace agrokorm.Controllers
 {
     public class AdminController : Controller
     {
-        private readonly IMembraneService _service;
+        private readonly IGlobalRepository _repository;
 
-        public AdminController(IMembraneService service) { _service = service; }
+        public AdminController(IGlobalRepository repo) { _repository = repo; }
 
         // GET: AdminController
         [HttpGet]
@@ -23,23 +25,27 @@ namespace agrokorm.Controllers
         {
             if (ModelState.IsValid)
             {
-                var listOfMembranes = _service.GetAllProduct().Data;
-                var listOfMembraneConfigurationsOne = _service.GetAllConfiguration().Data;
+                var Seeds = _repository.GetSeedTable();
+                var SeedConfiguraions = _repository.GetSeedConfigurationsTable();
+                var Membranes = _repository.GetMembraneTable();
+                var MembraneConfigurations = _repository.GetMembraneConfigurationTable();
 
-                foreach(var product in listOfMembranes)
-                {
-                    foreach(var configuration in listOfMembraneConfigurationsOne)
-                    {
-                        if(product.Id == configuration.MembraneId)
-                        {
-                            product.membraneConfigurations.Add(configuration);
-                        }
-                    }
-                }
+                //foreach(var membrane in Membranes)
+                //{
+                    //foreach(var membraneConfiguration in MembraneConfigurations) 
+                    //{
+                        //if(membrane.Id == membraneConfiguration.MembraneId) { membrane.membraneConfigurations.Add(membraneConfiguration); }
+                    //}
+                //}
+
+                ViewBag.Seeds = Seeds;
+                ViewBag.SeedConfiguraions = SeedConfiguraions;
+                ViewBag.Membranes = Membranes;
+                ViewBag.MembraneConfigurations = MembraneConfigurations;
 
 
 
-                return View("AdminPanel", listOfMembranes);
+                return View("AdminPanel");
             }
             else
             {
