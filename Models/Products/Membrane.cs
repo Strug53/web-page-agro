@@ -27,7 +27,7 @@ namespace agrokorm.Models.Products
         public string Type { get; set; }
 
         [Required]
-        public int Price { get; set; }  
+        public string Price { get; set; }  
         
         [Required]
         public string Description { get; set; }

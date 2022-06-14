@@ -40,28 +40,72 @@ $(document).ready(function(){
     function popupBack(){
         $('.Membrane_popup').css("top", "-1000px");
     }
+    function showMembraneForm(){
+        $('#SeedForm').css("opacity", "0");
+        $('#SeedForm').css("z-index", "0");
 
+        $('#MembraneForm').css("opacity", "1");
+        $('#MembraneForm').css("z-index", "1");
+        
+    }
+    function showSeedForm(){
+        $('#MembraneForm').css("opacity", "0");
+        $('#MembraneForm').css("z-index", "0");
+
+        $('#SeedForm').css("opacity", "1");
+        $('#SeedForm').css("z-index", "1");
+        
+    }
 
     //--------------
     $('.wholeList').click(function() { 
-        $('.title h2').text("Просмотр продукции")       
+        $('.title h2').text("Просмотр продукции")
+
+        $('.ChangingPrice').css("opacity", "0")
+        $('.ChangingPrice').css("z-index", "-1")
+        
+        $('.CreateNewEntity').css("opacity", "0")
+        $('.CreateNewEntity').css("z-index", "-1")
+        
+        $('.Main').css("opacity", "1")
+        $('.Main').css("z-index", "5")
         
     });
-    $('.New').click(function (e) { 
-        $('.title h2').text("Добавление нового товара")       
+    $('.New').click(function () { 
+        $('.title h2').text("Добавление нового товара") 
+        
+        $('.ChangingPrice').css("opacity", "0")
+        $('.ChangingPrice').css("z-index", "-1")
+        
+        $('.Main').css("opacity", "0")
+        $('.Main').css("z-index", "-1")
+        
+        $('.CreateNewEntity').css("opacity", "1")
+        $('.CreateNewEntity').css("z-index", "5")
+        
     });
-    $('.Name').click(function (e) { 
+    $('.Name').click(function () { 
         $('.title h2').text("Изменение заголовка")       
     });
-    $('.Price').click(function (e) { 
-        $('.title h2').text("Изменение цены")       
+    $('.Price').click(function () { 
+        $('.title h2').text("Изменение цены")  
+        
+        $('.CreateNewEntity').css("opacity", "0")
+        $('.CreateNewEntity').css("z-index", "-1")
+        
+        $('.Main').css("opacity", "0")
+        $('.Main').css("z-index", "-1")
+        
+        $('.ChangingPrice').css("opacity", "1")
+        $('.ChangingPrice').css("z-index", "5")
     });
-    $('.Description').click(function (e) { 
+    $('.Description').click(function () { 
         $('.title h2').text("Изменение описания")
 
     });
 
     //rightSide
+
 
     $('.wholeList_rightSide').hover(function () {
             $(this).css("right", "0")
@@ -80,4 +124,22 @@ $(document).ready(function(){
     $('.button_conf').click(() => popup());
     $('.Membrane_popup').click(() => popupBack());
 
+
+
+    //switching forms
+
+    $('.CreateNewEntity_select').change(function () { 
+    var object = $(".CreateNewEntity_select option:selected").val();
+    switch(object){
+        case "Membrane":
+            showMembraneForm();
+            break;
+        case "Seed":
+            showSeedForm();
+            break;
+        case "MembraneConfiguration":
+            
+            break;
+    }
+    });
 })

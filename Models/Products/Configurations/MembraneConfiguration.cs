@@ -13,7 +13,7 @@ namespace agrokorm.Models.Products.Configurations
 
         public int Length { get; set; }
 
-        public int Price { get; set; }
+        public string Price { get; set; }
 
         public string Type { get; set; }
 

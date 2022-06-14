@@ -14,9 +14,18 @@ namespace agrokorm.Repository
 
         public MembraneRepository(ProductContext db) { _db = db; }
 
-        public bool Create(int id)
+        public Membrane ChangePrice(int id, string Price)
         {
-            throw new System.NotImplementedException();
+            Membrane product = Select(id);
+            product.Price = Price;
+            _db.SaveChanges();
+            return product;
+        }
+
+        public bool Create(Membrane membrane)
+        {
+            _db.Membranes.Add(membrane);
+            return true;
         }
 
         public bool Delete(int id)

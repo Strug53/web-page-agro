@@ -66,5 +66,32 @@ namespace agrokorm.Service.ProductServices.MembraneService
             }
             catch(Exception ex) { return new BaseResponse<List<MembraneConfiguration>> { Data = null, Description = ex.Message, StatusCode = Status.DatabaseError }; }
         }
+
+        public BaseResponse<bool> ChangePrice(int id, string Price)
+        {
+            try
+            {
+                var membrane = repository.ChangePrice(id, Price);
+                return new BaseResponse<bool> { Data = true, Description = "Ok", StatusCode = Status.Ok };
+            }
+            catch(Exception ex)
+            {
+                return new BaseResponse<bool> { Data = false, Description = ex.Message, StatusCode = Status.DatabaseError };
+            }
+
+        }
+
+        public BaseResponse<bool> CreateNewEntity(Membrane production)
+        {
+            try
+            {
+                bool IsCreated = repository.Create(production);
+                return new BaseResponse<bool> { Data = true, Description = "Ok", StatusCode = Status.Ok };
+            }
+            catch(Exception ex)
+            {
+                return new BaseResponse<bool> { Data = true, Description = ex.Message, StatusCode = Status.DatabaseError };
+            }
+        }
     }
 }

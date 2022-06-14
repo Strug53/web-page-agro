@@ -139,7 +139,7 @@
         }
        
     .title{
-        position: fixed;
+        position: relative;
         width: 400px;
         height: 70px;
         justify-content: center;
@@ -183,6 +183,7 @@
 
 
     /*table*/
+
     .Main h3{
         position: absolute;
         left: 50%;
@@ -278,6 +279,106 @@
         transform: translateX(-50%);
         cursor: pointer;
     }
-    
+    /*
+    Price -----------------------------------------
+    */
+    .wholeList_rightSide{
+        opacity: 1;
+    }
 
+    .Main{
+        display: block;
+        opacity: 1;
+        z-index: 5;
+    }
+
+    .ChangingPrice{
+        display: block;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 250px;
+        width: 1000px;
+        height: 500px;
+        opacity: 0;
+        z-index: -1;
+    }
+    .ChangingPrice form, .CreateNewEntity form{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+    }
+    .ChangingPrice form ul li, .CreateNewEntity form ul li{
+        margin-bottom: 70px;
+    }
+    .ChangingPrice form ul li label, .CreateNewEntity form ul li label{
+        z-index: -1;
+    }
+    .ChangingPrice form ul, .CreateNewEntity form ul{
+        top: 150px;
+        position: absolute;
+        width: 400px;
+        height: 100%;
+        list-style: none;
+    }
     
+    .ChangingPrice form ul li input, .ChangingPrice form ul li select, .CreateNewEntity form ul li input, .CreateNewEntity form ul li select {
+        float:left;  
+    }
+    .CreateNewEntity form ul li input, .ChangingPrice form ul li input{
+        width: 100%;
+        border: 0;
+        border-bottom: 1px solid dimgray; 
+    }
+    
+    .CreateNewEntity form ul li select, .ChangingPrice form ul li select{
+        width: 300px;
+    }
+        
+    /*
+    Create New element
+    */
+
+    .CreateNewEntity{
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 250px;
+        width: 1000px;
+        height: 1000px;
+        opacity: 0;
+        z-index: -1;
+        /*
+        background-color: crimson;
+        */
+    }
+    .CreateNewEntity_select, .CreateNewEntity_label {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .CreateNewEntity_select{
+        top: 30px;
+        width: 300px;
+        font-size: 20px;
+    }
+    .CreateNewEntity_select option{
+        font-size: 20px;
+    }
+
+    .CreateNewEntity form{
+        position: absolute;
+        top: 100px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .CreateNewEntity form ul li textarea{
+        width: 400px;
+        height: 100px;
+    }
+    #SeedForm, #MembraneForm{
+       opacity: 0;
+    }
+   

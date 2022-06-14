@@ -8,8 +8,6 @@ namespace agrokorm.Repository.Interfaces
     {
         public List<Seed> GetSeedTable();
 
-        public List<SeedConfiguration> GetSeedConfigurationsTable();
-
         public List<Membrane> GetMembraneTable();
 
         public List<MembraneConfiguration> GetMembraneConfigurationTable();

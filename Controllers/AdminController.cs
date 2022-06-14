@@ -1,4 +1,5 @@
 ﻿using agrokorm.Models;
+using agrokorm.Models.Form;
 using agrokorm.Repository;
 using agrokorm.Repository.Interfaces;
 using agrokorm.Service.Interfaces;
@@ -10,8 +11,10 @@ namespace agrokorm.Controllers
     public class AdminController : Controller
     {
         private readonly IGlobalRepository _repository;
+        private readonly IMembraneService _membraneService;
 
-        public AdminController(IGlobalRepository repo) { _repository = repo; }
+        //public AdminController(IMembraneService membrservice) { _membraneService = membrservice; }
+        public AdminController(IGlobalRepository repo, IMembraneService membrservice) { _repository = repo; _membraneService = membrservice; }
 
         // GET: AdminController
         [HttpGet]
@@ -26,24 +29,19 @@ namespace agrokorm.Controllers
             if (ModelState.IsValid)
             {
                 var Seeds = _repository.GetSeedTable();
-                var SeedConfiguraions = _repository.GetSeedConfigurationsTable();
+                
                 var Membranes = _repository.GetMembraneTable();
-                var MembraneConfigurations = _repository.GetMembraneConfigurationTable();
+                var MembraneConfiguration = _repository.GetMembraneConfigurationTable();
 
-                //foreach(var membrane in Membranes)
-                //{
-                    //foreach(var membraneConfiguration in MembraneConfigurations) 
-                    //{
-                        //if(membrane.Id == membraneConfiguration.MembraneId) { membrane.membraneConfigurations.Add(membraneConfiguration); }
-                    //}
-                //}
+
 
                 ViewBag.Seeds = Seeds;
-                ViewBag.SeedConfiguraions = SeedConfiguraions;
                 ViewBag.Membranes = Membranes;
-                ViewBag.MembraneConfigurations = MembraneConfigurations;
+                ViewBag.MembraneConfiguration = MembraneConfiguration;
 
+                var formPrice = new PriceChangingFormModel();
 
+                
 
                 return View("AdminPanel");
             }
@@ -53,8 +51,40 @@ namespace agrokorm.Controllers
             }
             
         }
-       
-        
+        [HttpPost]
+        public IActionResult SubmitNewPrice(PriceChangingFormModel form)
+        {
+            if (ModelState.IsValid)
+            {
+                bool IsOk;
+                switch (form.Table)
+                {
+                    case "Membrane":
+                        var membrane = _membraneService.ChangePrice(form.Id, form.Price);
+                        IsOk = membrane.Data;
+                        break;
+                    case "Seed":
+                        IsOk = false;
+                        break;
+
+                    case "Config":
+                        IsOk = false;
+                        break;
+
+                    default:
+                        IsOk = false;
+                        break;
+                }
+
+
+
+                return View("SuccessOrFailure", IsOk);
+
+            }
+            return View("SuccessOrFailure", false);
+        }
+      
+        //public IActionResult CreateNewEntity()
         
     }
 }

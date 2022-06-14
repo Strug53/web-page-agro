@@ -1,7 +1,9 @@
-﻿@using agrokorm.Models.Products;
+﻿@using agrokorm.Models.Form;
+@using agrokorm.Models.Products;
+@model PriceChangingFormModel;
 
 @{
-    ViewData["Title"] = "View";
+    ViewData["Title"] = "Agrokorm";
     Layout = null;
 }
 
@@ -11,7 +13,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Agrokorm</title>
     <link type="text/css" href="~/css/Admin/admin.css" rel="stylesheet" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -101,7 +103,7 @@
                             <th>Цена</th>
                         </tr>
                         <!-- Foreach -->
-                        @foreach(var product in ViewBag.SeedConfiguraions)
+                        @foreach(var product in ViewBag.Seeds)
                         {    
                         <tr>
                             <td>@product.Id</td>
@@ -147,8 +149,7 @@
                             </td>
                             <td><div class="button_conf">Конфигурация</div></td>
                         </tr>
-                        
-                    
+
                        } 
             </table>
         </div>
@@ -168,8 +169,7 @@
                 <th>Тип</th>
                 <th>Цена</th
             </tr>
-            
-                    @foreach(var conf in ViewBag.MembraneConfigurations)
+                    @foreach(var conf in ViewBag.MembraneConfiguration)
                     {
                     <tr>
                     <td>@conf.Id</td>
@@ -180,16 +180,108 @@
                     <td>@conf.Price</td>
                     </tr>
                     }
-                
-            
-            
-            
-
-                     
         </table>
 
                     
     </div>
+
+    <div class="ChangingPrice">
+        <form method="post"  asp-controller="Admin" asp-action="SubmitNewPrice">
+            <div asp-validation-summary="All"></div>
+            <ul>
+                <li>
+                    <label>Выберите таблицу</label>
+                    <select asp-for="Table">
+                        <option value="Membrane">Пленка</option>
+                        <option value="Seed">Семена</option>
+                        <option value="MembraneConfiguration">Конфигурация Пленки</option>
+                    
+                    </select>
+                </li>
+                <li>
+                    <label>Введите ID продукта</label>
+                    <input type="number" asp-for="Id"/>
+                </li>
+                <li>
+                    <label>Введите цену</label>
+                    <input type="number" asp-for="Price" />
+                </li>
+                <li>
+                    <button type="submit">Подтвердить</button>
+                </li>
+            </ul>
+        </form>
+    </div>
+
+
+<div class="CreateNewEntity">
+        <label class="CreateNewEntity_label">Что хотите добавить</label>
+        <select class="CreateNewEntity_select">
+            <option value="">Тип товара...</option>
+            <option value="Membrane">Пленка</option>
+            <option value="Seed">Семена</option>
+            <option value="MembraneConfiguration">Конфигурация пленки</option>
+        </select>
+
+
+        <form method="post"  asp-controller="Admin" asp-action="SubmitNewPrice" id="MembraneForm">
+            <div asp-validation-summary="All"></div>
+            <ul>
+                <li>
+                    <label>Введите название</label>
+                    <input type="text" />
+                </li>
+                <li>
+                    <label>Введите цвет</label>
+                    <input type="text" />
+                </li>
+                <li>
+                    <label>Введите ширину</label>
+                    <input type="number" />
+                </li>
+                <li>
+                    <label>Введите длину</label>
+                    <input type="number" />
+                </li>
+                <li>
+                    <label>Введите тип</label>
+                    <input type="text" />
+                </li>
+                <li>
+                    <label>Введите цену</label>
+                    <input type="text" />
+                </li>
+                <li>
+                    <label>Введите описание</label>
+                    <textarea></textarea>
+                </li>
+                <li>
+                    <button type="submit">Подтвердить</button>
+                </li>
+            </ul>
+        </form>
+
+        <form method="post"  asp-controller="Admin" asp-action="SubmitNewPrice" id="SeedForm">
+            <div asp-validation-summary="All"></div>
+            <ul>
+                <li>
+                    <label>Введите название</label>
+                    <input type="text" />
+                </li>
+                <li>
+                    <label>Введите место производста</label>
+                    <input type="text" />
+                </li>
+                <li>
+                    <label>Введите цену</label>
+                    <input type="number" />
+                </li>
+                <li>
+                    <button type="submit">Подтвердить</button>
+                </li>
+            </ul>
+        </form>
+</div>
 
 
 <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.js"></script>

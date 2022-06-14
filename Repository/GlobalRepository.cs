@@ -16,8 +16,6 @@ namespace agrokorm.Repository
 
         public List<Seed> GetSeedTable() => _db.Seeds.ToList();
 
-        public List<SeedConfiguration> GetSeedConfigurationsTable() => _db.SeedConfigurations.ToList();
-
         public List<Membrane> GetMembraneTable() => _db.Membranes.ToList();
 
         public List<MembraneConfiguration> GetMembraneConfigurationTable() => _db.MembraneConfigurations.ToList();

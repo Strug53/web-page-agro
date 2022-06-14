@@ -1,15 +1,14 @@
-﻿using agrokorm.Models.Enum;
-using agrokorm.Models.Products.Configurations;
-using System.Collections.Generic;
+﻿using agrokorm.Models.Products.Configurations;
 
 namespace agrokorm.Models.Products
 {
-    public class Seed : IBaseProduct
+    public class Seed : IBaseConfiguration
     {
-        public int Id { get ; set ; }
+
+        public int Id { get; set; }
         public string Name { get; set; }
-        public CategoryEnum Category { get ; set ; }
-        public List<SeedConfiguration> configurations { get; set; }
+        public string PlaceOfProduction { get; set; }
+        public string Price { get; set; }
         public bool IsVisible { get; set; }
     }
 }

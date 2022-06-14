@@ -1,6 +1,5 @@
 ﻿using agrokorm.Models.Db;
 using agrokorm.Models.Products;
-using agrokorm.Models.Products.Configurations;
 using agrokorm.Repository.Interfaces;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,20 +17,16 @@ namespace agrokorm.Repository
             throw new System.NotImplementedException();
         }
 
+        public bool Create(Seed entity)
+        {
+            throw new System.NotImplementedException();
+        }
+
         public bool Delete(int id)
         {
             throw new System.NotImplementedException();
         }
 
-        public List<SeedConfiguration> GetConfigurations()
-        {
-            return _db.SeedConfigurations.ToList();
-        }
-
-        public List<SeedConfiguration> GetConfigurationsByFK(int id)
-        {
-            throw new System.NotImplementedException();
-        }
 
         public Seed Select(int id)
         {
