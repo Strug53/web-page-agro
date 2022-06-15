@@ -23,13 +23,13 @@ namespace agrokorm.Service.ProductServices.MembraneService
             try
             {
                 var allItems = repository.SelectAll();
-                var response = new BaseResponse<List<Membrane>>() { Data = allItems, Description="Ok", StatusCode = Status.Ok };
+                var response = new BaseResponse<List<Membrane>>() { Data = allItems, Description="Ok"};
                 return response;
                 
             }
             catch(Exception ex)
             {
-                var errorResponse = new BaseResponse<List<Membrane>>() { Data = null, StatusCode = Status.Ok, Description="Ошибка в получении данных из БД"};
+                var errorResponse = new BaseResponse<List<Membrane>>() { Data = null, Description=ex.Message};
                 return errorResponse;
             }
         }
@@ -39,9 +39,9 @@ namespace agrokorm.Service.ProductServices.MembraneService
             try 
             { 
                 var data = repository.Select(id);
-                return new BaseResponse<Membrane>() { Data = data, Description="Ok", StatusCode= Status.Ok } ;
+                return new BaseResponse<Membrane>() { Data = data, Description="Ok"} ;
             }
-            catch(Exception ex) { return new BaseResponse<Membrane>() { Data = null, StatusCode = Status.DatabaseError, Description = "Ошибка в получении данных из БД" }; }
+            catch(Exception ex) { return new BaseResponse<Membrane>() { Data = null, Description = ex.Message }; }
         }
 
         public BaseResponse<List<MembraneConfiguration>> GetAllConfiguration()
@@ -49,11 +49,11 @@ namespace agrokorm.Service.ProductServices.MembraneService
             try
             {
                 var configurations = repository.GetConfigurations();
-                return new BaseResponse<List<MembraneConfiguration>>() { Data = configurations, Description = "Ok", StatusCode = Status.Ok };
+                return new BaseResponse<List<MembraneConfiguration>>() { Data = configurations, Description = "Ok" };
             }
             catch (Exception ex)
             {
-                return new BaseResponse<List<MembraneConfiguration>>() { Data = null, Description = "Ощибка в получении данных из БД", StatusCode = Status.Ok };
+                return new BaseResponse<List<MembraneConfiguration>>() { Data = null, Description = ex.Message};
             }
         }
 
@@ -62,21 +62,21 @@ namespace agrokorm.Service.ProductServices.MembraneService
             try
             {
                 var items = repository.GetConfigurationsByFK(id);
-                return new BaseResponse<List<MembraneConfiguration>> { Data = items, Description = "Ok", StatusCode = Status.Ok };
+                return new BaseResponse<List<MembraneConfiguration>> { Data = items, Description = "Ok" };
             }
-            catch(Exception ex) { return new BaseResponse<List<MembraneConfiguration>> { Data = null, Description = ex.Message, StatusCode = Status.DatabaseError }; }
+            catch(Exception ex) { return new BaseResponse<List<MembraneConfiguration>> { Data = null, Description = ex.Message}; }
         }
 
         public BaseResponse<bool> ChangePrice(int id, string Price)
         {
             try
             {
-                var membrane = repository.ChangePrice(id, Price);
-                return new BaseResponse<bool> { Data = true, Description = "Ok", StatusCode = Status.Ok };
+                var IsChanged = repository.ChangePrice(id, Price);
+                return new BaseResponse<bool> { Data = IsChanged, Description = "Ok"};
             }
             catch(Exception ex)
             {
-                return new BaseResponse<bool> { Data = false, Description = ex.Message, StatusCode = Status.DatabaseError };
+                return new BaseResponse<bool> { Data = false, Description = ex.Message};
             }
 
         }
@@ -86,11 +86,11 @@ namespace agrokorm.Service.ProductServices.MembraneService
             try
             {
                 bool IsCreated = repository.Create(production);
-                return new BaseResponse<bool> { Data = true, Description = "Ok", StatusCode = Status.Ok };
+                return new BaseResponse<bool> { Data = true, Description = "Ok"};
             }
             catch(Exception ex)
             {
-                return new BaseResponse<bool> { Data = true, Description = ex.Message, StatusCode = Status.DatabaseError };
+                return new BaseResponse<bool> { Data = true, Description = ex.Message };
             }
         }
     }

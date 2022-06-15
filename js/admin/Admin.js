@@ -34,12 +34,8 @@ $(document).ready(function(){
         $('#membraneTable').css("z-index", "5");
 
     }
-    function popup(){
-        $('.Membrane_popup').css("top", "10px");
-    }
-    function popupBack(){
-        $('.Membrane_popup').css("top", "-1000px");
-    }
+ 
+    
     function showMembraneForm(){
         $('#SeedForm').css("opacity", "0");
         $('#SeedForm').css("z-index", "0");
@@ -120,9 +116,7 @@ $(document).ready(function(){
     $('#Membrane').click(() => ShowSeedTable());
     
 
-    //pop-up
-    $('.button_conf').click(() => popup());
-    $('.Membrane_popup').click(() => popupBack());
+   
 
 
 

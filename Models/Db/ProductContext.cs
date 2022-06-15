@@ -19,10 +19,11 @@ namespace agrokorm.Models.Db
         {
             base.OnModelCreating(modelbuilder);
 
-            
-            
+
+            modelbuilder.Entity<Membrane>(builder =>
+            { 
                 //Membrane
-                modelbuilder.Entity<Membrane>().HasData(new Membrane
+                builder.HasData(new Membrane
                 {
                     Id = 1,
                     Name = "Плёнка Silоfolie strong",
@@ -41,7 +42,7 @@ namespace agrokorm.Models.Db
                     membraneConfigurations = null
                 });
 
-                modelbuilder.Entity<Membrane>().HasData(new Membrane
+                builder.HasData(new Membrane
                 {
                     Id = 2,
                     Name = "Плёнка Silоfolie",
@@ -60,10 +61,15 @@ namespace agrokorm.Models.Db
                     membraneConfigurations = null
                 });
 
+                builder.ToTable("Membranes").HasKey(x => x.Id);
 
-                //Membrane Configuration
-
-                modelbuilder.Entity<MembraneConfiguration>().HasData(new MembraneConfiguration
+                builder.Property(x => x.Id).ValueGeneratedOnAdd();
+            }
+            );
+            //Membrane Configuration
+            modelbuilder.Entity<MembraneConfiguration>(membraneBuilder =>
+            { 
+                membraneBuilder.HasData(new MembraneConfiguration
                 {
                     Id = 1,
                     Color = "Черный",
@@ -73,7 +79,7 @@ namespace agrokorm.Models.Db
                     Price = "14370",
                     MembraneId = 1
                 });
-                modelbuilder.Entity<MembraneConfiguration>().HasData(new MembraneConfiguration
+                membraneBuilder.HasData(new MembraneConfiguration
                 {
                     Id = 2,
                     Color = "Черный",
@@ -83,7 +89,7 @@ namespace agrokorm.Models.Db
                     Price = "13014",
                     MembraneId = 2
                 });
-                modelbuilder.Entity<MembraneConfiguration>().HasData(new MembraneConfiguration
+                membraneBuilder.HasData(new MembraneConfiguration
                 {
                     Id = 3,
                     Color = "Черный",
@@ -93,7 +99,7 @@ namespace agrokorm.Models.Db
                     Price = "15186",
                     MembraneId = 2
                 });
-                modelbuilder.Entity<MembraneConfiguration>().HasData(new MembraneConfiguration
+                membraneBuilder.HasData(new MembraneConfiguration
                 {
                     Id = 4,
                     Color = "Черный",
@@ -103,7 +109,7 @@ namespace agrokorm.Models.Db
                     Price = "17922",
                     MembraneId = 2
                 });
-                modelbuilder.Entity<MembraneConfiguration>().HasData(new MembraneConfiguration
+                membraneBuilder.HasData(new MembraneConfiguration
                 {
                     Id = 5,
                     Color = "Черный",
@@ -113,7 +119,7 @@ namespace agrokorm.Models.Db
                     Price = "22692",
                     MembraneId = 2
                 });
-                modelbuilder.Entity<MembraneConfiguration>().HasData(new MembraneConfiguration
+                membraneBuilder.HasData(new MembraneConfiguration
                 {
                     Id = 6,
                     Color = "Черно-белый",
@@ -123,7 +129,7 @@ namespace agrokorm.Models.Db
                     Price = "17460",
                     MembraneId = 2
                 });
-                modelbuilder.Entity<MembraneConfiguration>().HasData(new MembraneConfiguration
+                membraneBuilder.HasData(new MembraneConfiguration
                 {
                     Id = 7,
                     Color = "Черно-белый",
@@ -133,7 +139,7 @@ namespace agrokorm.Models.Db
                     Price = "21540",
                     MembraneId = 2
                 });
-                modelbuilder.Entity<MembraneConfiguration>().HasData(new MembraneConfiguration
+                membraneBuilder.HasData(new MembraneConfiguration
                 {
                     Id = 8,
                     Color = "Черно-белый",
@@ -143,159 +149,168 @@ namespace agrokorm.Models.Db
                     Price = "29268",
                     MembraneId = 2
                 });
-           
+
+                membraneBuilder.ToTable("MembraneConfigurations").HasKey(x => x.Id);
+
+                membraneBuilder.Property(x => x.Id).ValueGeneratedOnAdd();  
+
+            }
+            );
             //------------------------------------------------------------------------------------------------------------------------------
 
             //Seed
-
-            modelbuilder.Entity<Seed>().HasData(new Seed()
+            modelbuilder.Entity<Seed>(seedbuilder =>
             {
-                Id = 1,
-                Name = "НС-Х-95 Элит",
-                PlaceOfProduction = "Россия",
-                Price = "10733",
-                IsVisible = true
-            });
-            modelbuilder.Entity<Seed>().HasData(new Seed()
-            {
-                Id = 2,
-                Name = "НС-Х-95 стандарт",
-                PlaceOfProduction = "Россия",
-                Price = "8401",
-                IsVisible = true
+                seedbuilder.HasData(new Seed()
+                {
+                    Id = 1,
+                    Name = "НС-Х-95 Элит",
+                    PlaceOfProduction = "Россия",
+                    Price = "10733",
+                    IsVisible = true
+                });
+                seedbuilder.HasData(new Seed()
+                {
+                    Id = 2,
+                    Name = "НС-Х-95 стандарт",
+                    PlaceOfProduction = "Россия",
+                    Price = "8401",
+                    IsVisible = true
 
-            }); 
-            modelbuilder.Entity<Seed>().HasData(new Seed()
-            {
-                Id = 3,
-                Name = "НС-Х-26752 элит",
-                PlaceOfProduction = "Россия",
-                Price = "13647",
-                IsVisible = true
+                });
+                seedbuilder.HasData(new Seed()
+                {
+                    Id = 3,
+                    Name = "НС-Х-26752 элит",
+                    PlaceOfProduction = "Россия",
+                    Price = "13647",
+                    IsVisible = true
 
-            }); 
-            modelbuilder.Entity<Seed>().HasData(new Seed()
-            {
-                Id = 4,
-                Name = "НС-Х-26752 стандарт",
-                PlaceOfProduction = "Россия",
-                Price = "9419",
-                IsVisible = true
+                });
+                seedbuilder.HasData(new Seed()
+                {
+                    Id = 4,
+                    Name = "НС-Х-26752 стандарт",
+                    PlaceOfProduction = "Россия",
+                    Price = "9419",
+                    IsVisible = true
 
-            });
-            modelbuilder.Entity<Seed>().HasData(new Seed()
-            {
-                Id = 5,
-                Name = "НС-Х-496 элит",
-                PlaceOfProduction = "Россия",
-                Price = "14413",
-                IsVisible = true
+                });
+                seedbuilder.HasData(new Seed()
+                {
+                    Id = 5,
+                    Name = "НС-Х-496 элит",
+                    PlaceOfProduction = "Россия",
+                    Price = "14413",
+                    IsVisible = true
 
-            });
-            modelbuilder.Entity<Seed>().HasData(new Seed()
-            {
-                Id = 6,
-                Name = "НС-Х-496 стандарт",
-                PlaceOfProduction = "Россия",
-                Price = "9660",
-                IsVisible = true
+                });
+                seedbuilder.HasData(new Seed()
+                {
+                    Id = 6,
+                    Name = "НС-Х-496 стандарт",
+                    PlaceOfProduction = "Россия",
+                    Price = "9660",
+                    IsVisible = true
 
-            });
-            modelbuilder.Entity<Seed>().HasData(new Seed()
-            {
-                Id = 7,
-                Name = "НС-Х-498 элит",
-                PlaceOfProduction = "Россия",
-                Price = "14413",
-                IsVisible = true
+                });
+                seedbuilder.HasData(new Seed()
+                {
+                    Id = 7,
+                    Name = "НС-Х-498 элит",
+                    PlaceOfProduction = "Россия",
+                    Price = "14413",
+                    IsVisible = true
 
-            });
-            modelbuilder.Entity<Seed>().HasData(new Seed()
-            {
-                Id = 8,
-                Name = "НС-Х-498 стандарт",
-                PlaceOfProduction = "Россия",
-                Price = "9660",
-                IsVisible = true
+                });
+                seedbuilder.HasData(new Seed()
+                {
+                    Id = 8,
+                    Name = "НС-Х-498 стандарт",
+                    PlaceOfProduction = "Россия",
+                    Price = "9660",
+                    IsVisible = true
 
-            });
-            modelbuilder.Entity<Seed>().HasData(new Seed()
-            {
-                Id = 9,
-                Name = "НС-Х-8003 элит",
-                PlaceOfProduction = "Россия",
-                Price = "14413",
-                IsVisible = true
+                });
+                seedbuilder.HasData(new Seed()
+                {
+                    Id = 9,
+                    Name = "НС-Х-8003 элит",
+                    PlaceOfProduction = "Россия",
+                    Price = "14413",
+                    IsVisible = true
 
-            });
-            modelbuilder.Entity<Seed>().HasData(new Seed()
-            {
-                Id = 10,
-                Name = "НС-Х-8003 стандарт",
-                PlaceOfProduction = "Россия",
-                Price = "9660",
-                IsVisible = true
+                });
+                seedbuilder.HasData(new Seed()
+                {
+                    Id = 10,
+                    Name = "НС-Х-8003 стандарт",
+                    PlaceOfProduction = "Россия",
+                    Price = "9660",
+                    IsVisible = true
 
-            });
-            modelbuilder.Entity<Seed>().HasData(new Seed()
-            {
-                Id = 11,
-                Name = "НС-Х-8003 стандарт 1 мелк",
-                PlaceOfProduction = "Россия",
-                Price = "5660",
-                IsVisible = true
+                });
+                seedbuilder.HasData(new Seed()
+                {
+                    Id = 11,
+                    Name = "НС-Х-8003 стандарт 1 мелк",
+                    PlaceOfProduction = "Россия",
+                    Price = "5660",
+                    IsVisible = true
 
-            });
-            modelbuilder.Entity<Seed>().HasData(new Seed()
-            {
-                Id = 12,
-                Name = "Римисол элит",
-                PlaceOfProduction = "Россия",
-                Price = "13647",
-                IsVisible = true
+                });
+                seedbuilder.HasData(new Seed()
+                {
+                    Id = 12,
+                    Name = "Римисол элит",
+                    PlaceOfProduction = "Россия",
+                    Price = "13647",
+                    IsVisible = true
 
-            });
-            modelbuilder.Entity<Seed>().HasData(new Seed()
-            {
-                Id = 13,
-                Name = "Римисол стандарт",
-                PlaceOfProduction = "Россия",
-                Price = "9507",
-                IsVisible = true
+                });
+                seedbuilder.HasData(new Seed()
+                {
+                    Id = 13,
+                    Name = "Римисол стандарт",
+                    PlaceOfProduction = "Россия",
+                    Price = "9507",
+                    IsVisible = true
 
-            });
-            modelbuilder.Entity<Seed>().HasData(new Seed()
-            {
-                Id = 14,
-                Name = "Римисол стандарт 1 мелк",
-                PlaceOfProduction = "Россия",
-                Price = "5660",
-                IsVisible = true
+                });
+                seedbuilder.HasData(new Seed()
+                {
+                    Id = 14,
+                    Name = "Римисол стандарт 1 мелк",
+                    PlaceOfProduction = "Россия",
+                    Price = "5660",
+                    IsVisible = true
 
-            });
-            modelbuilder.Entity<Seed>().HasData(new Seed()
-            {
-                Id = 15,
-                Name = "НС-Х-7806 элит",
-                PlaceOfProduction = "Россия",
-                Price = "13647",
-                IsVisible = true
+                });
+                seedbuilder.HasData(new Seed()
+                {
+                    Id = 15,
+                    Name = "НС-Х-7806 элит",
+                    PlaceOfProduction = "Россия",
+                    Price = "13647",
+                    IsVisible = true
 
-            });
-            modelbuilder.Entity<Seed>().HasData(new Seed()
-            {
-                Id = 16,
-                Name = "НС-Х-7806 стандарт",
-                PlaceOfProduction = "Россия",
-                Price = "9507",
-                IsVisible = true
+                });
+                seedbuilder.HasData(new Seed()
+                {
+                    Id = 16,
+                    Name = "НС-Х-7806 стандарт",
+                    PlaceOfProduction = "Россия",
+                    Price = "9507",
+                    IsVisible = true
 
-            });
+                });
 
+                seedbuilder.ToTable("Seeds").HasKey(x => x.Id);
 
+                seedbuilder.Property(x => x.Id).ValueGeneratedOnAdd();
 
-
-            
+            }
+            );
         }
 
        

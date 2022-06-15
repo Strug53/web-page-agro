@@ -1,10 +1,13 @@
 ﻿using agrokorm.Models;
 using agrokorm.Models.Form;
+using agrokorm.Models.Products;
 using agrokorm.Repository;
 using agrokorm.Repository.Interfaces;
 using agrokorm.Service.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using agrokorm.Models.Products.Configurations;
 
 namespace agrokorm.Controllers
 {
@@ -12,9 +15,15 @@ namespace agrokorm.Controllers
     {
         private readonly IGlobalRepository _repository;
         private readonly IMembraneService _membraneService;
+        private readonly ISeedService _seedService;
 
         //public AdminController(IMembraneService membrservice) { _membraneService = membrservice; }
-        public AdminController(IGlobalRepository repo, IMembraneService membrservice) { _repository = repo; _membraneService = membrservice; }
+        public AdminController(IGlobalRepository repo, IMembraneService membrservice, ISeedService seedService) 
+        { 
+            _repository = repo;
+            _membraneService = membrservice;
+            _seedService = seedService;
+        }
 
         // GET: AdminController
         [HttpGet]
@@ -22,6 +31,19 @@ namespace agrokorm.Controllers
         {
             return View();
         }
+        [HttpGet]
+        public IActionResult MembraneConfiguration(int id)
+        {
+            var MembraneConfiguration = _repository.GetMembraneConfigurationTable();
+            var result = new List<MembraneConfiguration>();
+
+            foreach(var config in MembraneConfiguration)
+            {
+                if(config.MembraneId == id) result.Add(config);
+            }
+
+            return View(result);
+        } 
 
         [HttpPost]
         public IActionResult Login(Admin admin)
@@ -33,7 +55,8 @@ namespace agrokorm.Controllers
                 var Membranes = _repository.GetMembraneTable();
                 var MembraneConfiguration = _repository.GetMembraneConfigurationTable();
 
-
+                var ViewModelForForms = new FormViewModel();
+                
 
                 ViewBag.Seeds = Seeds;
                 ViewBag.Membranes = Membranes;
@@ -43,7 +66,7 @@ namespace agrokorm.Controllers
 
                 
 
-                return View("AdminPanel");
+                return View("AdminPanel", ViewModelForForms);
             }
             else
             {
@@ -83,8 +106,40 @@ namespace agrokorm.Controllers
             }
             return View("SuccessOrFailure", false);
         }
-      
-        //public IActionResult CreateNewEntity()
+
+        [HttpPost]
+        public IActionResult CreateNewMembrane(Membrane membraneEntity)
+        {
+            if (ModelState.IsValid)
+            {
+                var IsCreated = _membraneService.CreateNewEntity(membraneEntity);
+
+                ViewBag.Error = IsCreated.Description;
+
+                return View("SuccessOrFailure", IsCreated.Data);
+            }
+            return View("SuccessOrFailure", false);
+        }
+
+
+
+
+
+
+        [HttpPost]
+        public IActionResult CreateNewSeed(Seed seedEntity)
+        {
+            if (ModelState.IsValid)
+            {
+                var IsCreated = _seedService.CreateNewEntity(seedEntity);
+
+                ViewBag.Error = IsCreated.Description;
+
+                return View("SuccessOrFailure", IsCreated.Data);
+
+            }
+            return View("SuccessOrFailure", false);
+        }
         
     }
 }

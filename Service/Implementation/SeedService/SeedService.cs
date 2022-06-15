@@ -12,22 +12,35 @@ using System.Linq;
 
 namespace agrokorm.Service.Implementation.SeedService
 {
-    public class SeedService : IBaseProductService<Seed>
+    public class SeedService : ISeedService
     {
 
         private readonly ISeedRepository _repository;
         public SeedService(ISeedRepository repo) => _repository = repo;
 
+        public BaseResponse<bool> ChangePrice(int id, string Price)
+        {
+            try
+            {
+                var IsChanged = _repository.ChangePrice(id, Price);
+                return new BaseResponse<bool> { Data = IsChanged, Description = "Ok"};
+            }
+            catch (Exception ex)
+            {
+                return new BaseResponse<bool> { Data = false, Description = ex.Message };
+            }
+        }
+
         public BaseResponse<bool> CreateNewEntity(Seed production)
         {
             try
             {
-                var product = _repository.Create(production);
-                return new BaseResponse<bool> { Data = true, Description = "Ok", StatusCode = Status.Ok };
+                var IsCreated = _repository.Create(production);
+                return new BaseResponse<bool> { Data = IsCreated, Description = "Ok"};
             }
             catch(Exception ex)
             {
-                return new BaseResponse<bool> { Data = false, Description = ex.Message, StatusCode = Status.DatabaseError };
+                return new BaseResponse<bool> { Data = false, Description = ex.Message };
             }
         }
 
@@ -35,9 +48,9 @@ namespace agrokorm.Service.Implementation.SeedService
         {
             try
             {
-                return new BaseResponse<List<Seed>>() { Data = _repository.SelectAll(), Description = "Ok", StatusCode = Status.Ok };
+                return new BaseResponse<List<Seed>>() { Data = _repository.SelectAll(), Description = "Ok" };
             }
-            catch (Exception ex) { return new BaseResponse<List<Seed>>() { Data = null, Description = ex.Message, StatusCode = Status.DatabaseError }; };
+            catch (Exception ex) { return new BaseResponse<List<Seed>>() { Data = null, Description = ex.Message }; };
         }
 
         public BaseResponse<Seed> GetProduct(int id)

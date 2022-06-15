@@ -1,291 +1,284 @@
 ﻿@using agrokorm.Models.Form;
 @using agrokorm.Models.Products;
-@model PriceChangingFormModel;
+@using agrokorm.Models.Products.Configurations;
+
+@model FormViewModel;
+
+
 
 @{
     ViewData["Title"] = "Agrokorm";
     Layout = null;
-}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agrokorm</title>
-    <link type="text/css" href="~/css/Admin/admin.css" rel="stylesheet" />
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap" rel="stylesheet">
-
-</head>
-<body>
     
-    <div class="Head">
-        <h2>Админ-панель</h2>
-    </div>
+    
+    }
 
-    <section class="left_menu">
-            <!-- Полный список -->
-            <div class="wholeList">
-                <img src="~/images/Admin/list-96.png" alt="list" height="40px">
-                
-            </div>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Agrokorm</title>
+        <link type="text/css" href="~/css/Admin/admin.css" rel="stylesheet" />
 
-            <div class="New">
-                <img src="~/images/Admin/plus-100.png" alt="list" height="40px">
-                
-            </div>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap" rel="stylesheet">
 
-            <!-- Название -->
-            <div class="Name">
-                <img src="~/images/Admin/title-100.png" alt="list" height="40px">
-                
-                
-            </div>
-
-            <!-- Цена -->
-            <div class="Price">
-                <img src="~/images/Admin/ruble-96.png" alt="list" height="40px">
-            
-
-            </div>
-
-            <!-- Описание -->
-            <div class="Description">
-                <img src="~/images/Admin/text-96.png" alt="list" height="40px">
-                
-
-            </div>
-
-            
+    </head>
+    <body>
         
-    </section>
-
-    <div class="title"><h2>Просмотр продукции</h2></div>
-
-    <div class="wholeList_rightSide">
-            <ul>
-                <li>
-                    Семена
-                    <div class="wholeList_rightSide_show" id="Seed">Показать</div>
-                </li>
-                <li>
-                    Пленка
-                    <div class="wholeList_rightSide_show" id="Membrane">Показать</div>
-                </li>
-                <li>
-                    Чет
-                    <div class="wholeList_rightSide_show" id="chet">Показать</div>
-                </li>
-                <li>
-                    нет
-                    <div class="wholeList_rightSide_show" id="net">Показать</div>
-                </li>
-                <li>
-                    да
-                    <div class="wholeList_rightSide_show" id="da">Показать</div>
-                </li>
-            </ul>
+        <div class="Head">
+            <h2>Админ-панель</h2>
         </div>
 
-    <div class="Main">
-        <!--<div class="title"><h2>Просмотр продукции</h2></div>-->
-        <h3>Семена</h3>
-        <div class="Main_section">
-            <table class="wholeList_table" id="seedTable">
-                        <tr>
-                            <th>ID</th>
-                            <th>Название</th>
-                            <th>Страна-производитель</th>
-                            <th>Цена</th>
-                        </tr>
-                        <!-- Foreach -->
-                        @foreach(var product in ViewBag.Seeds)
+        <section class="left_menu">
+                <!-- Полный список -->
+                <div class="wholeList">
+                    <img src="~/images/Admin/list-96.png" alt="list" height="40px">
+                    
+                </div>
+
+                <div class="New">
+                    <img src="~/images/Admin/plus-100.png" alt="list" height="40px">
+                    
+                </div>
+
+                <!-- Название -->
+                <div class="Name">
+                    <img src="~/images/Admin/title-100.png" alt="list" height="40px">
+                    
+                    
+                </div>
+
+                <!-- Цена -->
+                <div class="Price">
+                    <img src="~/images/Admin/ruble-96.png" alt="list" height="40px">
+                
+
+                </div>
+
+                <!-- Описание -->
+                <div class="Description">
+                    <img src="~/images/Admin/text-96.png" alt="list" height="40px">
+                    
+
+                </div>
+
+                
+            
+        </section>
+
+        <div class="title"><h2>Просмотр продукции</h2></div>
+
+        <div class="wholeList_rightSide">
+                <ul>
+                    <li>
+                        Семена
+                        <div class="wholeList_rightSide_show" id="Seed">Показать</div>
+                    </li>
+                    <li>
+                        Пленка
+                        <div class="wholeList_rightSide_show" id="Membrane">Показать</div>
+                    </li>
+                    <li>
+                        Чет
+                        <div class="wholeList_rightSide_show" id="chet">Показать</div>
+                    </li>
+                    <li>
+                        нет
+                        <div class="wholeList_rightSide_show" id="net">Показать</div>
+                    </li>
+                    <li>
+                        да
+                        <div class="wholeList_rightSide_show" id="da">Показать</div>
+                    </li>
+                </ul>
+            </div>
+
+        <div class="Main">
+            <!--<div class="title"><h2>Просмотр продукции</h2></div>-->
+            <h3>Семена</h3>
+            <div class="Main_section">
+                <table class="wholeList_table" id="seedTable">
+                            <tr>
+                                <th>ID</th>
+                                <th>Название</th>
+                                <th>Страна-производитель</th>
+                                <th>Цена</th>
+                            </tr>
+                            <!-- Foreach -->
+                            @foreach(var product in ViewBag.Seeds)
                         {    
-                        <tr>
-                            <td>@product.Id</td>
-                            <td>@product.Name</td>
-                            <td>@product.PlaceOfProduction</td>
-                            <td>@product.Price</td>
-                            
-                            
-                        </tr>
-                        }
-            </table>
-            <table class="wholeList_table membrane" id="membraneTable">
-                        <tr>
-                            <th>ID</th>
-                            <th>Название</th>
-                            <th>Цвет</th>
-                            <th>Ширина</th>
-                            <th>Длина</th>
-                            <th>Тип</th>
-                            <th>Цена</th>
-                        </tr>
-                        <!-- Foreach -->
-                        @foreach(var product in ViewBag.Membranes)
-                {
-                    <tr>
-                            <td>@product.Id</td>
-                            <td>@product.Name</td>
-                            <td>@product.Color</td>
-                            <td>@product.Width</td>
-                            <td>@product.Lenght</td>
-                            <td>@product.Type</td>
-                            <td>@product.Price</td>
-                            <td>
-                                @if(@product.IsVisible)
+                            <tr>
+                                <td>@product.Id</td>
+                                <td>@product.Name</td>
+                                <td>@product.PlaceOfProduction</td>
+                                <td>@product.Price</td>
+                                <td>
+                                    @if(@product.IsVisible)
                                 {
-                                    <img src="~/images/Admin/icons8-done.svg" alt="yes" height="25px">
+                                        <img src="~/images/Admin/icons8-done.svg" alt="yes" height="25px">
                                 }
                                 else
                                 {
-                                    <img src="~/images/Admin/icons8-close.svg" alt="no" height="25px">
+                                        <img src="~/images/Admin/icons8-close.svg" alt="no" height="25px">
                                 
                                 }
-                            </td>
-                            <td><div class="button_conf">Конфигурация</div></td>
-                        </tr>
+                                </td>
+                                
+                            </tr>
+                        }
+                </table>
+                <table class="wholeList_table membrane" id="membraneTable">
+                            <tr>
+                                <th>ID</th>
+                                <th>Название</th>
+                                <th>Цвет</th>
+                                <th>Ширина</th>
+                                <th>Длина</th>
+                                <th>Тип</th>
+                                <th>Цена</th>
+                            </tr>
+                            <!-- Foreach -->
+                            @foreach(var product in ViewBag.Membranes)
+                {
+                        <tr>
+                                <td>@product.Id</td>
+                                <td>@product.Name</td>
+                                <td>@product.Color</td>
+                                <td>@product.Width</td>
+                                <td>@product.Lenght</td>
+                                <td>@product.Type</td>
+                                <td>@product.Price</td>
+                                <td>
+                                    @if(@product.IsVisible)
+                                {
+                                        <img src="~/images/Admin/icons8-done.svg" alt="yes" height="25px">
+                                }
+                                else
+                                {
+                                        <img src="~/images/Admin/icons8-close.svg" alt="no" height="25px">
+                                
+                                }
+                                </td>
+                                <td><a asp-action="MembraneConfiguration" asp-route-id="@product.Id"><div class="button_conf" id="@product.Id">Конфигурация</div></a></td>
+                            </tr>
 
                        } 
-            </table>
+                </table>
+            </div>
+          
+
+
         </div>
-      
 
 
+            
+
+            <div class="ChangingPrice">
+                <form method="post"  asp-controller="Admin" asp-action="SubmitNewPrice">
+                    <div asp-validation-summary="All"></div>
+                    <ul>
+                        <li>
+                            <label>Выберите таблицу</label>
+                            <select name="Table" value="@Model.priceChangingFormModel.Table" >
+                                <option value="Membrane">Пленка</option>
+                                <option value="Seed">Семена</option>
+                                <option value="MembraneConfiguration">Конфигурация Пленки</option>
+                            
+                            </select>
+                        </li>
+                        <li>
+                            <label>Введите ID продукта</label>
+                            <input type="number" name="Id" value="@Model.priceChangingFormModel.Id"/>
+                        </li>
+                        <li>
+                            <label>Введите цену</label>
+                            <input type="text" name="Price" asp-for="@Model.priceChangingFormModel.Price" />
+                        </li>
+                        <li>
+                            <button type="submit">Подтвердить</button>
+                        </li>
+                    </ul>
+                </form>
+            </div>
+
+        
+    <div class="CreateNewEntity">
+            <label class="CreateNewEntity_label">Что хотите добавить</label>
+            <select class="CreateNewEntity_select">
+                <option value="">Тип товара...</option>
+                <option value="Membrane">Пленка</option>
+                <option value="Seed">Семена</option>
+                <option value="MembraneConfiguration">Конфигурация пленки</option>
+            </select>
+
+
+            <form method="post"  asp-controller="Admin" asp-action="CreateNewMembrane" id="MembraneForm">
+                <div asp-validation-summary="All"></div>
+                <ul>
+                    <li>
+                        <label>Введите название</label>
+                        <input type="text" name="Name" value="@Model.membrane.Name" />
+                    </li>
+                    <li>
+                        <label>Введите цвет</label>
+                        <input type="text" name="Color" value="@Model.membrane.Color" />
+                    </li>
+                    <li>
+                        <label>Введите ширину</label>
+                        <input type="number" name="Width" value="@Model.membrane.Width"/>
+                    </li>
+                    <li>
+                        <label>Введите длину</label>
+                        <input type="number" name="Lenght" value="@Model.membrane.Lenght"/>
+                    </li>
+                    <li>
+                        <label>Введите тип</label>
+                        <input type="text" name="Type" value="@Model.membrane.Type"/>
+                    </li>
+                    <li>
+                        <label>Введите цену</label>
+                        <input type="text" name="Price" value="@Model.membrane.Price"/>
+                    </li>
+                    <li>
+                        <label>Введите описание</label>
+                        <textarea name="Description" value="@Model.membrane.Description"></textarea>
+                    </li>
+                    <li>
+                        <button type="submit">Подтвердить</button>
+                    </li>
+                </ul>
+            </form>
+
+            <form method="post"  asp-controller="Admin" asp-action="CreateNewSeed" id="SeedForm">
+                <div asp-validation-summary="All"></div>
+                <ul>
+                    <li>
+                        <label>Введите название</label>
+                        <input type="text" name="Name" value="@Model.seed.Name" />
+                    </li>
+                    <li>
+                        <label>Введите место производста</label>
+                        <input type="text" name="PlaceOfProduction" value="@Model.seed.PlaceOfProduction" />
+                    </li>
+                    <li>
+                        <label>Введите цену</label>
+                        <input type="text" name="Price" value="@Model.seed.Price"/>
+                    </li>
+                    <li>
+                        <button type="submit">Подтвердить</button>
+                    </li>
+                </ul>
+            </form>
     </div>
 
-    <div class="Membrane_popup">
-        <img src="~/images/Admin/icons8-close.svg">
-        <table class="configuration">
-            <tr>
-                <th>ID</th>
-                <th>Цвет</th>
-                <th>Ширина</th>
-                <th>Длина</th>
-                <th>Тип</th>
-                <th>Цена</th
-            </tr>
-                    @foreach(var conf in ViewBag.MembraneConfiguration)
-                    {
-                    <tr>
-                    <td>@conf.Id</td>
-                    <td>@conf.Color</td>
-                    <td>@conf.Width</td>
-                    <td>@conf.Length</td>
-                    <td>@conf.Type</td>
-                    <td>@conf.Price</td>
-                    </tr>
-                    }
-        </table>
 
-                    
-    </div>
-
-    <div class="ChangingPrice">
-        <form method="post"  asp-controller="Admin" asp-action="SubmitNewPrice">
-            <div asp-validation-summary="All"></div>
-            <ul>
-                <li>
-                    <label>Выберите таблицу</label>
-                    <select asp-for="Table">
-                        <option value="Membrane">Пленка</option>
-                        <option value="Seed">Семена</option>
-                        <option value="MembraneConfiguration">Конфигурация Пленки</option>
-                    
-                    </select>
-                </li>
-                <li>
-                    <label>Введите ID продукта</label>
-                    <input type="number" asp-for="Id"/>
-                </li>
-                <li>
-                    <label>Введите цену</label>
-                    <input type="number" asp-for="Price" />
-                </li>
-                <li>
-                    <button type="submit">Подтвердить</button>
-                </li>
-            </ul>
-        </form>
-    </div>
-
-
-<div class="CreateNewEntity">
-        <label class="CreateNewEntity_label">Что хотите добавить</label>
-        <select class="CreateNewEntity_select">
-            <option value="">Тип товара...</option>
-            <option value="Membrane">Пленка</option>
-            <option value="Seed">Семена</option>
-            <option value="MembraneConfiguration">Конфигурация пленки</option>
-        </select>
-
-
-        <form method="post"  asp-controller="Admin" asp-action="SubmitNewPrice" id="MembraneForm">
-            <div asp-validation-summary="All"></div>
-            <ul>
-                <li>
-                    <label>Введите название</label>
-                    <input type="text" />
-                </li>
-                <li>
-                    <label>Введите цвет</label>
-                    <input type="text" />
-                </li>
-                <li>
-                    <label>Введите ширину</label>
-                    <input type="number" />
-                </li>
-                <li>
-                    <label>Введите длину</label>
-                    <input type="number" />
-                </li>
-                <li>
-                    <label>Введите тип</label>
-                    <input type="text" />
-                </li>
-                <li>
-                    <label>Введите цену</label>
-                    <input type="text" />
-                </li>
-                <li>
-                    <label>Введите описание</label>
-                    <textarea></textarea>
-                </li>
-                <li>
-                    <button type="submit">Подтвердить</button>
-                </li>
-            </ul>
-        </form>
-
-        <form method="post"  asp-controller="Admin" asp-action="SubmitNewPrice" id="SeedForm">
-            <div asp-validation-summary="All"></div>
-            <ul>
-                <li>
-                    <label>Введите название</label>
-                    <input type="text" />
-                </li>
-                <li>
-                    <label>Введите место производста</label>
-                    <input type="text" />
-                </li>
-                <li>
-                    <label>Введите цену</label>
-                    <input type="number" />
-                </li>
-                <li>
-                    <button type="submit">Подтвердить</button>
-                </li>
-            </ul>
-        </form>
-</div>
-
-
-<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.js"></script>
-<script src="~/js/admin/Admin.js"></script>
-</body>
-</html>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.js"></script>
+    <script src="~/js/admin/Admin.js"></script>
+    </body>
+    </html>
 

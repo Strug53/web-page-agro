@@ -35,3 +35,7 @@ img{
 a div:hover{
     background-color: rgb(65, 151, 65) ;
 }
+.error{
+    position: absolute;
+    top: 270px;
+}

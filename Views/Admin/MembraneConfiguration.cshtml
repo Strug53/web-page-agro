@@ -1,0 +1,37 @@
+﻿@using agrokorm.Models.Products.Configurations
+@model List<MembraneConfiguration>
+@{
+    Layout = null;
+    ViewData["Title"] = "View";
+}
+
+<div class="config">
+            <table class="configuration">
+                <tr>
+                    <th>ID</th>
+                    <th>Цвет</th>
+                    <th>Ширина</th>
+                    <th>Длина</th>
+                    <th>Тип</th>
+                    <th>Цена</th
+                </tr>
+                
+                    @foreach(var conf in Model)
+                    {
+                       <tr>
+                         <td>@conf.Id</td>
+                         <td>@conf.Color</td>
+                         <td>@conf.Width</td>
+                         <td>@conf.Length</td>
+                         <td>@conf.Type</td>
+                         <td>@conf.Price</td>
+                       </tr>
+                    
+                    }
+
+                    
+            </table>
+
+                        
+</div>
+

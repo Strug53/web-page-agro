@@ -8,6 +8,6 @@ namespace agrokorm.Repository.Interfaces
     {
         List<MembraneConfiguration> GetConfigurations();
         List<MembraneConfiguration> GetConfigurationsByFK(int id);
-        Membrane ChangePrice(int id, string Price);
+        bool ChangePrice(int id, string Price);
     }
 }

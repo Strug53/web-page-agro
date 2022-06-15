@@ -12,6 +12,14 @@ namespace agrokorm.Repository
 
         public SeedRepository(ProductContext db) => _db = db;
 
+        public bool ChangePrice(int id, string Price)
+        {
+            Seed product = Select(id);
+            product.Price = Price;
+            _db.SaveChanges();
+            return true;
+        }
+
         public bool Create(int id)
         {
             throw new System.NotImplementedException();
@@ -19,7 +27,9 @@ namespace agrokorm.Repository
 
         public bool Create(Seed entity)
         {
-            throw new System.NotImplementedException();
+            _db.Seeds.Add(entity);
+            _db.SaveChanges();  
+            return true;
         }
 
         public bool Delete(int id)
@@ -30,8 +40,8 @@ namespace agrokorm.Repository
 
         public Seed Select(int id)
         {
-            throw new System.NotImplementedException();
-
+            Seed seed = _db.Seeds.SingleOrDefault(x => x.Id == id);
+            return seed;
         }
 
         public List<Seed> SelectAll()
