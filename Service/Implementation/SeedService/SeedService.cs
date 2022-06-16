@@ -31,6 +31,19 @@ namespace agrokorm.Service.Implementation.SeedService
             }
         }
 
+        public BaseResponse<bool> ChangeTitle(int id, string Title)
+        {
+            try
+            {
+                bool IsChanged = _repository.ChangeTitle(id, Title);
+                return new BaseResponse<bool> { Data = IsChanged, Description = "Ok" };
+            }
+            catch (Exception ex)
+            {
+                return new BaseResponse<bool> { Data = false, Description = ex.Message };
+            }
+        }
+
         public BaseResponse<bool> CreateNewEntity(Seed production)
         {
             try

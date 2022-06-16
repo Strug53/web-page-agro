@@ -178,7 +178,7 @@
 
             
 
-            <div class="ChangingPrice">
+            <div class="ChangingPrice forms">
                 <form method="post"  asp-controller="Admin" asp-action="SubmitNewPrice">
                     <div asp-validation-summary="All"></div>
                     <ul>
@@ -207,7 +207,7 @@
             </div>
 
         
-    <div class="CreateNewEntity">
+    <div class="CreateNewEntity forms">
             <label class="CreateNewEntity_label">Что хотите добавить</label>
             <select class="CreateNewEntity_select">
                 <option value="">Тип товара...</option>
@@ -275,7 +275,61 @@
                 </ul>
             </form>
     </div>
+    <div class="ChangingTitle forms">
+                <form method="post"  asp-controller="Admin" asp-action="SubmitNewTitle">
+                    <div asp-validation-summary="All"></div>
+                    <ul>
+                        <li>
+                            <label>Выберите таблицу</label>
+                            <select name="Table" value="@Model.titleAndDescriptionChangingFormModel.Table" >
+                                <option value="Membrane">Пленка</option>
+                                <option value="Seed">Семена</option>
+                                <option value="MembraneConfiguration">Конфигурация Пленки</option>
+                            
+                            </select>
+                        </li>
+                        <li>
+                            <label>Введите ID продукта</label>
+                            <input type="number" name="Id" value="@Model.titleAndDescriptionChangingFormModel.Id"/>
+                        </li>
+                        <li>
+                            <label>Введите новое название</label>
+                            <input type="text" name="TitleOrDescription" asp-for="@Model.titleAndDescriptionChangingFormModel.TitleOrDescription" />
+                        </li>
+                        <li>
+                            <button type="submit">Подтвердить</button>
+                        </li>
+                    </ul>
+                </form>
+            </div>
 
+    <div class="ChangingDescription forms">
+                <form method="post"  asp-controller="Admin" asp-action="SubmitNewDescription">
+                    <div asp-validation-summary="All"></div>
+                    <ul>
+                        <li>
+                            <label>Выберите таблицу</label>
+                            <select name="Table" value="@Model.titleAndDescriptionChangingFormModel.Table" >
+                                <option value="Membrane">Пленка</option>
+                                <option value="Seed">Семена</option>
+                                <option value="MembraneConfiguration">Конфигурация Пленки</option>
+                            
+                            </select>
+                        </li>
+                        <li>
+                            <label>Введите ID продукта</label>
+                            <input type="number" name="Id" value="@Model.titleAndDescriptionChangingFormModel.Id"/>
+                        </li>
+                        <li>
+                            <label>Введите новое описание</label>
+                            <input type="text" name="TitleOrDescription" asp-for="@Model.titleAndDescriptionChangingFormModel.TitleOrDescription" />
+                        </li>
+                        <li>
+                            <button type="submit">Подтвердить</button>
+                        </li>
+                    </ul>
+                </form>
+            </div>
 
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.js"></script>
     <script src="~/js/admin/Admin.js"></script>

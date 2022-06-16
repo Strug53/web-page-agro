@@ -74,6 +74,8 @@ namespace agrokorm.Controllers
             }
             
         }
+
+        //changing
         [HttpPost]
         public IActionResult SubmitNewPrice(PriceChangingFormModel form)
         {
@@ -83,11 +85,12 @@ namespace agrokorm.Controllers
                 switch (form.Table)
                 {
                     case "Membrane":
-                        var membrane = _membraneService.ChangePrice(form.Id, form.Price);
-                        IsOk = membrane.Data;
+                        var MembraneIsChanged = _membraneService.ChangePrice(form.Id, form.Price);
+                        IsOk = MembraneIsChanged.Data;
                         break;
                     case "Seed":
-                        IsOk = false;
+                        var SeedIsChanged = _seedService.ChangePrice(form.Id, form.Price);
+                        IsOk = SeedIsChanged.Data;
                         break;
 
                     case "Config":
@@ -98,15 +101,71 @@ namespace agrokorm.Controllers
                         IsOk = false;
                         break;
                 }
-
-
-
                 return View("SuccessOrFailure", IsOk);
-
             }
             return View("SuccessOrFailure", false);
         }
 
+        [HttpPost]
+        public IActionResult SubmitNewTitle(TitleAndDescriptionChangingFormModel form)
+        {
+            if (ModelState.IsValid)
+            {
+                bool IsOk;
+                switch (form.Table)
+                {
+                    case "Membrane":
+                        var MembraneIsChanged = _membraneService.ChangeTitle(form.Id, form.TitleOrDescription);
+                        IsOk = MembraneIsChanged.Data;
+                        break;
+                    case "Seed":
+                        var SeedIsChanged = _seedService.ChangeTitle(form.Id, form.TitleOrDescription);
+                        IsOk = SeedIsChanged.Data;
+                        break;
+                    case "Config":
+                        IsOk = false;
+                        break;
+
+                    default:
+                        IsOk = false;
+                        break;
+                }
+                return View("SuccessOrFailure", IsOk);
+            }
+            return View("SuccessOrFailure", false);
+        }
+
+        [HttpPost]
+        public IActionResult SubmitNewDescription(TitleAndDescriptionChangingFormModel form)
+        {
+            if (ModelState.IsValid)
+            {
+                bool IsOk;
+                switch (form.Table)
+                {
+                    case "Membrane":
+                        var MembraneIsChanged = _membraneService.ChangeDescription(form.Id, form.TitleOrDescription);
+                        IsOk = MembraneIsChanged.Data;
+                        break;
+                    case "Seed":
+                        IsOk = false;
+                        break;
+                    case "Config":
+                        IsOk = false;
+                        break;
+
+                    default:
+                        IsOk = false;
+                        break;
+                }
+                return View("SuccessOrFailure", IsOk);
+            }
+            return View("SuccessOrFailure", false);
+        }
+
+
+
+        //Creating new items
         [HttpPost]
         public IActionResult CreateNewMembrane(Membrane membraneEntity)
         {

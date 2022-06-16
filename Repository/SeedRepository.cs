@@ -20,11 +20,13 @@ namespace agrokorm.Repository
             return true;
         }
 
-        public bool Create(int id)
+        public bool ChangeTitle(int id, string Title)
         {
-            throw new System.NotImplementedException();
+            Seed product = Select(id);
+            product.Name = Title;
+            _db.SaveChanges();
+            return true;
         }
-
         public bool Create(Seed entity)
         {
             _db.Seeds.Add(entity);

@@ -59,6 +59,14 @@ $(document).ready(function(){
 
         $('.ChangingPrice').css("opacity", "0")
         $('.ChangingPrice').css("z-index", "-1")
+
+        $('.ChangingDescription').css("opacity", "0")
+        $('.ChangingDescription').css("z-index", "-1")
+
+
+        $('.ChangingTitle').css("opacity","0")
+        $('.ChangingTitle').css("z-index","-1")
+
         
         $('.CreateNewEntity').css("opacity", "0")
         $('.CreateNewEntity').css("z-index", "-1")
@@ -72,6 +80,12 @@ $(document).ready(function(){
         
         $('.ChangingPrice').css("opacity", "0")
         $('.ChangingPrice').css("z-index", "-1")
+
+        $('.ChangingDescription').css("opacity", "0")
+        $('.ChangingDescription').css("z-index", "-1")
+
+        $('.ChangingTitle').css("opacity","0")
+        $('.ChangingTitle').css("z-index","-1")
         
         $('.Main').css("opacity", "0")
         $('.Main').css("z-index", "-1")
@@ -81,13 +95,34 @@ $(document).ready(function(){
         
     });
     $('.Name').click(function () { 
-        $('.title h2').text("Изменение заголовка")       
+        $('.title h2').text("Изменение заголовка")  
+        
+        $('.ChangingPrice').css("opacity", "0")
+        $('.ChangingPrice').css("z-index", "-1")
+
+        $('.ChangingDescription').css("opacity", "0")
+        $('.ChangingDescription').css("z-index", "-1")
+
+        $('.CreateNewEntity').css("opacity","0")
+        $('.CreateNewEntity').css("z-index","-1")
+        
+        $('.Main').css("opacity", "0")
+        $('.Main').css("z-index", "-1")
+        
+        $('.ChangingTitle').css("opacity", "1")
+        $('.ChangingTitle').css("z-index", "5")
     });
     $('.Price').click(function () { 
         $('.title h2').text("Изменение цены")  
         
         $('.CreateNewEntity').css("opacity", "0")
         $('.CreateNewEntity').css("z-index", "-1")
+
+        $('.ChangingDescription').css("opacity", "0")
+        $('.ChangingDescription').css("z-index", "-1")
+
+        $('.ChangingTitle').css("opacity","0")
+        $('.ChangingTitle').css("z-index","-1")
         
         $('.Main').css("opacity", "0")
         $('.Main').css("z-index", "-1")
@@ -97,6 +132,21 @@ $(document).ready(function(){
     });
     $('.Description').click(function () { 
         $('.title h2').text("Изменение описания")
+
+        $('.CreateNewEntity').css("opacity", "0")
+        $('.CreateNewEntity').css("z-index", "-1")
+
+        $('.ChangingPrice').css("opacity", "0")
+        $('.ChangingPrice').css("z-index", "-1")
+
+        $('.ChangingTitle').css("opacity","0")
+        $('.ChangingTitle').css("z-index","-1")
+        
+        $('.Main').css("opacity", "0")
+        $('.Main').css("z-index", "-1")
+        
+        $('.ChangingDescription').css("opacity", "1")
+        $('.ChangingDescription').css("z-index", "5")
 
     });
 

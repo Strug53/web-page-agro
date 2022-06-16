@@ -10,6 +10,7 @@ namespace agrokorm.Models.Form
         public Membrane membrane { get; set; }
         public MembraneConfiguration membraneConfiguration { get; set; }
         public PriceChangingFormModel priceChangingFormModel { get; set; }
+        public TitleAndDescriptionChangingFormModel titleAndDescriptionChangingFormModel { get; set; }
 
         public FormViewModel()
         {
@@ -17,6 +18,8 @@ namespace agrokorm.Models.Form
             membrane = new Membrane();
             membraneConfiguration = new MembraneConfiguration();
             priceChangingFormModel = new PriceChangingFormModel();
-        }
+            titleAndDescriptionChangingFormModel = new TitleAndDescriptionChangingFormModel();
+
     }
+}
 }

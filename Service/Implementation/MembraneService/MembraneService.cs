@@ -86,11 +86,37 @@ namespace agrokorm.Service.ProductServices.MembraneService
             try
             {
                 bool IsCreated = repository.Create(production);
-                return new BaseResponse<bool> { Data = true, Description = "Ok"};
+                return new BaseResponse<bool> { Data = IsCreated, Description = "Ok"};
             }
             catch(Exception ex)
             {
-                return new BaseResponse<bool> { Data = true, Description = ex.Message };
+                return new BaseResponse<bool> { Data = false, Description = ex.Message };
+            }
+        }
+
+        public BaseResponse<bool> ChangeTitle(int id, string Title)
+        {
+            try
+            {
+                bool IsChanged = repository.ChangeTitle(id, Title);
+                return new BaseResponse<bool> { Data = IsChanged, Description = "Ok" };
+            }
+            catch(Exception ex)
+            {
+                return new BaseResponse<bool> { Data = false, Description = ex.Message };
+            }
+        }
+
+        public BaseResponse<bool> ChangeDescription(int id, string Description)
+        {
+            try
+            {
+                bool IsChanged = repository.ChangeDescription(id, Description);
+                return new BaseResponse<bool> { Data = IsChanged, Description = "Ok" };
+            }
+            catch (Exception ex)
+            {
+                return new BaseResponse<bool> { Data = false, Description = ex.Message };
             }
         }
     }

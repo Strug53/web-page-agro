@@ -14,10 +14,26 @@ namespace agrokorm.Repository
 
         public MembraneRepository(ProductContext db) { _db = db; }
 
+        public bool ChangeDescription(int id, string Description)
+        {
+            Membrane product = Select(id);
+            product.Description = Description;
+            _db.SaveChanges();
+            return true;
+        }
+
         public bool ChangePrice(int id, string Price)
         {
             Membrane product = Select(id);
             product.Price = Price;
+            _db.SaveChanges();
+            return true;
+        }
+
+        public bool ChangeTitle(int id, string Title)
+        {
+            Membrane product = Select(id);
+            product.Name = Title;
             _db.SaveChanges();
             return true;
         }
