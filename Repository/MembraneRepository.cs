@@ -38,6 +38,30 @@ namespace agrokorm.Repository
             return true;
         }
 
+        public bool ChangeVisibleMode(int id)
+        {
+            var membrane = Select(id);
+            if (membrane != null)
+            {
+                if (membrane.IsVisible)
+                {
+                    membrane.IsVisible = false;
+                    _db.SaveChanges();
+                    return true;
+                }
+                else
+                {
+                    membrane.IsVisible = true;
+                    _db.SaveChanges();
+                    return true;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public bool Create(Membrane membrane)
         {
             _db.Membranes.Add(membrane);

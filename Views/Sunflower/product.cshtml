@@ -1,0 +1,122 @@
+﻿@using agrokorm.Models.Products;
+@model List<SunflowerSeed>;
+@{
+    Layout = Layout;
+    ViewData["Title"] = "product";
+
+    List<string> AllCategory = new List<string>();
+
+    foreach(var product in Model)
+    {
+        if(AllCategory.Count == 0)
+        {
+            AllCategory.Add(product.Category);
+        }
+        foreach (var category in AllCategory)
+        {
+            if(product.Category.Equals(category)){ break;}
+            AllCategory.Add(product.Category);
+        }
+        
+    }
+
+
+
+}
+<link type="text/css" href="/css/plenka.css" rel="stylesheet"/>
+<link type="text/css" href="/css/Sunflower/sunflower.css" rel="stylesheet"/>
+
+<section class="main">
+    <div class="greenLine"></div>
+    <section class="main_main">
+        <div class="InHeader">
+            <h1>Семена подсолнечника</h1>
+            <ul class="ListOfAdvantages">
+                <li>Большой ассортимент</li>
+                <li>Оптовые поставки</li>
+                <li>Только натуральные компоненты</li>
+            </ul>
+        </div>
+        
+        <img class="HeadImage" src="~/images/Sunflower/sunflower.jpg" />
+
+        <section class="adressRoute"><a asp-controller= "Home" asp-action="Index"  >Главная</a> /  <a >Силосная пленка</a>  </section>
+
+
+        <section class="HeadTitle">
+            <div class="HeadTitle_Line"></div>
+            <h2>Семена подсолнечника</h2>
+            <div class="HeadTitle_Description"><p>@ViewBag.SunFlowerViewModels</p></div>
+        </section>
+        <section class="table">
+            <ul>
+                @foreach (var category in AllCategory)
+               {
+                <li>
+                    <h3>@category</h3>
+                    <table>
+                        <tr>
+                            <th>Название</th>
+                            <th>Технология</th>
+                            <th>Место производства</th>
+                            <th>Цена</th>
+                        </tr>
+                            @foreach(var seed in Model)
+                            {
+                            <tr>
+                                <td>@seed.Name</td>
+                                <td>@seed.Technology</td>
+                                <td>@seed.PlaceOfProduction</td>
+                                <td>@seed.Price</td>
+                            </tr>
+                            }
+                    </table>
+                </li>
+                }
+            </ul>
+        </section>
+
+
+
+
+    </section>
+</section>
+
+
+
+<section class="bottom" style="background-image: url('/images/bottom.jpg');">
+    <section class="bottom_main">
+        <div class="bottom_img"><img src="/images/Logo.png" alt="Logo"></div>
+        <div class="under_img_text"><p>2015 - 2022 ©<br>Все права защищены</p></div>
+        <div class="bottom_prod">
+            <h4>Продукция</h4>
+            <ul>
+               <li><a href="#">Удобрения</a></li>
+               <li><a href="#">Кормовые добавки</a></li> 
+               <li><a href="#">Семена</a></li> 
+               <li><a href="#">Биоконсерванты</a></li> 
+               <li><a href="#">Техника</a></li> 
+               <li><a href="#">Силосная пленка</a></li>  
+            </ul>
+        </div>
+        <div class="bottom_company">
+            <h4>О компании</h4>
+            <ul>
+               <li><a href="#">О компании</a></li>
+               <li><a href="#">Контакты</a></li> 
+            </ul>
+        </div>
+        <div class="inst">
+            <a href="#"><img src="/images/instagram.png" alt=""></a>
+        </div>
+        <div class="bottom_number">
+            <h4>Контакты</h4>
+            <ul>
+               <li><p>+7 (930) 417 31 32</p></li>
+               <li><p>+7 (930) 417 31 32</p></li>
+               <li><p>agro36korm@mail.ru</p></li>  
+            </ul>
+            
+        </div>
+    </section>
+</section>

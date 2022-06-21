@@ -6,7 +6,7 @@ namespace agrokorm.Repository.Interfaces
 {
     public interface IGlobalRepository
     {
-        public List<Seed> GetSeedTable();
+        public List<SunflowerSeed> GetSeedTable();
 
         public List<Membrane> GetMembraneTable();
 

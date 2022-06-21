@@ -15,10 +15,10 @@ namespace agrokorm.Controllers
     {
         private readonly IGlobalRepository _repository;
         private readonly IMembraneService _membraneService;
-        private readonly ISeedService _seedService;
+        private readonly ISunflowerSeedService _seedService;
 
         //public AdminController(IMembraneService membrservice) { _membraneService = membrservice; }
-        public AdminController(IGlobalRepository repo, IMembraneService membrservice, ISeedService seedService) 
+        public AdminController(IGlobalRepository repo, IMembraneService membrservice, ISunflowerSeedService seedService) 
         { 
             _repository = repo;
             _membraneService = membrservice;
@@ -163,7 +163,19 @@ namespace agrokorm.Controllers
             return View("SuccessOrFailure", false);
         }
 
+        
+        public IActionResult ChangeVisibleModeInSeedTable(int id)
+        {
+            var IsChanged = _seedService.ChangeVisibleMode(id);
 
+            return View("SuccessOrFailure", IsChanged.Data);
+        }
+        public IActionResult ChangeVisibleModeInMembraneTable(int id)
+        {
+            var IsChanged = _membraneService.ChangeVisibleMode(id);
+
+            return View("SuccessOrFailure", IsChanged.Data);
+        }
 
         //Creating new items
         [HttpPost]
@@ -180,13 +192,8 @@ namespace agrokorm.Controllers
             return View("SuccessOrFailure", false);
         }
 
-
-
-
-
-
         [HttpPost]
-        public IActionResult CreateNewSeed(Seed seedEntity)
+        public IActionResult CreateNewSeed(SunflowerSeed seedEntity)
         {
             if (ModelState.IsValid)
             {

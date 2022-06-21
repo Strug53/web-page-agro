@@ -6,7 +6,7 @@ using agrokorm.Models.Enum;
 
 namespace agrokorm.Models.Products
 {
-    public class Membrane : IBaseProduct
+    public class Membrane 
     {
  
         public int Id { get; set; }

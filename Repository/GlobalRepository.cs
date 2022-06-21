@@ -14,7 +14,7 @@ namespace agrokorm.Repository
 
         public GlobalRepository(ProductContext db) { _db = db; }
 
-        public List<Seed> GetSeedTable() => _db.Seeds.ToList();
+        public List<SunflowerSeed> GetSeedTable() => _db.SunflowerSeeds.ToList();
 
         public List<Membrane> GetMembraneTable() => _db.Membranes.ToList();
 

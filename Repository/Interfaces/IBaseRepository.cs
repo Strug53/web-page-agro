@@ -13,6 +13,6 @@ namespace agrokorm.Repository.Interfaces
 
         public T Select(int id);
 
-      
+        public bool ChangeVisibleMode(int id);
     }
 }

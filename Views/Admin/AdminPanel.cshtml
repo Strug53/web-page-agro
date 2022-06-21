@@ -120,11 +120,17 @@
                                 <td>
                                     @if(@product.IsVisible)
                                 {
-                                        <img src="~/images/Admin/icons8-done.svg" alt="yes" height="25px">
+                                   
+                                        <a asp-controller="Admin"  asp-action="ChangeVisibleModeInSeedTable" asp-route-id="@product.Id">
+                                            <img src="~/images/Admin/icons8-done.svg" alt="yes" height="25px">
+                                        </a>
+                                   
                                 }
                                 else
                                 {
-                                        <img src="~/images/Admin/icons8-close.svg" alt="no" height="25px">
+                                        <a asp-controller="Admin"  asp-action="ChangeVisibleModeInSeedTable"  asp-route-id="@product.Id">
+                                            <img src="~/images/Admin/icons8-close.svg" alt="no" height="25px">
+                                        </a>
                                 
                                 }
                                 </td>
@@ -154,13 +160,17 @@
                                 <td>@product.Type</td>
                                 <td>@product.Price</td>
                                 <td>
-                                    @if(@product.IsVisible)
+                                @if(@product.IsVisible)
                                 {
-                                        <img src="~/images/Admin/icons8-done.svg" alt="yes" height="25px">
+                                        <a asp-controller="Admin"  asp-action="ChangeVisibleModeInMembraneTable"  asp-route-id="@product.Id">
+                                            <img src="~/images/Admin/icons8-done.svg" alt="yes" height="25px">
+                                        </a>
                                 }
                                 else
                                 {
+                                    <a asp-controller="Admin"  asp-action="ChangeVisibleModeInMembraneTable"  asp-route-id="@product.Id">
                                         <img src="~/images/Admin/icons8-close.svg" alt="no" height="25px">
+                                    </a>
                                 
                                 }
                                 </td>

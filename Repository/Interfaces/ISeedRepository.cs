@@ -2,7 +2,7 @@
 
 namespace agrokorm.Repository.Interfaces
 {
-    public interface ISeedRepository : IBaseRepository<Seed>
+    public interface ISeedRepository : IBaseRepository<SunflowerSeed>
     {
         bool ChangePrice(int id, string Price);
         bool ChangeTitle(int id, string Title);

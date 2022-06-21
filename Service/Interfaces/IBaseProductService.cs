@@ -12,5 +12,7 @@ namespace agrokorm.Service.Interfaces
 
         public BaseResponse<bool> CreateNewEntity(Production production);
 
+        public BaseResponse<bool> ChangeVisibleMode(int id);
+
     }
 }

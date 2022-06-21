@@ -14,7 +14,7 @@ namespace agrokorm.Repository
 
         public bool ChangePrice(int id, string Price)
         {
-            Seed product = Select(id);
+            SunflowerSeed product = Select(id);
             product.Price = Price;
             _db.SaveChanges();
             return true;
@@ -22,14 +22,36 @@ namespace agrokorm.Repository
 
         public bool ChangeTitle(int id, string Title)
         {
-            Seed product = Select(id);
+            SunflowerSeed product = Select(id);
             product.Name = Title;
             _db.SaveChanges();
             return true;
         }
-        public bool Create(Seed entity)
+
+        public bool ChangeVisibleMode(int id)
         {
-            _db.Seeds.Add(entity);
+
+            SunflowerSeed seed = Select(id);
+            
+            if (seed.IsVisible) 
+            {
+                seed.IsVisible = false;
+                _db.SaveChanges();
+                return true;
+            }
+            else
+            {
+                seed.IsVisible = true;
+                _db.SaveChanges();
+                return true;
+            }
+            
+          
+        }
+
+        public bool Create(SunflowerSeed entity)
+        {
+            _db.SunflowerSeeds.Add(entity);
             _db.SaveChanges();  
             return true;
         }
@@ -40,15 +62,15 @@ namespace agrokorm.Repository
         }
 
 
-        public Seed Select(int id)
+        public SunflowerSeed Select(int id)
         {
-            Seed seed = _db.Seeds.SingleOrDefault(x => x.Id == id);
+            SunflowerSeed seed = _db.SunflowerSeeds.SingleOrDefault(x => x.Id == id);
             return seed;
         }
 
-        public List<Seed> SelectAll()
+        public List<SunflowerSeed> SelectAll()
         {
-            return _db.Seeds.ToList();
+            return _db.SunflowerSeeds.ToList();
         }
     }
 }
