@@ -59,6 +59,7 @@ p{
 }
 .table ul li{
     min-height: 500px;
+    margin-bottom: 250px;
 }
 .table ul li h3{
     text-align: center;
@@ -67,8 +68,78 @@ p{
     
 }
 table{
+    position: relative;
     width: 1000px;
+    min-height: 700px;
     top: 50px;
     left: 50%;
     transform: translateX(-50%);
+}
+.main{
+    margin-bottom: 300px;
+}
+
+@media(max-width:1376px){
+    .HeadImage{
+        display: none;
+    }
+    .InHeader{
+        clip-path: none;
+    }
+    .main_main{
+        width: 100%;
+    }
+    .InHeader h1, .ListOfAdvantages{
+        left: 0%;
+    }
+}
+@media(max-width: 1038px){
+    table{
+        width: 100%;
+    }
+    .HeadTitle_Line{
+        width: 400px;
+    }
+    .HeadTitle h2{
+        font-size: 35px;
+    }
+    .HeadTitle_Description p{
+        font-size: 17px;
+    }
+}
+@media(max-width: 886px){
+    .InHeader h1{
+        font-size: 45px;
+    }
+    .ListOfAdvantages li{
+        font-size: 22px;
+    }
+    .HeadTitle{
+        min-height: 450px;
+        max-height: 550px;
+        
+    }
+    .HeadTitle_Description{
+        height: 90%;
+        right: 50%;
+        top: 75px;
+        
+        transform: translateX(50%);
+    }
+    .HeadTitle_Description p{
+        text-align: center;
+        max-height: 400px;
+    }
+    .HeadTitle h2{
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .HeadTitle_Line{
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .HeadTitle{
+        top: 450px;
+    }
 }

@@ -8,20 +8,18 @@
 
     foreach(var product in Model)
     {
+        bool IsFit = true;
         if(AllCategory.Count == 0)
         {
             AllCategory.Add(product.Category);
         }
         foreach (var category in AllCategory)
         {
-            if(product.Category.Equals(category)){ break;}
-            AllCategory.Add(product.Category);
+            if (product.Category.Equals(category)) { IsFit = false; }
+          
         }
-        
+        if(IsFit){AllCategory.Add(product.Category);}     
     }
-
-
-
 }
 <link type="text/css" href="/css/plenka.css" rel="stylesheet"/>
 <link type="text/css" href="/css/Sunflower/sunflower.css" rel="stylesheet"/>
@@ -51,7 +49,7 @@
         <section class="table">
             <ul>
                 @foreach (var category in AllCategory)
-               {
+                {
                 <li>
                     <h3>@category</h3>
                     <table>
@@ -63,12 +61,16 @@
                         </tr>
                             @foreach(var seed in Model)
                             {
-                            <tr>
-                                <td>@seed.Name</td>
-                                <td>@seed.Technology</td>
-                                <td>@seed.PlaceOfProduction</td>
-                                <td>@seed.Price</td>
-                            </tr>
+                                @if(seed.Category == category)
+                                {
+                                <tr>
+                                    <td>@seed.Name</td>
+                                    <td>@seed.Technology</td>
+                                    <td>@seed.PlaceOfProduction</td>
+                                    <td>@seed.Price</td>
+                                    </tr>
+                                }
+                                else{ continue; }
                             }
                     </table>
                 </li>

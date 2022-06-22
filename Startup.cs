@@ -48,7 +48,7 @@ namespace agrokorm
 
 
             services.AddScoped<IMembraneService, MembraneService>();
-            services.AddScoped<ISeedService,SeedService>();
+            services.AddScoped<ISunflowerSeedService,SunflowerSeedService>();
 
 
 
