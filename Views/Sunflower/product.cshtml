@@ -23,8 +23,8 @@
 }
 <link type="text/css" href="/css/plenka.css" rel="stylesheet"/>
 <link type="text/css" href="/css/Sunflower/sunflower.css" rel="stylesheet"/>
-
-<section class="main">
+<div class="page">
+<main class="main">
     <div class="greenLine"></div>
     <section class="main_main">
         <div class="InHeader">
@@ -46,8 +46,7 @@
             <h2>Семена подсолнечника</h2>
             <div class="HeadTitle_Description"><p>@ViewBag.SunFlowerViewModels</p></div>
         </section>
-        <section class="table">
-            <ul>
+            <ul class="table">
                 @foreach (var category in AllCategory)
                 {
                 <li>
@@ -76,17 +75,17 @@
                 </li>
                 }
             </ul>
-        </section>
+       
 
 
 
 
     </section>
-</section>
+</main>
 
 
 
-<section class="bottom" style="background-image: url('/images/bottom.jpg');">
+<footer class="bottom" style="background-image: url('/images/bottom.jpg');">
     <section class="bottom_main">
         <div class="bottom_img"><img src="/images/Logo.png" alt="Logo"></div>
         <div class="under_img_text"><p>2015 - 2022 ©<br>Все права защищены</p></div>
@@ -121,4 +120,6 @@
             
         </div>
     </section>
-</section>
+</footer>
+
+</div>

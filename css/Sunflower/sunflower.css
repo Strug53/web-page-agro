@@ -1,6 +1,22 @@
+
 p{
     font-family: "Roboto", sans-serif;
 }
+
+.page{
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+
+.footer{
+    height: 100px;
+    background-color: blue;
+    margin-top: auto;
+}
+
 .HeadTitle{
     position: absolute;
     width: 100%;
@@ -51,17 +67,18 @@ p{
     background-color: purple;
     */
 }
-.table ul{
+.table {
     position: absolute;
     width: 100%;
-    height: 100%;
+    
     padding: 0;
+    margin-bottom: 150px;
 }
-.table ul li{
-    min-height: 500px;
+.table  li{
+    min-height: 700px;
     margin-bottom: 250px;
 }
-.table ul li h3{
+.table li h3{
     text-align: center;
     font-family: "Roboto", sans-serif;
     font-size: 32px;
@@ -70,14 +87,13 @@ p{
 table{
     position: relative;
     width: 1000px;
-    min-height: 700px;
+    min-height: 400px;
     top: 50px;
     left: 50%;
     transform: translateX(-50%);
 }
-.main{
-    margin-bottom: 300px;
-}
+
+
 
 @media(max-width:1376px){
     .HeadImage{
@@ -123,17 +139,18 @@ table{
         height: 90%;
         right: 50%;
         top: 75px;
-        
+        min-width: 500px;
         transform: translateX(50%);
     }
     .HeadTitle_Description p{
         text-align: center;
-        max-height: 400px;
+        min-height: 400px;
+        
     }
     .HeadTitle h2{
-        top: 0;
-        left: 50%;
-        transform: translateX(-50%);
+        width: 100%;
+        text-align: center;
+        
     }
     .HeadTitle_Line{
         left: 50%;
@@ -141,5 +158,47 @@ table{
     }
     .HeadTitle{
         top: 450px;
+    }
+}
+
+@media(max-width: 548px){
+    .HeadTitle h2{
+        text-align: left;  
+    }
+    .HeadTitle{
+        margin-bottom: 100px;
+    }
+    .HeadTitle_Line{
+        left: 0;
+    }
+    .HeadTitle_Description p{
+        text-align: left;
+        width: 100%;
+        height: 100%;
+        font-size: 15px;
+    }
+    .HeadTitle_Description{
+        min-width: none;
+        min-width: 400px;
+        left: 0;
+        transform: none;
+    }
+    .table li{
+        width: 100%;
+        overflow-x:scroll;
+    }
+    .InHeader h1{
+        font-size: 30px;
+    }
+    .ListOfAdvantages li{
+        font-size: 20px;
+    }
+    .table{
+        padding: 0;
+    }
+    table{
+        left: 0;
+        transform: none;
+        width: 548px;
     }
 }

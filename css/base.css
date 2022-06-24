@@ -12,6 +12,7 @@ body{
     */
     overflow-x: hidden;
     height: 100vw;
+    
 }
 
 p{
@@ -1025,15 +1026,13 @@ input[name="s"]{
 
 .bottom{
     position: relative;
-    bottom: 0;
     width: 100%;
     height: 500px;
-    /*
-    background-color: #8f8f8f;
-    */
     background-position: top center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover;  
+
+    margin-top: auto;
 }
 .bottom_main{
     position: absolute;
@@ -1417,6 +1416,21 @@ input[name="s"]{
         top: 830px;
     }
 
+    .bottom_img{
+        left: 245px;
+    }
+    .under_img_text{
+        left:180px;
+    }
+    .bottom_company{
+        display: none;
+    }
+    .bottom_number{
+        left: 750px;
+    }
+
+
+
 }
 
 
@@ -1653,7 +1667,46 @@ input[name="l"]{
 
 }
 
-
+@media(max-width:926px){
+    .bottom_prod{
+        display: none;
+    }
+    .bottom_img{
+        top: 0;
+        left:555px;
+    }
+    .bottom_img img{
+        top: 0;
+        height: 150px;
+    }
+    .under_img_text{
+        top: 170px;
+        left: 490px;
+    }
+    .under_img_text p{
+        font-size: 15px;
+    }
+    .bottom_number{
+        left: 500px;
+        top: 270px;
+    }
+    .bottom_number h4{
+        font-size: 25px;
+        text-align: center;
+        left: 8px;
+    }
+    .bottom_number ul {
+        top: 50px;
+    }
+    .bottom_number ul li:last-child{
+        display: none;
+    }
+    .inst{
+        top: 90%;
+        left:500px;
+    }
+    
+}
 
 
 @media(max-width:756px){
