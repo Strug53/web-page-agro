@@ -17,14 +17,11 @@ namespace agrokorm.Controllers
         public IActionResult Product()
         {
             var product = membraneService.GetAllProduct().Data;
-            var configurationOne = membraneService.GetAllConfigurationByForeignKey(1).Data;
-            var configurationTwo = membraneService.GetAllConfigurationByForeignKey(2).Data;
-
-            product[0].membraneConfigurations = configurationOne;
-            product[1].membraneConfigurations = configurationTwo;
-
-
-
+            
+            foreach(var membrane in product)
+            {
+                membrane.MembraneConfigurations = membraneService.GetAllConfigurationByForeignKey(membrane.Id).Data;
+            }
 
             return View(product);
         }

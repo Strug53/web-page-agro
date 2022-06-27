@@ -2,20 +2,29 @@
 p{
     font-family: "Roboto", sans-serif;
 }
-
+/*
 .page{
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    min-height: 100%;
 }
-
-
-.footer{
+*/
+/*
+.bottom{
     height: 100px;
     background-color: blue;
     margin-top: auto;
 }
+*/
+
+.main{
+    overflow: none;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
 
 .HeadTitle{
     position: absolute;
@@ -59,7 +68,7 @@ p{
 /*table*/ 
 
 .table{
-    position: absolute;
+    position: relative;
     top: 1000px;
     width: 100%;
     min-height:1500px;
@@ -72,10 +81,9 @@ p{
     width: 100%;
     
     padding: 0;
-    margin-bottom: 150px;
 }
 .table  li{
-    min-height: 700px;
+    min-height: 20px;
     margin-bottom: 250px;
 }
 .table li h3{

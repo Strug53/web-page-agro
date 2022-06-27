@@ -14,6 +14,7 @@ namespace agrokorm.Models.Db
         public DbSet<SunflowerSeed> SunflowerSeeds { get; set; }
         public DbSet<MembraneConfiguration> MembraneConfigurations { get; set; }
         public DbSet<SunFlowerViewModel> SunFlowerViewModels { get; set; }
+        public DbSet<Szr> Szrs { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelbuilder)
         {
@@ -39,7 +40,7 @@ namespace agrokorm.Models.Db
                     "into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing " +
                     "Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
                     Category = CategoryEnum.Membrance,
-                    membraneConfigurations = null
+                    MembraneConfigurations = null
                 });
 
                 builder.HasData(new Membrane
@@ -58,7 +59,7 @@ namespace agrokorm.Models.Db
                     "into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing " +
                     "Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
                     Category = CategoryEnum.Membrance,
-                    membraneConfigurations = null
+                    MembraneConfigurations = null
                 });
 
                 builder.ToTable("Membranes").HasKey(x => x.Id);

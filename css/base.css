@@ -1031,8 +1031,8 @@ input[name="s"]{
     background-position: top center;
     background-repeat: no-repeat;
     background-size: cover;  
-
-    margin-top: auto;
+    overflow: hidden;
+    
 }
 .bottom_main{
     position: absolute;

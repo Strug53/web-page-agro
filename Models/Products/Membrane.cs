@@ -34,7 +34,7 @@ namespace agrokorm.Models.Products
 
         public bool IsVisible { get; set; }
 
-        public List<MembraneConfiguration> membraneConfigurations { get; set; } 
+        public List<MembraneConfiguration> MembraneConfigurations { get; set; } 
 
         public CategoryEnum Category { get; set; }
     }
