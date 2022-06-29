@@ -19,6 +19,7 @@ using agrokorm.Service.ProductServices.MembraneService;
 using agrokorm.Service.Interfaces;
 using agrokorm.Service.Implementation.SeedService;
 using agrokorm.Models.Form;
+using agrokorm.Service.Implementation.SzrService;
 
 namespace agrokorm
 {
@@ -43,11 +44,13 @@ namespace agrokorm
             services.AddScoped<IMembraneRepository, MembraneRepository>();
             services.AddScoped<ISeedRepository, SeedRepository>();
             services.AddScoped<IGlobalRepository, GlobalRepository>();
+            services.AddScoped<ISzrRepository, SzrRepository>();
 
             services.AddScoped<IFormClass, PriceChangingFormModel>();
 
 
             services.AddScoped<IMembraneService, MembraneService>();
+            services.AddScoped<ISzrService, SzrService>();
             services.AddScoped<ISunflowerSeedService,SunflowerSeedService>();
 
 
