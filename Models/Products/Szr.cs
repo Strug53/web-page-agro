@@ -17,6 +17,8 @@
 
         public string Price { get; set; }
 
+        public string Category { get; set; }
+
         public bool IsVisible { get;set; }
 
     }

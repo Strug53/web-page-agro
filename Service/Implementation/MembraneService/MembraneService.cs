@@ -1,5 +1,5 @@
 ﻿using agrokorm.Models.Db;
-using agrokorm.Models.Enum;
+
 using agrokorm.Models.Products;
 using agrokorm.Models.Products.Configurations;
 using agrokorm.Repository;

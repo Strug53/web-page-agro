@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using agrokorm.Models.Enum;
+
 
 namespace agrokorm.Models.Products
 {
@@ -36,6 +36,6 @@ namespace agrokorm.Models.Products
 
         public List<MembraneConfiguration> MembraneConfigurations { get; set; } 
 
-        public CategoryEnum Category { get; set; }
+    
     }
 }

@@ -1,4 +1,4 @@
-﻿using agrokorm.Models.Enum;
+﻿
 
 namespace agrokorm.Service.Response
 {

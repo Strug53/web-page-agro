@@ -19,6 +19,6 @@ namespace agrokorm.Repository
         public List<Membrane> GetMembraneTable() => _db.Membranes.ToList();
 
         public List<MembraneConfiguration> GetMembraneConfigurationTable() => _db.MembraneConfigurations.ToList();
-
+        
     }
 }
