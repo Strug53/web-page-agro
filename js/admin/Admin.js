@@ -14,10 +14,13 @@ $(document).ready(function(){
     //----------------------
     // functions
 
-    function ShowMembraneTable(){
+    function ShowSeedTable(){
         $('.Main h3').text("Семена")
         $('#membraneTable').css("opacity", "0");
         $('#membraneTable').css("z-index", "1");
+
+        $('#SzrTable').css("opacity", "0");
+        $('#SzrTable').css("z-index", "1");
 
         $('#seedTable').css("opacity", "1");
         $('#seedTable').css("z-index", "5");
@@ -25,20 +28,38 @@ $(document).ready(function(){
     }
 
 
-    function ShowSeedTable(){
+    function ShowMembraneTable(){
         $('.Main h3').text("Пленка")
         $('#seedTable').css("opacity", "0");
         $('#seedTable').css("z-index", "1");
+
+        $('#SzrTable').css("opacity", "0");
+        $('#SzrTable').css("z-index", "1");
 
         $('#membraneTable').css("opacity", "1");
         $('#membraneTable').css("z-index", "5");
 
     }
+    function ShowSzrTable(){
+        $('.Main h3').text("СЗР")
+        $('#seedTable').css("opacity", "0");
+        $('#seedTable').css("z-index", "1");
+
+        $('#membraneTable').css("opacity", "0");
+        $('#membraneTable').css("z-index", "1");
+
+        $('#SzrTable').css("opacity", "1");
+        $('#SzrTable').css("z-index", "5");
+
+    }
  
-    
+    //---------------------------
     function showMembraneForm(){
         $('#SeedForm').css("opacity", "0");
         $('#SeedForm').css("z-index", "0");
+
+        $('#SzrForm').css("opacity", "0");
+        $('#SzrForm').css("z-index", "0");
 
         $('#MembraneForm').css("opacity", "1");
         $('#MembraneForm').css("z-index", "1");
@@ -48,9 +69,22 @@ $(document).ready(function(){
         $('#MembraneForm').css("opacity", "0");
         $('#MembraneForm').css("z-index", "0");
 
+        $('#SzrForm').css("opacity", "0");
+        $('#SzrForm').css("z-index", "0");
+
         $('#SeedForm').css("opacity", "1");
         $('#SeedForm').css("z-index", "1");
         
+    }
+    function showSzrForm(){
+        $('#MembraneForm').css("opacity", "0");
+        $('#MembraneForm').css("z-index", "0");
+
+        $('#SeedForm').css("opacity", "0");
+        $('#SeedForm').css("z-index", "0");
+
+        $('#SzrForm').css("opacity", "1");
+        $('#SzrForm').css("z-index", "1");
     }
 
     //--------------
@@ -162,8 +196,9 @@ $(document).ready(function(){
     );
 
     //Changing in tables
-    $('#Seed').click(() => ShowMembraneTable());
-    $('#Membrane').click(() => ShowSeedTable());
+    $('#Seed').click(() => ShowSeedTable());
+    $('#Membrane').click(() => ShowMembraneTable());
+    $('#Szr').click(() => ShowSzrTable());
     
 
    
@@ -181,8 +216,9 @@ $(document).ready(function(){
         case "Seed":
             showSeedForm();
             break;
+        case "Szr":
+            showSzrForm();
         case "MembraneConfiguration":
-            
             break;
     }
     });

@@ -16,10 +16,12 @@ namespace agrokorm.Controllers
         private readonly IGlobalRepository _repository;
         private readonly IMembraneService _membraneService;
         private readonly ISunflowerSeedService _seedService;
+        private readonly ISzrService _szrService;
 
-        //public AdminController(IMembraneService membrservice) { _membraneService = membrservice; }
-        public AdminController(IGlobalRepository repo, IMembraneService membrservice, ISunflowerSeedService seedService) 
-        { 
+        
+        public AdminController(IGlobalRepository repo, IMembraneService membrservice, ISunflowerSeedService seedService, ISzrService szr ) 
+        {
+            _szrService = szr;
             _repository = repo;
             _membraneService = membrservice;
             _seedService = seedService;
@@ -31,6 +33,7 @@ namespace agrokorm.Controllers
         {
             return View();
         }
+        
         [HttpGet]
         public IActionResult MembraneConfiguration(int id)
         {
@@ -50,23 +53,34 @@ namespace agrokorm.Controllers
         {
             if (ModelState.IsValid)
             {
-                var Seeds = _repository.GetSeedTable();
-                
-                var Membranes = _repository.GetMembraneTable();
-                var MembraneConfiguration = _repository.GetMembraneConfigurationTable();
+                if (admin.Password.Equals("123"))
+                {
+                    /*
+                    var Seeds = _repository.GetSeedTable();
 
-                var ViewModelForForms = new FormViewModel();
-                
+                    var Membranes = _repository.GetMembraneTable();
+                    var MembraneConfiguration = _repository.GetMembraneConfigurationTable();
+                    var Szrs = _repository.GetSzrTable();
 
-                ViewBag.Seeds = Seeds;
-                ViewBag.Membranes = Membranes;
-                ViewBag.MembraneConfiguration = MembraneConfiguration;
+                    var ViewModelForForms = new FormViewModel();
 
-                var formPrice = new PriceChangingFormModel();
+                    ViewBag.Szrs = Szrs;
+                    ViewBag.Seeds = Seeds;
+                    ViewBag.Membranes = Membranes;
+                    ViewBag.MembraneConfiguration = MembraneConfiguration;
 
-                
+                    var formPrice = new PriceChangingFormModel();
 
-                return View("AdminPanel", ViewModelForForms);
+
+
+                    return View("AdminPanel", ViewModelForForms);
+                    */
+                    return Profile();
+                }
+                else
+                {
+                    return View("Error");
+                }
             }
             else
             {
@@ -74,6 +88,33 @@ namespace agrokorm.Controllers
             }
             
         }
+        public IActionResult RedirectToAdmin(int id)
+        {
+            if (id == 1748925468) return Profile();
+            else return NotFound(); ;
+        }
+        private IActionResult Profile()
+        {
+            var Seeds = _repository.GetSeedTable();
+
+            var Membranes = _repository.GetMembraneTable();
+            var MembraneConfiguration = _repository.GetMembraneConfigurationTable();
+            var Szrs = _repository.GetSzrTable();
+
+            var ViewModelForForms = new FormViewModel();
+
+            ViewBag.Szrs = Szrs;
+            ViewBag.Seeds = Seeds;
+            ViewBag.Membranes = Membranes;
+            ViewBag.MembraneConfiguration = MembraneConfiguration;
+
+            var formPrice = new PriceChangingFormModel();
+
+
+
+            return View("AdminPanel", ViewModelForForms);
+        }
+
 
         //changing
         [HttpPost]
@@ -203,6 +244,18 @@ namespace agrokorm.Controllers
 
                 return View("SuccessOrFailure", IsCreated.Data);
 
+            }
+            return View("SuccessOrFailure", false);
+        }
+
+        [HttpPost]
+        public IActionResult CreateNewSzr(Szr szrEntity)
+        {
+            if (ModelState.IsValid)
+            {
+                var isCreated = _szrService.CreateNewEntity(szrEntity);
+                ViewBag.Error = isCreated.Description;
+                return View("SuccessOrFailure", isCreated.Data);
             }
             return View("SuccessOrFailure", false);
         }

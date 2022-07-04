@@ -11,5 +11,7 @@ namespace agrokorm.Repository.Interfaces
         public List<Membrane> GetMembraneTable();
 
         public List<MembraneConfiguration> GetMembraneConfigurationTable();
+        public List<Szr> GetSzrTable();
+
     }
 }

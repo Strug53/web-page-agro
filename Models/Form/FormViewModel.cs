@@ -9,6 +9,7 @@ namespace agrokorm.Models.Form
         public SunflowerSeed seed { get; set; }
         public Membrane membrane { get; set; }
         public MembraneConfiguration membraneConfiguration { get; set; }
+        public Szr szr { get; set; }
         public PriceChangingFormModel priceChangingFormModel { get; set; }
         public TitleAndDescriptionChangingFormModel titleAndDescriptionChangingFormModel { get; set; }
 
@@ -19,6 +20,7 @@ namespace agrokorm.Models.Form
             membraneConfiguration = new MembraneConfiguration();
             priceChangingFormModel = new PriceChangingFormModel();
             titleAndDescriptionChangingFormModel = new TitleAndDescriptionChangingFormModel();
+            szr = new Szr();
 
     }
 }

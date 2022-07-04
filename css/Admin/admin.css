@@ -247,6 +247,10 @@
         opacity: 0;
         z-index: 1;
     }
+    #SzrTable{ 
+        opacity: 0;
+        z-index: 1;
+    }
     
     .button_conf{
         background-color: rgb(25, 189, 39);
@@ -357,7 +361,7 @@
         width: 400px;
         height: 100px;
     }
-    #SeedForm, #MembraneForm{
+    #SeedForm, #MembraneForm,#SzrForm{
        opacity: 0;
     }
 

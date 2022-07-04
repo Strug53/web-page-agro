@@ -84,8 +84,8 @@
                         <div class="wholeList_rightSide_show" id="Membrane">Показать</div>
                     </li>
                     <li>
-                        Чет
-                        <div class="wholeList_rightSide_show" id="chet">Показать</div>
+                        СЗР
+                        <div class="wholeList_rightSide_show" id="Szr">Показать</div>
                     </li>
                     <li>
                         нет
@@ -179,6 +179,53 @@
 
                        } 
                 </table>
+
+                <table class="wholeList_table" id="SzrTable">
+                            <tr>
+                                <th>ID</th>
+                                <th>Название</th>
+                                <th>Страна-производитель</th>
+                                <th>Производитель</th>
+                                <th>ДВ</th>
+                                <th>Аналог</th>
+                                <th>Норма расхода</th>
+                                <th>Категория</th>
+                                <th>Цена</th>
+                            </tr>
+                            <!-- Foreach -->
+                            @foreach(var product in ViewBag.Szrs)
+                        {    
+                            <tr>
+                                <td>@product.Id</td>
+                                <td>@product.Name</td>
+                                <td>@product.PlaceOfProduction</td>
+                                <td>@product.Manufacturer</td>
+                                <td>@product.Dv</td>
+                                <td>@product.Analog</td>
+                                <td>@product.Consumption</td>
+                                <td>@product.Category</td>
+                                <td>@product.Price</td>
+                                <td>
+                                    @if(@product.IsVisible)
+                                {
+                                   
+                                        <a asp-controller="Admin"  asp-action="ChangeVisibleModeInSeedTable" asp-route-id="@product.Id">
+                                            <img src="~/images/Admin/icons8-done.svg" alt="yes" height="25px">
+                                        </a>
+                                   
+                                }
+                                else
+                                {
+                                        <a asp-controller="Admin"  asp-action="ChangeVisibleModeInSeedTable"  asp-route-id="@product.Id">
+                                            <img src="~/images/Admin/icons8-close.svg" alt="no" height="25px">
+                                        </a>
+                                
+                                }
+                                </td>
+                                
+                            </tr>
+                        }
+                </table>
             </div>
           
 
@@ -223,6 +270,7 @@
                 <option value="">Тип товара...</option>
                 <option value="Membrane">Пленка</option>
                 <option value="Seed">Семена</option>
+                <option value="Szr">СЗР</option>
                 <option value="MembraneConfiguration">Конфигурация пленки</option>
             </select>
 
@@ -287,6 +335,48 @@
                     <li>
                         <label>Введите цену</label>
                         <input type="text" name="Price" value="@Model.seed.Price"/>
+                    </li>
+                    <li>
+                        <button type="submit">Подтвердить</button>
+                    </li>
+                </ul>
+            </form>
+
+            <form method="post"  asp-controller="Admin" asp-action="CreateNewSzr" id="SzrForm">
+                <div asp-validation-summary="All"></div>
+                <ul>
+                    <li>
+                        <label>Введите название</label>
+                        <input type="text" name="Name" value="@Model.szr.Name" />
+                    </li>
+                    <li>
+                        <label>Введите место производста</label>
+                        <input type="text" name="PlaceOfProduction" value="@Model.szr.PlaceOfProduction" />
+                    </li>
+
+                    <li>
+                        <label>Введите производителя</label>
+                        <input type="text" name="Manufacturer" value="@Model.szr.Manufacturer" />
+                    </li>
+                    <li>
+                        <label>Введите Дв?</label>
+                        <input type="text" name="Dv" value="@Model.szr.Dv" />
+                    </li>
+                    <li>
+                        <label>Введите аналог</label>
+                        <input type="text" name="Analog" value="@Model.szr.Analog"/>
+                    </li>
+                    <li>
+                        <label>Введите норму расхода</label>
+                        <input type="text" name="Consumption" value="@Model.szr.Consumption"/>
+                    </li>
+                    <li>
+                        <label>Введите Категорию</label>
+                        <input type="text" name="Category" value="@Model.szr.Category"/>
+                    </li>
+                    <li>
+                        <label>Введите цену</label>
+                        <input type="text" name="Price" value="@Model.szr.Price"/>
                     </li>
                     <li>
                         <button type="submit">Подтвердить</button>
