@@ -39,7 +39,7 @@
                 <li><a asp-controller="Home" asp-action="Seeds">Семена</a>
                     <div class="Sub-menu" id="SB1" >
                         <ul>
-                            <li class="seed"><a href="#" class="seed0">Яровые семена</a></li>
+                            <li class="seed"><a asp-controller="Product" asp-action="SpringSeed" class="seed0">Яровые семена</a></li>
                             <li class="seed"><a href="#" class="seed1">Озимые семена</a></li>
                             <li class="seed"><a href="#" class="seed1">Семена трав</a></li>
                             <li class="seed"><a asp-controller="Product" asp-action="Sunflower" class="seed1">Семена подсолнечника</a></li>
@@ -95,14 +95,24 @@
             </div>
         </div>
         <div class="telephone">
-            <p> +7 (930) 417 31 32 </p>
+        <ul>
+            <li>+7 (930) 417 31 32</li>
+            <li>+7 (930) 424 51 05</li>
+
+        </ul>
         </div>
     </section>
 </header>
 <section class="header_mob">
     <div class="header_mob_burger"><label for="LOpen"><img src="/images/menu.svg" alt="" ></label></div>
     <div class="header_mob_logo"><img src="/images/Logo.png" alt="logo"></div>
-    <div class="header_mob_tele"><p>+7 (930) 417 31 32</p></div>
+    <div class="header_mob_tele">
+        <ul>
+            <li>+7 (930) 417 31 32</li>
+            <li>+7 (930) 424 51 05</li>
+
+        </ul>
+        </div>
     
 </section>
 
@@ -117,22 +127,22 @@
     <ul>
        <li>
            <a href="#">Семена</a>
-           <img src="/images/white-forward-50.png" alt="" class="seed_">
+           
 
         </li>
        <li>
            <a href="#">Биоконсерванты</a>
-           <img src="/images/white-forward-50.png" alt="" class="bio_">
+           
         </li>
        <li><a asp-controller="Home" asp-action="Plenka">Силосная пленка</a></li>
        <li>
            <a href="#">Техника</a>
-           <img src="/images/white-forward-50.png" alt="" class="technic_">
+           
         </li>
        <li><a href="#">Агрострейч</a></li>
        <li>
            <a href="#">Удобрения</a>
-           <img src="/images/white-forward-50.png" alt="" class="fertilizer_">
+           
         </li>
        <li><a href="#">О компании</a></li>
        <li><a href="#">Новости</a></li>
@@ -141,17 +151,7 @@
     </ul>
     <label for="LClose"><img src="/images/close.svg"></label>
 
-    <section class="left_menu_burger">
-        <div class="left_menu_burger_head">
-            <img src="/images/white-back-50.png" alt="" class="back">
-            <h5 class="script_title_above"></h5>
-        </div>
-        <ul class="ul">
-            <li class="EL0 EL"><a href="#" class="El0"></a></li>
-            <li class="EL1 EL"><a href="#" class="El1"></a></li>
-            <!--Add another if needed-->
-        </ul>
-    </section>
+    
 
 </section>
 
@@ -369,7 +369,7 @@
 
 
 <!--           Body           -->
-<script src="/js/leftMenuScript.js"></script>
+
 <script src="/js/slider_mob.js"></script>
 <script src="/js/slider_main.js"></script>
 

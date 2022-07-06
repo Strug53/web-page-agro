@@ -1,5 +1,5 @@
 ﻿@using agrokorm.Models.Products;
-@model List<SunflowerSeed>;
+@model List<SpringSeed>;
 @{
     Layout = Layout;
     ViewData["Title"] = "product";
@@ -23,12 +23,16 @@
 }
 <link type="text/css" href="/css/plenka.css" rel="stylesheet"/>
 <link type="text/css" href="/css/Sunflower/sunflower.css" rel="stylesheet"/>
+<link type="text/css" href="/css/SpringSeed/springseed.css" rel="stylesheet"/>
+
+
+
 <!--<div class="page">-->
 <main class="main">
     <div class="greenLine"></div>
     <section class="main_main">
         <div class="InHeader">
-            <h1>Семена подсолнечника</h1>
+            <h1>Яровые семена</h1>
             <ul class="ListOfAdvantages">
                 <li>Большой ассортимент</li>
                 <li>Оптовые поставки</li>
@@ -38,7 +42,7 @@
         
         <img class="HeadImage" src="~/images/Sunflower/sunflower.jpg" />
 
-        <section class="adressRoute"><a asp-controller= "Home" asp-action="Index"  >Главная</a> /  <a >Силосная пленка</a>  </section>
+        <section class="adressRoute"><a asp-controller= "Home" asp-action="Index"  >Главная</a> /  <a >Яровые семена</a>  </section>
 
     </section>
     <ul class="table">
@@ -49,8 +53,6 @@
                     <table>
                         <tr>
                             <th>Название</th>
-                            <th>Технология</th>
-                            <th>Место производства</th>
                             <th>Цена</th>
                         </tr>
                             @foreach(var seed in Model)
@@ -59,8 +61,6 @@
                                 {
                                 <tr>
                                     <td>@seed.Name</td>
-                                    <td>@seed.Technology</td>
-                                    <td>@seed.PlaceOfProduction</td>
                                     <td>@seed.Price</td>
                                     </tr>
                                 }

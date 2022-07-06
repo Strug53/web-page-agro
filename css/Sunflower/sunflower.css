@@ -95,14 +95,30 @@ p{
 table{
     position: relative;
     width: 1000px;
-    min-height: 400px;
+    max-height: 400px;
     top: 50px;
     left: 50%;
     transform: translateX(-50%);
+    
 }
+
 .table li table tr th{
+    padding: 5px;
     text-align: center;
 }
+.table li table tr th:first-child{
+    text-align: left;
+}
+.table li table tr td:last-child{
+    text-align: center;
+}
+.table li table tr td:first-child{
+    text-align: left;
+}
+.table li table tr td{
+    text-align: center;
+}
+
 .table li table tr:hover{
     cursor: pointer;
 }

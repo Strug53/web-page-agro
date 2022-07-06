@@ -1,0 +1,14 @@
+table{
+    width: 700px;
+}
+@media(max-width: 719px){
+    table{
+        width: 100%;
+    }
+}
+@media(max-width: 548px){
+    .table li{
+        overflow-x: visible;
+    }
+   
+}
