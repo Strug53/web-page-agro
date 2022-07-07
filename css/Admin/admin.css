@@ -243,7 +243,7 @@
     }
     
     
-    #membraneTable, #SzrTable, #SpringSeedTable{ 
+    #membraneTable, #SzrTable, #SpringSeedTable, #LegumeTable, #GrassSeedTable{ 
         opacity: 0;
         z-index: 1;
     }
@@ -358,7 +358,7 @@
         width: 400px;
         height: 100px;
     }
-    #SunflowerForm, #MembraneForm,#SzrForm, #SpringSeedForm{
+    #SunflowerForm, #MembraneForm,#SzrForm, #SpringSeedForm, #LegumeForm, #GrassSeedForm{
        opacity: 0;
     }
 

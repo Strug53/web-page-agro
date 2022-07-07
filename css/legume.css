@@ -1,0 +1,13 @@
+body{
+    height: 1100px;
+}
+.main{
+    height: 1100px;
+}
+.table{
+    min-height: auto;
+    
+}
+.InHeader h1{
+    font-size: 40px;
+}

@@ -22,6 +22,12 @@ $(document).ready(function(){
         $('#SzrTable').css("opacity", "0");
         $('#SzrTable').css("z-index", "1");
 
+        $('#LegumeTable').css("opacity", "0");
+        $('#LegumeTable').css("z-index", "1");
+
+        $('#GrassSeedTable').css("opacity", "0");
+        $('#GrassSeedTable').css("z-index", "1");
+
         $('#SpringSeedTable').css("opacity", "0");
         $('#SpringSeedTable').css("z-index", "1");
 
@@ -29,8 +35,6 @@ $(document).ready(function(){
         $('#sunflowerTable').css("z-index", "5");
 
     }
-
-
     function ShowMembraneTable(){
         $('.Main h3').text("Пленка")
         $('#sunflowerTable').css("opacity", "0");
@@ -38,6 +42,12 @@ $(document).ready(function(){
 
         $('#SzrTable').css("opacity", "0");
         $('#SzrTable').css("z-index", "1");
+
+        $('#LegumeTable').css("opacity", "0");
+        $('#LegumeTable').css("z-index", "1");
+
+        $('#GrassSeedTable').css("opacity", "0");
+        $('#GrassSeedTable').css("z-index", "1");
 
         $('#SpringSeedTable').css("opacity", "0");
         $('#SpringSeedTable').css("z-index", "1");
@@ -54,6 +64,12 @@ $(document).ready(function(){
         $('#membraneTable').css("opacity", "0");
         $('#membraneTable').css("z-index", "1");
 
+        $('#LegumeTable').css("opacity", "0");
+        $('#LegumeTable').css("z-index", "1");
+
+        $('#GrassSeedTable').css("opacity", "0");
+        $('#GrassSeedTable').css("z-index", "1");
+
         $('#SpringSeedTable').css("opacity", "0");
         $('#SpringSeedTable').css("z-index", "1");
 
@@ -69,11 +85,58 @@ $(document).ready(function(){
         $('#membraneTable').css("opacity", "0");
         $('#membraneTable').css("z-index", "1");
 
+        $('#LegumeTable').css("opacity", "0");
+        $('#LegumeTable').css("z-index", "1");
+
+        $('#GrassSeedTable').css("opacity", "0");
+        $('#GrassSeedTable').css("z-index", "1");
+
         $('#SzrTable').css("opacity", "0");
         $('#SzrTable').css("z-index", "1");
 
         $('#SpringSeedTable').css("opacity", "1");
         $('#SpringSeedTable').css("z-index", "5");
+    }
+
+    function ShowLegumeTable(){
+        $('.Main h3').text("Зерновые и зернобобовые культуры")
+        $('#sunflowerTable').css("opacity", "0");
+        $('#sunflowerTable').css("z-index", "1");
+
+        $('#membraneTable').css("opacity", "0");
+        $('#membraneTable').css("z-index", "1");
+
+        $('#SpringSeedTable').css("opacity", "0");
+        $('#SpringSeedTable').css("z-index", "1");
+
+        $('#GrassSeedTable').css("opacity", "0");
+        $('#GrassSeedTable').css("z-index", "1");
+
+        $('#SzrTable').css("opacity", "0");
+        $('#SzrTable').css("z-index", "1");
+
+        $('#LegumeTable').css("opacity", "1");
+        $('#LegumeTable').css("z-index", "5");
+    }
+    function ShowGrassSeedTable(){
+        $('.Main h3').text("Семена травы")
+        $('#sunflowerTable').css("opacity", "0");
+        $('#sunflowerTable').css("z-index", "1");
+
+        $('#membraneTable').css("opacity", "0");
+        $('#membraneTable').css("z-index", "1");
+
+        $('#SpringSeedTable').css("opacity", "0");
+        $('#SpringSeedTable').css("z-index", "1");
+
+        $('#LegumeTable').css("opacity", "0");
+        $('#LegumeTable').css("z-index", "1");
+
+        $('#SzrTable').css("opacity", "0");
+        $('#SzrTable').css("z-index", "1");
+
+        $('#GrassSeedTable').css("opacity", "1");
+        $('#GrassSeedTable').css("z-index", "5");
     }
  
     //---------------------------
@@ -83,6 +146,12 @@ $(document).ready(function(){
 
         $('#SpringSeedForm').css("opacity", "0");
         $('#SpringSeedForm').css("z-index", "0");
+
+        $('#LegumeForm').css("opacity", "0");
+        $('#LegumeForm').css("z-index", "0");
+
+        $('#GrassSeedForm').css("opacity", "0");
+        $('#GrassSeedForm').css("z-index", "0");
 
         $('#SzrForm').css("opacity", "0");
         $('#SzrForm').css("z-index", "0");
@@ -99,6 +168,12 @@ $(document).ready(function(){
         $('#SpringSeedForm').css("opacity", "0");
         $('#SpringSeedForm').css("z-index", "0");
 
+        $('#LegumeForm').css("opacity", "0");
+        $('#LegumeForm').css("z-index", "0");
+
+        $('#GrassSeedForm').css("opacity", "0");
+        $('#GrassSeedForm').css("z-index", "0");
+
         $('#SzrForm').css("opacity", "0");
         $('#SzrForm').css("z-index", "0");
 
@@ -112,6 +187,12 @@ $(document).ready(function(){
 
         $('#SpringSeedForm').css("opacity", "0");
         $('#SpringSeedForm').css("z-index", "0");
+
+        $('#LegumeForm').css("opacity", "0");
+        $('#LegumeForm').css("z-index", "0");
+
+        $('#GrassSeedForm').css("opacity", "0");
+        $('#GrassSeedForm').css("z-index", "0");
 
         $('#SunflowerForm').css("opacity", "0");
         $('#SunflowerForm').css("z-index", "0");
@@ -127,11 +208,56 @@ $(document).ready(function(){
         $('#SzrForm').css("opacity", "0");
         $('#SzrForm').css("z-index", "0");
 
+        $('#LegumeForm').css("opacity", "0");
+        $('#LegumeForm').css("z-index", "0");
+
+        $('#GrassSeedForm').css("opacity", "0");
+        $('#GrassSeedForm').css("z-index", "0");
+
         $('#SunflowerForm').css("opacity", "0");
         $('#SunflowerForm').css("z-index", "0");
 
         $('#SpringSeedForm').css("opacity", "1");
         $('#SpringSeedForm').css("z-index", "1");
+    }
+
+    function showLegumeForm(){
+        $('#MembraneForm').css("opacity", "0");
+        $('#MembraneForm').css("z-index", "0");
+
+        $('#SzrForm').css("opacity", "0");
+        $('#SzrForm').css("z-index", "0");
+
+        $('#SpringSeedForm').css("opacity", "0");
+        $('#SpringSeedForm').css("z-index", "0");
+
+        $('#GrassSeedForm').css("opacity", "0");
+        $('#GrassSeedForm').css("z-index", "0");
+
+        $('#SunflowerForm').css("opacity", "0");
+        $('#SunflowerForm').css("z-index", "0");
+
+        $('#LegumeForm').css("opacity", "1");
+        $('#LegumeForm').css("z-index", "1");
+    }
+    function showGrassSeedForm(){
+        $('#MembraneForm').css("opacity", "0");
+        $('#MembraneForm').css("z-index", "0");
+
+        $('#SzrForm').css("opacity", "0");
+        $('#SzrForm').css("z-index", "0");
+
+        $('#SpringSeedForm').css("opacity", "0");
+        $('#SpringSeedForm').css("z-index", "0");
+
+        $('#LegumeForm').css("opacity", "0");
+        $('#LegumeForm').css("z-index", "0");
+
+        $('#SunflowerForm').css("opacity", "0");
+        $('#SunflowerForm').css("z-index", "0");
+
+        $('#GrassSeedForm').css("opacity", "1");
+        $('#GrassSeedForm').css("z-index", "1");
     }
 
     //--------------
@@ -247,6 +373,9 @@ $(document).ready(function(){
     $('#Membrane').click(() => ShowMembraneTable());
     $('#Szr').click(() => ShowSzrTable());
     $('#SpringSeed').click(() => ShowSpringSeedTable());
+    $('#Legume').click(() => ShowLegumeTable());
+    $('#GrassSeed').click(() => ShowGrassSeedTable());
+    
     
 
    
@@ -269,6 +398,12 @@ $(document).ready(function(){
             break;
         case "SpringSeed":
             showSpringSeedForm();
+            break;
+        case "Legume":
+            showLegumeForm();
+            break;
+        case "GrassSeed":
+            showGrassSeedForm();
             break;
         case "MembraneConfiguration":
             break;

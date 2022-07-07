@@ -20,6 +20,7 @@ using agrokorm.Service.Interfaces;
 using agrokorm.Service.Implementation.SeedService;
 using agrokorm.Models.Form;
 using agrokorm.Service.Implementation.SzrService;
+using agrokorm.Repository.Interfaces.SeedsInterfaces;
 
 namespace agrokorm
 {
@@ -51,7 +52,7 @@ namespace agrokorm
 
             services.AddScoped<IMembraneService, MembraneService>();
             services.AddScoped<ISzrService, SzrService>();
-            services.AddScoped<ISunflowerSeedService,SunflowerSeedService>();
+            services.AddScoped<ISeedService,SeedService>();
 
 
 
@@ -70,7 +71,7 @@ namespace agrokorm
                     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                     app.UseHsts();
                 }
-                app.UseHttpsRedirection();
+                //app.UseHttpsRedirection();
                 app.UseStaticFiles();
 
                 app.UseRouting();
