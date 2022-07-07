@@ -12,6 +12,7 @@ namespace agrokorm.Repository.Interfaces.SeedsInterfaces
         public SpringSeed SelectSpringSeed(int id);
 
         public bool ChangeVisibleModeOfSpringSeed(int id);
+
         bool ChangeSpringSeedPrice(int id, string Price);
 
         bool ChangeSpringSeedTitle(int id, string Title);

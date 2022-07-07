@@ -12,6 +12,9 @@ namespace agrokorm.Models.Form
         public Szr szr { get; set; }
         public PriceChangingFormModel priceChangingFormModel { get; set; }
         public TitleAndDescriptionChangingFormModel titleAndDescriptionChangingFormModel { get; set; }
+        public SpringSeed springSeed { get; set; }
+        public Legumes legumes { get; set; }
+        public GrassSeed grassSeed { get; set; }
 
         public FormViewModel()
         {
@@ -21,7 +24,9 @@ namespace agrokorm.Models.Form
             priceChangingFormModel = new PriceChangingFormModel();
             titleAndDescriptionChangingFormModel = new TitleAndDescriptionChangingFormModel();
             szr = new Szr();
-
+            springSeed = new SpringSeed();
+            legumes = new Legumes();
+            grassSeed = new GrassSeed();
     }
 }
 }

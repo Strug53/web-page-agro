@@ -8,15 +8,15 @@ namespace agrokorm.Controllers
     public class ProductController : Controller
     {
        
-        private readonly ISunflowerSeedService _sunflowerSeedService;
+        private readonly ISeedService _SeedService;
         private readonly IMembraneService _membraneService;
         private readonly ISzrService _szrService;
 
-        public ProductController(IMembraneService service, ISunflowerSeedService sunflowerSeedService, ISzrService szrService) 
+        public ProductController(IMembraneService service, ISeedService sunflowerSeedService, ISzrService szrService) 
         { 
             _szrService = szrService;
             _membraneService = service;
-            _sunflowerSeedService = sunflowerSeedService;
+            _SeedService = sunflowerSeedService;
         }
 
         public IActionResult Membrane()
@@ -31,14 +31,10 @@ namespace agrokorm.Controllers
             return View(product);
         }
 
-        
-       
-
-        // GET: SunflowerController
         public IActionResult Sunflower()
-        { 
-
-            var SunflowerSeeds = _sunflowerSeedService.GetAllProduct().Data;
+        {
+            
+            var SunflowerSeeds = _SeedService.GetAllSunflowers().Data;
             return View("Sunflower", SunflowerSeeds);
         }
 
@@ -48,7 +44,22 @@ namespace agrokorm.Controllers
             return View("Szr", szrs);
         }
 
+        public IActionResult SpringSeed()
+        {
+            var seeds = _SeedService.GetAllSpringSeeds().Data;
+            return View("SpringSeed", seeds);
+        }
 
+        public IActionResult Legumes()
+        {
+            var seeds = _SeedService.GetAllLegumes().Data;
+            return View(seeds);
+        }
+        public IActionResult GrassSeed()
+        {
+            var seeds = _SeedService.GetAllGrassSeeds().Data;
+            return View(seeds);
+        }
 
         public IActionResult Gumat7B() { return View(); }
        

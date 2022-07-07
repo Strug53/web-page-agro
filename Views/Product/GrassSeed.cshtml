@@ -1,0 +1,114 @@
+﻿@using agrokorm.Models.Products;
+@model List<GrassSeed>;
+@{
+    Layout = Layout;
+    ViewData["Title"] = "product";
+
+    List<string> AllCategory = new List<string>();
+
+    foreach(var product in Model)
+    {
+        bool IsFit = true;
+        if(AllCategory.Count == 0)
+        {
+            AllCategory.Add(product.Category);
+        }
+        foreach (var category in AllCategory)
+        {
+            if (product.Category.Equals(category)) { IsFit = false; }
+          
+        }
+        if(IsFit){AllCategory.Add(product.Category);}     
+    }
+}
+<link type="text/css" href="/css/plenka.css" rel="stylesheet"/>
+<link type="text/css" href="/css/Sunflower/sunflower.css" rel="stylesheet"/>
+<link type="text/css" href="/css/legume.css" rel="stylesheet"/> 
+
+
+
+<!--<div class="page">-->
+<main class="main">
+    <div class="greenLine"></div>
+    <section class="main_main">
+        <div class="InHeader">
+            <h1>Семена травы</h1>
+            <ul class="ListOfAdvantages">
+                <li>Большой ассортимент</li>
+                <li>Оптовые поставки</li>
+                <li>Только натуральные компоненты</li>
+            </ul>
+        </div>
+        
+        <img class="HeadImage" src="~/images/Sunflower/sunflower.jpg" />
+
+        <section class="adressRoute"><a asp-controller= "Home" asp-action="Index"  >Главная</a> /  <a >Семена травы</a>  </section>
+
+    </section>
+    <ul class="table">
+                @foreach (var category in AllCategory)
+                {
+                <li>
+                    <h3>@category</h3>
+                    <table>
+                        <tr>
+                            <th>Название</th>
+                            <th>Сорт</th>
+                            <th>Цена, руб/кг</th>
+                        </tr>
+                            @foreach(var seed in Model)
+                            {
+                                @if(seed.Category == category)
+                                {
+                                <tr>
+                                    <td>@seed.Name</td>
+                                    <td>@seed.Variety</td>
+                                    <td>@seed.Price</td>
+                                    </tr>
+                                }
+                                else{ continue; }
+                            }
+                    </table>
+                </li>
+                }
+<footer class="bottom" style="background-image: url('/images/bottom.jpg');">
+    <section class="bottom_main">
+        <div class="bottom_img"><img src="/images/Logo.png" alt="Logo"></div>
+        <div class="under_img_text"><p>2015 - 2022 ©<br>Все права защищены</p></div>
+        <div class="bottom_prod">
+            <h4>Продукция</h4>
+            <ul>
+               <li><a href="#">Удобрения</a></li>
+               <li><a href="#">Кормовые добавки</a></li> 
+               <li><a href="#">Семена</a></li> 
+               <li><a href="#">Биоконсерванты</a></li> 
+               <li><a href="#">Техника</a></li> 
+               <li><a href="#">Силосная пленка</a></li>  
+            </ul>
+        </div>
+        <div class="bottom_company">
+            <h4>О компании</h4>
+            <ul>
+               <li><a href="#">О компании</a></li>
+               <li><a href="#">Контакты</a></li> 
+            </ul>
+        </div>
+        <div class="inst">
+            <a href="#"><img src="/images/instagram.png" alt=""></a>
+        </div>
+        <div class="bottom_number">
+            <h4>Контакты</h4>
+            <ul>
+               <li><p>+7 (930) 417 31 32</p></li>
+               <li><p>+7 (930) 417 31 32</p></li>
+               <li><p>agro36korm@mail.ru</p></li>  
+            </ul>
+            
+        </div>
+    </section>
+</footer>
+            </ul>
+
+            
+    
+</main>

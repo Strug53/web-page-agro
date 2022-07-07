@@ -2,7 +2,7 @@
 
 namespace agrokorm.Repository.Interfaces.SeedsInterfaces
 {
-    public interface ISeedRepository : ISpringSeedRepository, ISunflowerRepository
+    public interface ISeedRepository : ISpringSeedRepository, ISunflowerRepository, ILegumesRepository, IGrassSeedRepository 
     {
         
     }

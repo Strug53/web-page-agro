@@ -120,5 +120,111 @@ namespace agrokorm.Repository
             _db.SaveChanges();
             return true;
         }
+
+
+
+        //------ Legumes -------
+        public bool CreateLegumes(Legumes entity)
+        {
+            _db.Legumes.Add(entity);
+            _db.SaveChanges();
+            return true;
+        }
+
+        public List<Legumes> SelectAllLegumes()
+        {
+            return _db.Legumes.ToList();
+        }
+
+        public Legumes SelectLegume(int id)
+        {
+            return _db.Legumes.SingleOrDefault(x => x.Id == id);
+        }
+
+        public bool ChangeVisibleModeOfLegume(int id)
+        {
+            Legumes seed = SelectLegume(id);
+
+            if (seed.IsVisible)
+            {
+                seed.IsVisible = false;
+                _db.SaveChanges();
+                return true;
+            }
+            else
+            {
+                seed.IsVisible = true;
+                _db.SaveChanges();
+                return true;
+            }
+        }
+
+        public bool ChangeLegumePrice(int id, string Price)
+        {
+            Legumes product = SelectLegume(id);
+            product.Price = Price;
+            _db.SaveChanges();
+            return true;
+        }
+
+        public bool ChangeLegumeTitle(int id, string Title)
+        {
+            Legumes product = SelectLegume(id);
+            product.Name = Title;
+            _db.SaveChanges();
+            return true;
+        }
+
+        //-------- Grass Seeds ---------
+        public bool CreateGrassSeed(GrassSeed entity)
+        {
+            _db.GrassSeeds.Add(entity);
+            _db.SaveChanges();
+            return true;
+        }
+
+        public List<GrassSeed> SelectAllGrassSeeds()
+        {
+            return _db.GrassSeeds.ToList();
+        }
+
+        public GrassSeed SelectGrassSeed(int id)
+        {
+            return _db.GrassSeeds.SingleOrDefault(x => x.Id == id);
+        }
+
+        public bool ChangeVisibleModeOfGrassSeed(int id)
+        {
+            GrassSeed seed = SelectGrassSeed(id);
+
+            if (seed.IsVisible)
+            {
+                seed.IsVisible = false;
+                _db.SaveChanges();
+                return true;
+            }
+            else
+            {
+                seed.IsVisible = true;
+                _db.SaveChanges();
+                return true;
+            }
+        }
+
+        public bool ChangeGrassSeedPrice(int id, string Price)
+        {
+            GrassSeed product = SelectGrassSeed(id);
+            product.Price = Price;
+            _db.SaveChanges();
+            return true;
+        }
+
+        public bool ChangeGrassSeedTitle(int id, string Title)
+        {
+            GrassSeed product = SelectGrassSeed(id);
+            product.Name = Title;
+            _db.SaveChanges();
+            return true;
+        }
     }
 }

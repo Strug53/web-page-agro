@@ -76,7 +76,7 @@
         <div class="wholeList_rightSide">
                 <ul>
                     <li>
-                        Семена
+                        Семена подсолнечника
                         <div class="wholeList_rightSide_show" id="Seed">Показать</div>
                     </li>
                     <li>
@@ -88,21 +88,25 @@
                         <div class="wholeList_rightSide_show" id="Szr">Показать</div>
                     </li>
                     <li>
-                        нет
-                        <div class="wholeList_rightSide_show" id="net">Показать</div>
+                        Яровые семена
+                        <div class="wholeList_rightSide_show" id="SpringSeed">Показать</div>
                     </li>
                     <li>
-                        да
-                        <div class="wholeList_rightSide_show" id="da">Показать</div>
+                        Зерновые и зернобобовые культуры
+                        <div class="wholeList_rightSide_show" id="Legume">Показать</div>
+                    </li>
+                    <li>
+                        Семена травы
+                        <div class="wholeList_rightSide_show" id="GrassSeed">Показать</div>
                     </li>
                 </ul>
             </div>
 
         <div class="Main">
             <!--<div class="title"><h2>Просмотр продукции</h2></div>-->
-            <h3>Семена</h3>
+            <h3>Семена подсолнечника</h3>
             <div class="Main_section">
-                <table class="wholeList_table" id="seedTable">
+                <table class="wholeList_table" id="sunflowerTable">
                             <tr>
                                 <th>ID</th>
                                 <th>Название</th>
@@ -150,7 +154,7 @@
                             </tr>
                             <!-- Foreach -->
                             @foreach(var product in ViewBag.Membranes)
-                {
+                        {
                         <tr>
                                 <td>@product.Id</td>
                                 <td>@product.Name</td>
@@ -175,6 +179,42 @@
                                 }
                                 </td>
                                 <td><a asp-action="MembraneConfiguration" asp-route-id="@product.Id"><div class="button_conf" id="@product.Id">Конфигурация</div></a></td>
+                            </tr>
+
+                       } 
+                </table>
+
+                <table class="wholeList_table" id="SpringSeedTable">
+                            <tr>
+                                <th>ID</th>
+                                <th>Название</th>
+                                <th>Категория</th>
+                                <th>Цена</th>
+                            </tr>
+                            <!-- Foreach -->
+                            @foreach(var product in ViewBag.SpringSeeds)
+                        {
+                        <tr>
+                                <td>@product.Id</td>
+                                <td>@product.Name</td>
+                                <td>@product.Category</td>
+                                <td>@product.Price</td>
+                                <td>
+                                @if(@product.IsVisible)
+                                {
+                                        <a asp-controller="Admin"  asp-action="ChangeVisibleModeInSpringSeed"  asp-route-id="@product.Id">
+                                            <img src="~/images/Admin/icons8-done.svg" alt="yes" height="25px">
+                                        </a>
+                                }
+                                else
+                                {
+                                    <a asp-controller="Admin"  asp-action="ChangeVisibleModeInSpringSeed"  asp-route-id="@product.Id">
+                                        <img src="~/images/Admin/icons8-close.svg" alt="no" height="25px">
+                                    </a>
+                                
+                                }
+                                </td>
+                                
                             </tr>
 
                        } 
@@ -209,7 +249,7 @@
                                     @if(@product.IsVisible)
                                 {
                                    
-                                        <a asp-controller="Admin"  asp-action="ChangeVisibleModeInSeedTable" asp-route-id="@product.Id">
+                                        <a asp-controller="Admin"  asp-action="ChangeVisibleModeInSunflowerTable" asp-route-id="@product.Id">
                                             <img src="~/images/Admin/icons8-done.svg" alt="yes" height="25px">
                                         </a>
                                    
@@ -225,6 +265,81 @@
                                 
                             </tr>
                         }
+                </table>
+
+                <table class="wholeList_table" id="LegumeTable">
+                            <tr>
+                                <th>ID</th>
+                                <th>Название</th>
+                                <th>Сорт</th>
+                                <th>Категория</th>
+                                <th>Цена</th>
+                            </tr>
+                            <!-- Foreach -->
+                            @foreach(var product in ViewBag.Legumes)
+                        {
+                        <tr>
+                                <td>@product.Id</td>
+                                <td>@product.Name</td>
+                                <td>@product.Variety</td>
+                                <td>@product.Category</td>
+                                <td>@product.Price</td>
+                                <td>
+                                @if(@product.IsVisible)
+                                {
+                                        <a asp-controller="Admin"  asp-action="ChangeVisibleModeInSpringSeed"  asp-route-id="@product.Id">
+                                            <img src="~/images/Admin/icons8-done.svg" alt="yes" height="25px">
+                                        </a>
+                                }
+                                else
+                                {
+                                    <a asp-controller="Admin"  asp-action="ChangeVisibleModeInSpringSeed"  asp-route-id="@product.Id">
+                                        <img src="~/images/Admin/icons8-close.svg" alt="no" height="25px">
+                                    </a>
+                                
+                                }
+                                </td>
+                                
+                            </tr>
+
+                       } 
+                </table>
+                <table class="wholeList_table" id="GrassSeedTable">
+                            <tr>
+                                <th>ID</th>
+                                <th>Название</th>
+                                <th>Сорт</th>
+                                <th>Категория</th>
+                                <th>Цена</th>
+                            </tr>
+                            <!-- Foreach -->
+                            @foreach(var product in ViewBag.GrassSeeds)
+                        {
+                        <tr>
+                                <td>@product.Id</td>
+                                <td>@product.Name</td>
+                                <td>@product.Variety</td>
+                                <td>@product.Category</td>
+                                <td>@product.Price</td>
+                                <td>
+                                @if(@product.IsVisible)
+                                {
+                                        <a asp-controller="Admin"  asp-action="ChangeVisibleModeInSpringSeed"  asp-route-id="@product.Id">
+                                            <img src="~/images/Admin/icons8-done.svg" alt="yes" height="25px">
+                                        </a>
+                                }
+                                else
+                                {
+                                    <a asp-controller="Admin"  asp-action="ChangeVisibleModeInSpringSeed"  asp-route-id="@product.Id">
+                                        <img src="~/images/Admin/icons8-close.svg" alt="no" height="25px">
+                                    </a>
+                                
+                                }
+                                </td>
+                                
+                            </tr>
+
+                       } 
                 </table>
             </div>
           
@@ -243,7 +358,9 @@
                             <label>Выберите таблицу</label>
                             <select name="Table" value="@Model.priceChangingFormModel.Table" >
                                 <option value="Membrane">Пленка</option>
-                                <option value="Seed">Семена</option>
+                                <option value="Sunflower">Семена подсолнечника</option>
+                                <option value="Szr">СЗР</option>
+                                <option value="SpringSeed">Яровые семена</option>
                                 <option value="MembraneConfiguration">Конфигурация Пленки</option>
                             
                             </select>
@@ -269,8 +386,11 @@
             <select class="CreateNewEntity_select">
                 <option value="">Тип товара...</option>
                 <option value="Membrane">Пленка</option>
-                <option value="Seed">Семена</option>
+                <option value="Sunflower">Семена подсолнечника</option>
                 <option value="Szr">СЗР</option>
+                <option value="SpringSeed">Яровые семена</option>
+                <option value="Legume">Зерновые и зернобобовые культуры</option>
+                <option value="GrassSeed">Семена травы</option>
                 <option value="MembraneConfiguration">Конфигурация пленки</option>
             </select>
 
@@ -312,7 +432,7 @@
                 </ul>
             </form>
 
-            <form method="post"  asp-controller="Admin" asp-action="CreateNewSeed" id="SeedForm">
+            <form method="post"  asp-controller="Admin" asp-action="CreateNewSunflower" id="SunflowerForm">
                 <div asp-validation-summary="All"></div>
                 <ul>
                     <li>
@@ -383,6 +503,77 @@
                     </li>
                 </ul>
             </form>
+
+            <form method="post"  asp-controller="Admin" asp-action="CreateNewSpringSeed" id="SpringSeedForm">
+                <div asp-validation-summary="All"></div>
+                <ul>
+                    <li>
+                        <label>Введите название</label>
+                        <input type="text" name="Name" value="@Model.springSeed.Name" />
+                    </li>
+                    <li>
+                        <label>Введите категорию</label>
+                        <input type="text" name="Category" value="@Model.springSeed.Category" />
+                    </li>
+                    <li>
+                        <label>Введите цену</label>
+                        <input type="text" name="Price" value="@Model.springSeed.Price"/>
+                    </li>
+                    <li>
+                        <button type="submit">Подтвердить</button>
+                    </li>
+                </ul>
+            </form>
+            <form method="post"  asp-controller="Admin" asp-action="CreateNewLegume" id="LegumeForm">
+                <div asp-validation-summary="All"></div>
+                <ul>
+                    <li>
+                        <label>Введите название</label>
+                        <input type="text" name="Name" value="@Model.legumes.Name" />
+                    </li>
+                    <li>
+                        <label>Введите сорт</label>
+                        <input type="text" name="Variety" value="@Model.legumes.Variety" />
+                    </li>
+                    <li>
+                        <label>Введите категорию</label>
+                        <input type="text" name="Category" value="@Model.legumes.Category" />
+                    </li>
+                    <li>
+                        <label>Введите цену</label>
+                        <input type="text" name="Price" value="@Model.legumes.Price"/>
+                    </li>
+                    <li>
+                        <button type="submit">Подтвердить</button>
+                    </li>
+                </ul>
+            </form>
+            <form method="post"  asp-controller="Admin" asp-action="CreateNewGrassSeed" id="GrassSeedForm">
+                <div asp-validation-summary="All"></div>
+                <ul>
+                    <li>
+                        <label>Введите название</label>
+                        <input type="text" name="Name" value="@Model.grassSeed.Name" />
+                    </li>
+                    <li>
+                        <label>Введите сорт</label>
+                        <input type="text" name="Variety" value="@Model.grassSeed.Variety" />
+                    </li>
+                    <li>
+                        <label>Введите категорию</label>
+                        <input type="text" name="Category" value="@Model.grassSeed.Category" />
+                    </li>
+                    <li>
+                        <label>Введите цену</label>
+                        <input type="text" name="Price" value="@Model.grassSeed.Price"/>
+                    </li>
+                    <li>
+                        <button type="submit">Подтвердить</button>
+                    </li>
+                </ul>
+            </form>
+
+
     </div>
     <div class="ChangingTitle forms">
                 <form method="post"  asp-controller="Admin" asp-action="SubmitNewTitle">
@@ -392,7 +583,9 @@
                             <label>Выберите таблицу</label>
                             <select name="Table" value="@Model.titleAndDescriptionChangingFormModel.Table" >
                                 <option value="Membrane">Пленка</option>
-                                <option value="Seed">Семена</option>
+                                <option value="Sunflower">Семена подсолнечника</option>
+                                <option value="Szr">СЗР</option>
+                                <option value="SpringSeed">Яровые семена</option>
                                 <option value="MembraneConfiguration">Конфигурация Пленки</option>
                             
                             </select>
