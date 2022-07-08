@@ -5,6 +5,7 @@
     ViewData["Title"] = "product";
 
     List<string> AllCategory = new List<string>();
+    List<string> AllCategoryInViewBag = new List<string>();
 
     foreach(var product in Model)
     {
@@ -19,6 +20,20 @@
           
         }
         if(IsFit){AllCategory.Add(product.Category);}     
+    }
+    foreach(var product in ViewBag.GrassMixture)
+    {
+        bool IsFit = true;
+        if(AllCategoryInViewBag.Count == 0)
+        {
+            AllCategoryInViewBag.Add(product.Category);
+        }
+        foreach (var category in AllCategoryInViewBag)
+        {
+            if (product.Category.Equals(category)) { IsFit = false; }
+          
+        }
+        if(IsFit){AllCategoryInViewBag.Add(product.Category);}     
     }
 }
 <link type="text/css" href="/css/plenka.css" rel="stylesheet"/>
@@ -71,6 +86,40 @@
                     </table>
                 </li>
                 }
+    
+            @foreach(var category in AllCategoryInViewBag)
+            {
+            <li>
+                    <h3>@category</h3>
+                    <table>
+                        <tr>
+                            <th>Название</th>
+                            <th>Сорт</th>
+                            <th>Цена, руб/кг</th>
+                            <th></th>
+
+                        </tr>
+                            @foreach(var seed in ViewBag.GrassMixture)
+                            {
+                                @if(seed.Category == category)
+                                {
+                                <tr>
+                                    <td>@seed.Name</td>
+                                    <td>@seed.Сomposition</td>
+                                    <td>@seed.Price</td>
+                                
+                                @if(seed.Description != null)
+                                {
+                                    <td><span><a asp-action="GrassMixtureInDetail" asp-route-id="@seed.Id"><div class="button_conf">Подробнее</div></a></span></td>
+                                }
+                                </tr>
+                                }
+                                else{ continue; }
+                            }
+                    </table>
+                </li>
+        }
+
 <footer class="bottom" style="background-image: url('/images/bottom.jpg');">
     <section class="bottom_main">
         <div class="bottom_img"><img src="/images/Logo.png" alt="Logo"></div>

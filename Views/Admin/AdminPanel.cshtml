@@ -63,8 +63,11 @@
                 <!-- Описание -->
                 <div class="Description">
                     <img src="~/images/Admin/text-96.png" alt="list" height="40px">
-                    
+                </div>
 
+                <!--Удаление-->
+                <div class="Delete">
+                    <img src="~/images/Admin/remove-50.png" alt="remove" height="40px" >
                 </div>
 
                 
@@ -348,8 +351,6 @@
         </div>
 
 
-            
-
             <div class="ChangingPrice forms">
                 <form method="post"  asp-controller="Admin" asp-action="SubmitNewPrice">
                     <div asp-validation-summary="All"></div>
@@ -632,7 +633,29 @@
                     </ul>
                 </form>
             </div>
-
+    <div class="Removing forms">
+                <form method="post"  asp-controller="Admin" asp-action="Delete">
+                    <div asp-validation-summary="All"></div>
+                    <ul>
+                        <li>
+                            <label>Выберите таблицу</label>
+                            <select name="Table" value="@Model.titleAndDescriptionChangingFormModel.Table" >
+                                <option value="Membrane">Пленка</option>
+                                <option value="Seed">Семена</option>
+                                <option value="MembraneConfiguration">Конфигурация Пленки</option>
+                            
+                            </select>
+                        </li>
+                        <li>
+                            <label>Введите ID продукта</label>
+                            <input type="number" name="Id" value="@Model.titleAndDescriptionChangingFormModel.Id"/>
+                        </li>
+                        <li>
+                            <button type="submit">Подтвердить</button>
+                        </li>
+                    </ul>
+                </form>
+            </div>
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.js"></script>
     <script src="~/js/admin/Admin.js"></script>
     </body>
