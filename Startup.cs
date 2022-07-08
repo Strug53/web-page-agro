@@ -21,6 +21,7 @@ using agrokorm.Service.Implementation.SeedService;
 using agrokorm.Models.Form;
 using agrokorm.Service.Implementation.SzrService;
 using agrokorm.Repository.Interfaces.SeedsInterfaces;
+using agrokorm.Service.Implementation.GrassMixtureService;
 
 namespace agrokorm
 {
@@ -46,6 +47,8 @@ namespace agrokorm
             services.AddScoped<ISeedRepository, SeedRepository>();
             services.AddScoped<IGlobalRepository, GlobalRepository>();
             services.AddScoped<ISzrRepository, SzrRepository>();
+            services.AddScoped<IGrassMixtureRepository, GrassMixtureRepository>();
+
 
             services.AddScoped<IFormClass, PriceChangingFormModel>();
 
@@ -53,10 +56,12 @@ namespace agrokorm
             services.AddScoped<IMembraneService, MembraneService>();
             services.AddScoped<ISzrService, SzrService>();
             services.AddScoped<ISeedService,SeedService>();
+            services.AddScoped<IGrassMixtrueService, GrassMixtureService>();
 
 
 
-            
+
+
         }
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

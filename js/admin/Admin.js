@@ -270,6 +270,9 @@ $(document).ready(function(){
         $('.ChangingDescription').css("opacity", "0")
         $('.ChangingDescription').css("z-index", "-1")
 
+        $('.Removing').css("opacity", "0")
+        $('.Removing').css("z-index", "-1")
+
 
         $('.ChangingTitle').css("opacity","0")
         $('.ChangingTitle').css("z-index","-1")
@@ -291,6 +294,9 @@ $(document).ready(function(){
         $('.ChangingDescription').css("opacity", "0")
         $('.ChangingDescription').css("z-index", "-1")
 
+        $('.Removing').css("opacity", "0")
+        $('.Removing').css("z-index", "-1")
+
         $('.ChangingTitle').css("opacity","0")
         $('.ChangingTitle').css("z-index","-1")
         
@@ -310,6 +316,9 @@ $(document).ready(function(){
         $('.ChangingDescription').css("opacity", "0")
         $('.ChangingDescription').css("z-index", "-1")
 
+        $('.Removing').css("opacity", "0")
+        $('.Removing').css("z-index", "-1")
+
         $('.CreateNewEntity').css("opacity","0")
         $('.CreateNewEntity').css("z-index","-1")
         
@@ -328,6 +337,9 @@ $(document).ready(function(){
         $('.ChangingDescription').css("opacity", "0")
         $('.ChangingDescription').css("z-index", "-1")
 
+        $('.Removing').css("opacity", "0")
+        $('.Removing').css("z-index", "-1")
+
         $('.ChangingTitle').css("opacity","0")
         $('.ChangingTitle').css("z-index","-1")
         
@@ -343,6 +355,9 @@ $(document).ready(function(){
         $('.CreateNewEntity').css("opacity", "0")
         $('.CreateNewEntity').css("z-index", "-1")
 
+        $('.Removing').css("opacity", "0")
+        $('.Removing').css("z-index", "-1")
+
         $('.ChangingPrice').css("opacity", "0")
         $('.ChangingPrice').css("z-index", "-1")
 
@@ -356,6 +371,27 @@ $(document).ready(function(){
         $('.ChangingDescription').css("z-index", "5")
 
     });
+    $('.Delete').click(function(){
+        $('.title h2').text("Удаление")
+
+        $('.CreateNewEntity').css("opacity", "0")
+        $('.CreateNewEntity').css("z-index", "-1")
+
+        $('.ChangingDescription').css("opacity", "0")
+        $('.ChangingDescription').css("z-index", "-1")
+
+        $('.ChangingPrice').css("opacity", "0")
+        $('.ChangingPrice').css("z-index", "-1")
+
+        $('.ChangingTitle').css("opacity","0")
+        $('.ChangingTitle').css("z-index","-1")
+        
+        $('.Main').css("opacity", "0")
+        $('.Main').css("z-index", "-1")
+        
+        $('.Removing').css("opacity", "1")
+        $('.Removing').css("z-index", "5")
+    })
 
     //rightSide
 

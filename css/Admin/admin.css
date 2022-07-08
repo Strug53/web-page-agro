@@ -55,7 +55,7 @@
            
 */
 
-.wholeList, .Name, .Price, .Description,.New {
+.wholeList, .Name, .Price, .Description,.New, .Delete {
     position: absolute;
     width: 99%;
     height: 70px;
@@ -63,7 +63,7 @@
     transition: all 1s ease;
 }
 
-    .wholeList img, .Name img, .Price img, .Description img, .New img {
+    .wholeList img, .Name img, .Price img, .Description img, .New img, .Delete img {
         position: absolute;
         top: 15px;
         left: 15px;
@@ -89,12 +89,15 @@
 .Description {
     top: 550px;
 }
+.Delete{
+    top: 680px;
+}
 
-    .wholeList:hover img, .Name:hover img, .Price:hover img, .Description:hover img, .New:hover img {
+    .wholeList:hover img, .Name:hover img, .Price:hover img, .Description:hover img, .New:hover img, .Delete:hover img {
         transform: scale(1.2);
     }
 
-    .wholeList:hover, .Name:hover, .Price:hover, .Description:hover,.New:hover {
+    .wholeList:hover, .Name:hover, .Price:hover, .Description:hover,.New:hover, .Delete:hover {
         box-shadow: 0px 0px 20px rgb(70, 70, 70);
     }
     ::-webkit-scrollbar{
@@ -367,7 +370,7 @@
     Title
     */
 
-    .ChangingTitle{
+    .ChangingTitle, .ChangingDescription, .Removing{
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
@@ -377,13 +380,4 @@
         opacity: 0;
         z-index: -1;
     }
-    .ChangingDescription{
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        top: 250px;
-        width: 1000px;
-        height: 1000px;
-        opacity: 0;
-        z-index: -1;
-    }
+    

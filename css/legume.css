@@ -5,9 +5,22 @@ body{
     height: 1100px;
 }
 .table{
-    min-height: auto;
-    
+    min-height: auto;   
 }
 .InHeader h1{
     font-size: 40px;
+}
+.table li h3{
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: none;
+    max-width: 1000px;
+}
+.button_conf{
+    background-color: rgb(25, 189, 39);
+    width: 120px;
+    height: 100%;
+    border-radius: 20px;
+    cursor: pointer;
 }
