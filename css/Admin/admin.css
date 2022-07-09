@@ -107,7 +107,7 @@
     .wholeList_rightSide{
         position: fixed;
         top: 120px;
-        right:-290px;
+        right:-255px;
         width: 300px;
         height: 800px;
         background-color: rgb(25, 189, 39);
@@ -123,14 +123,14 @@
             position: absolute;
             top: 50px;
             height: 100%;
-            width: 100%;
+            width: 200px;
             left: 70px;
             padding-left: 0;
         }
         .wholeList_rightSide ul li{
             color: white;
             font-size: 20px;
-            margin-bottom: 50px;
+            margin-bottom: 10px;
         }
         .wholeList_rightSide_show{
             text-align: center;
@@ -246,7 +246,7 @@
     }
     
     
-    #membraneTable, #SzrTable, #SpringSeedTable, #LegumeTable, #GrassSeedTable{ 
+    #membraneTable, #SzrTable, #SpringSeedTable, #LegumeTable, #GrassSeedTable, #GrassMixtureTable{ 
         opacity: 0;
         z-index: 1;
     }
@@ -361,7 +361,15 @@
         width: 400px;
         height: 100px;
     }
-    #SunflowerForm, #MembraneForm,#SzrForm, #SpringSeedForm, #LegumeForm, #GrassSeedForm{
+    #SunflowerForm, 
+    #MembraneForm,
+    #SzrForm, 
+    #SpringSeedForm, 
+    #LegumeForm, 
+    #GrassSeedForm,
+    #GrassMixtureForm,
+    #MembraneConfigurationForm
+    {
        opacity: 0;
     }
 
