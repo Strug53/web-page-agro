@@ -82,5 +82,22 @@ namespace agrokorm.Service.Implementation.SzrService
             }
             catch (Exception ex) { return new BaseResponse<Szr> { Data = null, Description = ex.Message }; }
         }
-    }
+
+        public BaseResponse<bool> Delete(int id)
+        {
+            try
+            {
+                bool IsDeleted = _repository.Delete(id);
+                return new BaseResponse<bool> { Data = IsDeleted, Description = "Ok" };
+            }
+            catch (Exception ex)
+            {
+                return new BaseResponse<bool> { Data = false, Description = ex.Message };
+            }
+        }
+
+    }  
+
 }
+    
+

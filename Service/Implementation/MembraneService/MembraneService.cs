@@ -132,6 +132,42 @@ namespace agrokorm.Service.ProductServices.MembraneService
 
         }
 
-       
+        public BaseResponse<bool> CreateNewMembraneConfiguration(MembraneConfiguration config)
+        {
+            try
+            {
+                var IsCreated = repository.CreateNewMembraneConfiguration(config);
+                return new BaseResponse<bool> { Data = IsCreated, Description = "Ok" };
+            }
+            catch(Exception ex)
+            {
+                return new BaseResponse<bool> { Data = false, Description = ex.Message };
+            }
+        }
+
+        public BaseResponse<bool> Delete(int id)
+        {
+            try
+            {
+                var IsDeleted = repository.Delete(id);
+                return new BaseResponse<bool> { Data = IsDeleted, Description = "Ok" };
+            }
+            catch(Exception ex)
+            {
+                return new BaseResponse<bool> { Data = false, Description = ex.Message };
+            }
+        }
+        public BaseResponse<bool> DeleteConfiguration(int id)
+        {
+            try
+            {
+                var IsDeleted = repository.DeleteMembraneConfiguration(id);
+                return new BaseResponse<bool> { Data = IsDeleted, Description = "Ok" };
+            }
+            catch(Exception ex)
+            {
+                return new BaseResponse<bool> { Data = false, Description = ex.Message };
+            }
+        }
     }
 }

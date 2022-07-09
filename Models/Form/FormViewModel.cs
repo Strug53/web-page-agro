@@ -15,6 +15,9 @@ namespace agrokorm.Models.Form
         public SpringSeed springSeed { get; set; }
         public Legumes legumes { get; set; }
         public GrassSeed grassSeed { get; set; }
+        public GrassMixture grassMixture { get; set; }  
+        public DeletingForm deletingForm { get; set; }
+
 
         public FormViewModel()
         {
@@ -27,6 +30,8 @@ namespace agrokorm.Models.Form
             springSeed = new SpringSeed();
             legumes = new Legumes();
             grassSeed = new GrassSeed();
+            grassMixture = new GrassMixture();
+            deletingForm = new DeletingForm();
     }
 }
 }

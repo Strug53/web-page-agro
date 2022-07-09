@@ -16,5 +16,7 @@ namespace agrokorm.Repository.Interfaces.SeedsInterfaces
         bool ChangeLegumePrice(int id, string Price);
 
         bool ChangeLegumeTitle(int id, string Title);
+
+        bool DeleteLegume(int id);
     }
 }

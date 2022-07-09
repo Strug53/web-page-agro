@@ -102,6 +102,10 @@
                         Семена травы
                         <div class="wholeList_rightSide_show" id="GrassSeed">Показать</div>
                     </li>
+                    <li>
+                        Травосмеси
+                        <div class="wholeList_rightSide_show" id="GrassMixture">Показать</div>
+                    </li>
                 </ul>
             </div>
 
@@ -344,6 +348,48 @@
 
                        } 
                 </table>
+
+                <table class="wholeList_table" id="GrassMixtureTable">
+                            <tr>
+                                <th>ID</th>
+                                <th>Название</th>
+                                <th>Состав</th>
+                                <th>Категория</th>
+                                <th>Описание</th>
+                                <th>Цена</th>
+                            </tr>
+                            <!-- Foreach -->
+                            @foreach(var product in ViewBag.GrassMixture)
+                        {
+                        <tr>
+                                <td>@product.Id</td>
+                                <td>@product.Name</td>
+                                <td>@product.Сomposition</td>
+                                <td>@product.Category</td>
+                                <td>@product.Description</td>
+                                <td>@product.Price</td>
+                                <td>
+                                @if(@product.IsVisible)
+                                {
+                                        <a asp-controller="Admin"  asp-action="ChangeVisibleModeInSpringSeed"  asp-route-id="@product.Id">
+                                            <img src="~/images/Admin/icons8-done.svg" alt="yes" height="25px">
+                                        </a>
+                                }
+                                else
+                                {
+                                    <a asp-controller="Admin"  asp-action="ChangeVisibleModeInSpringSeed"  asp-route-id="@product.Id">
+                                        <img src="~/images/Admin/icons8-close.svg" alt="no" height="25px">
+                                    </a>
+                                
+                                }
+                                </td>
+                                
+                            </tr>
+
+                       } 
+                </table>
+
+                
             </div>
           
 
@@ -392,6 +438,7 @@
                 <option value="SpringSeed">Яровые семена</option>
                 <option value="Legume">Зерновые и зернобобовые культуры</option>
                 <option value="GrassSeed">Семена травы</option>
+                <option value="GrassMixture">Травосмеси</option>
                 <option value="MembraneConfiguration">Конфигурация пленки</option>
             </select>
 
@@ -573,6 +620,71 @@
                     </li>
                 </ul>
             </form>
+            <form method="post"  asp-controller="Admin" asp-action="CreateNewGrassMixture" id="GrassMixtureForm">
+                <div asp-validation-summary="All"></div>
+                <ul>
+                    <li>
+                        <label>Введите название</label>
+                        <input type="text" name="Name" value="@Model.grassMixture.Name" />
+                    </li>
+                    <li>
+                        <label>Введите состав</label>
+                        <input type="text" name="Variety" value="@Model.grassMixture.Сomposition" />
+                    </li>
+                    <li>
+                        <label>Введите категорию</label>
+                        <input type="text" name="Category" value="@Model.grassMixture.Category" />
+                    </li>
+                    <li>
+                        <label>Введите описание</label>
+                        <textarea name="Description" value="@Model.grassMixture.Description"></textarea>
+                    </li>
+                    <li>
+                        <label>Введите цену</label>
+                        <input type="text" name="Price" value="@Model.grassMixture.Price"/>
+                    </li>
+                    <li>
+                        <button type="submit">Подтвердить</button>
+                    </li>
+                </ul>
+            </form>
+            <form method="post"  asp-controller="Admin" asp-action="CreateNewMembraneConfiguration" id="MembraneConfigurationForm">
+                <div asp-validation-summary="All"></div>
+                <ul>
+                    <li>
+                        <label>Введите цвет</label>
+                        <input type="text" name="Color" value="@Model.membraneConfiguration.Color" />
+                    </li>
+                    <li>
+                        <label>Введите ширину</label>
+                        <input type="number" name="Width" value="@Model.membraneConfiguration.Width"/>
+                    </li>
+                    <li>
+                        <label>Введите длину</label>
+                        <input type="number" name="Lenght" value="@Model.membraneConfiguration.Length"/>
+                    </li>
+                    <li>
+                        <label>Введите тип</label>
+                        <input type="text" name="Type" value="@Model.membraneConfiguration.Type"/>
+                    </li>
+                    <li>
+                        <label>Введите цену</label>
+                        <input type="text" name="Price" value="@Model.membraneConfiguration.Price"/>
+                    </li>
+                    <li>
+                        <label>Выберите основной товар</label>
+                        <select name="MembraneId" value = "@Model.membraneConfiguration.MembraneId">
+                            @foreach (var membrane in ViewBag.Membranes)
+                            {
+                                <option value="@membrane.Id">@membrane.Name</option>
+                            }
+                        </select>
+                    </li>
+                    <li>
+                        <button type="submit">Подтвердить</button>
+                    </li>
+                </ul>
+            </form>
 
 
     </div>
@@ -639,16 +751,21 @@
                     <ul>
                         <li>
                             <label>Выберите таблицу</label>
-                            <select name="Table" value="@Model.titleAndDescriptionChangingFormModel.Table" >
+                            <select name="Table" value="@Model.deletingForm.Table">  
+                                <option value="">Тип товара...</option>
                                 <option value="Membrane">Пленка</option>
-                                <option value="Seed">Семена</option>
-                                <option value="MembraneConfiguration">Конфигурация Пленки</option>
-                            
+                                <option value="Sunflower">Семена подсолнечника</option>
+                                <option value="Szr">СЗР</option>
+                                <option value="SpringSeed">Яровые семена</option>
+                                <option value="Legume">Зерновые и зернобобовые культуры</option>
+                                <option value="GrassSeed">Семена травы</option>
+                                <option value="GrassMixture">Травосмеси</option>
+                                <option value="MembraneConfiguration">Конфигурация пленки</option>
                             </select>
                         </li>
                         <li>
                             <label>Введите ID продукта</label>
-                            <input type="number" name="Id" value="@Model.titleAndDescriptionChangingFormModel.Id"/>
+                            <input type="number" name="Id" value="@Model.deletingForm.Id"/>
                         </li>
                         <li>
                             <button type="submit">Подтвердить</button>

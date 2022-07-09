@@ -12,6 +12,7 @@ namespace agrokorm.Service.Interfaces
         public BaseResponse<bool> ChangeVisibleModeOfSunflower(int id);
         public BaseResponse<bool> ChangeSunflowerPrice(int id, string Price);
         public BaseResponse<bool> ChangeSunflowerTitle(int id, string Title);
+        public BaseResponse<bool> DeleteSunflower(int id);
 
         //---- Spring Seed -----
 
@@ -21,6 +22,7 @@ namespace agrokorm.Service.Interfaces
         public BaseResponse<bool> ChangeVisibleModeOfSpringSeed(int id);
         public BaseResponse<bool> ChangeSpringSeedPrice(int id, string Price);
         public BaseResponse<bool> ChangeSpringSeedTitle(int id, string Title);
+        public BaseResponse<bool> DeleteSpringSeed(int id);
 
 
         //---- Legumes -------
@@ -31,6 +33,7 @@ namespace agrokorm.Service.Interfaces
         public BaseResponse<bool> ChangeVisibleModeOfLegume(int id);
         public BaseResponse<bool> ChangeLegumePrice(int id, string Price);
         public BaseResponse<bool> ChangeLegumeTitle(int id, string Title);
+        public BaseResponse<bool> DeleteLegume(int id);
 
 
         //----- Grass Seed --------
@@ -41,6 +44,7 @@ namespace agrokorm.Service.Interfaces
         public BaseResponse<bool> ChangeVisibleModeOfGrassSeed(int id);
         public BaseResponse<bool> ChangeGrassSeedPrice(int id, string Price);
         public BaseResponse<bool> ChangeGrassSeedTitle(int id, string Title);
+        public BaseResponse<bool> DeleteGrassSeed(int id);
 
 
     }

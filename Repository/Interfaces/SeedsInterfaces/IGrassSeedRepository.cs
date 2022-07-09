@@ -18,5 +18,7 @@ namespace agrokorm.Repository.Interfaces.SeedsInterfaces
 
         bool ChangeGrassSeedTitle(int id, string Title);
 
+        bool DeleteGrassSeed(int id);
+
     }
 }

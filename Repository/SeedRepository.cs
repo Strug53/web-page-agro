@@ -67,6 +67,13 @@ namespace agrokorm.Repository
             return _db.SunflowerSeeds.ToList();
         }
 
+        public bool DeleteSunflower(int id)
+        {
+            var item = SelectSunflower(id);
+            _db.SunflowerSeeds.Remove(item);
+            _db.SaveChanges();
+            return true;
+        }
 
         //----- SpringSeed -------
 
@@ -121,7 +128,13 @@ namespace agrokorm.Repository
             return true;
         }
 
-
+        public bool DeleteSpringSeed(int id)
+        {
+            var item = SelectSpringSeed(id);
+            _db.SpringSeeds.Remove(item);
+            _db.SaveChanges();
+            return true;
+        }
 
         //------ Legumes -------
         public bool CreateLegumes(Legumes entity)
@@ -175,6 +188,14 @@ namespace agrokorm.Repository
             return true;
         }
 
+        public bool DeleteLegume(int id)
+        {
+            var item = SelectLegume(id);
+            _db.Legumes.Remove(item);
+            _db.SaveChanges();
+            return true;
+        }
+
         //-------- Grass Seeds ---------
         public bool CreateGrassSeed(GrassSeed entity)
         {
@@ -223,6 +244,13 @@ namespace agrokorm.Repository
         {
             GrassSeed product = SelectGrassSeed(id);
             product.Name = Title;
+            _db.SaveChanges();
+            return true;
+        }
+        public bool DeleteGrassSeed(int id)
+        {
+            var item = SelectGrassSeed(id);
+            _db.GrassSeeds.Remove(item);
             _db.SaveChanges();
             return true;
         }

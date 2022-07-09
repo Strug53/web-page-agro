@@ -16,6 +16,14 @@ namespace agrokorm.Service.Interfaces
         public BaseResponse<bool> ChangeTitle(int id, string Title);
         public BaseResponse<bool> ChangeDescription(int id, string Description);
 
+        public BaseResponse<bool> Delete(int id);
+        public BaseResponse<bool> DeleteConfiguration(int id);
+
+        
+
+        public BaseResponse<bool> CreateNewMembraneConfiguration(MembraneConfiguration config);
+
+
 
 
 

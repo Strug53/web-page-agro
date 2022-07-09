@@ -91,6 +91,19 @@ namespace agrokorm.Service.Implementation.SeedService
             catch(Exception ex) { return new BaseResponse<SunflowerSeed> { Data = null, Description = ex.Message }; }
         }
 
+        public BaseResponse<bool> DeleteSunflower(int id)
+        {
+            try
+            {
+                var IsDelete = _repository.DeleteSunflower(id);
+                return new BaseResponse<bool> { Data = IsDelete, Description = "Ok" };
+            }
+            catch (Exception ex)
+            {
+                return new BaseResponse<bool> { Data = false, Description = ex.Message };
+            }
+        }
+
         // ----------- Spring Seed --------------
 
         public BaseResponse<SpringSeed> GetSpringSeed(int id)
@@ -164,7 +177,18 @@ namespace agrokorm.Service.Implementation.SeedService
                 return new BaseResponse<bool> { Data = false, Description = ex.Message };
             }
         }
-
+        public BaseResponse<bool> DeleteSpringSeed(int id)
+        {
+            try
+            {
+                var IsDelete = _repository.DeleteSpringSeed(id);
+                return new BaseResponse<bool> { Data = IsDelete, Description = "Ok" };
+            }
+            catch (Exception ex)
+            {
+                return new BaseResponse<bool> { Data = false, Description = ex.Message };
+            }
+        }
 
 
         // --------- Legumes ---------
@@ -242,6 +266,18 @@ namespace agrokorm.Service.Implementation.SeedService
             }
         }
 
+        public BaseResponse<bool> DeleteLegume(int id)
+        {
+            try
+            {
+                var IsDelete = _repository.DeleteLegume(id);
+                return new BaseResponse<bool> { Data = IsDelete, Description = "Ok" };
+            }
+            catch (Exception ex)
+            {
+                return new BaseResponse<bool> { Data = false, Description = ex.Message };
+            }
+        }
 
         //----------- Grass Seed -----------
 
@@ -318,9 +354,21 @@ namespace agrokorm.Service.Implementation.SeedService
             }
         }
 
+        public BaseResponse<bool> DeleteGrassSeed(int id)
+        {
+            try
+            {
+                var IsDelete = _repository.DeleteGrassSeed(id);
+                return new BaseResponse<bool> { Data = IsDelete, Description = "Ok" };
+            }
+            catch (Exception ex)
+            {
+                return new BaseResponse<bool> { Data = false, Description = ex.Message };
+            }
+        }
 
 
-        
+
 
 
 

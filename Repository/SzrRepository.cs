@@ -58,7 +58,10 @@ namespace agrokorm.Repository
 
         public bool Delete(int id)
         {
-            throw new System.NotImplementedException();
+            var item = Select(id);
+            _db.Szrs.Remove(item);
+            _db.SaveChanges();
+            return true;
         }
 
         public Szr Select(int id)

@@ -11,8 +11,9 @@ namespace agrokorm.Repository.Interfaces
         bool ChangePrice(int id, string Price);
         bool ChangeTitle(int id, string Title);
         bool ChangeDescription(int id, string Description);
-        
-
+        bool CreateNewMembraneConfiguration(MembraneConfiguration config);
+        MembraneConfiguration SelectConfiguration(int id);
+        bool DeleteMembraneConfiguration(int id);
 
     }
 }

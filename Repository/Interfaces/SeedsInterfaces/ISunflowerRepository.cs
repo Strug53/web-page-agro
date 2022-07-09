@@ -17,6 +17,7 @@ namespace agrokorm.Repository.Interfaces.SeedsInterfaces
 
         public bool ChangeVisibleModeOfSunflower(int id);
 
+        bool DeleteSunflower(int id);
 
     }
 }

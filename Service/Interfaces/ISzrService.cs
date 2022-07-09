@@ -7,5 +7,6 @@ namespace agrokorm.Service.Interfaces
     {
         public BaseResponse<bool> ChangePrice(int id, string Price);
         public BaseResponse<bool> ChangeTitle(int id, string Title);
+        public BaseResponse<bool> Delete(int id);
     }
 }

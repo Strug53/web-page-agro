@@ -18,15 +18,17 @@ namespace agrokorm.Controllers
         private readonly IMembraneService _membraneService;
         private readonly ISeedService _seedService;
         private readonly ISzrService _szrService;
+        private readonly IGrassMixtrueService _grassMixtrueService;
 
         
 
-        public AdminController(IGlobalRepository repo, IMembraneService membrservice, ISeedService seedService, ISzrService szr ) 
+        public AdminController(IGlobalRepository repo, IMembraneService membrservice, ISeedService seedService, ISzrService szr, IGrassMixtrueService grassMixtrueService ) 
         {
             _szrService = szr;
             _repository = repo;
             _membraneService = membrservice;
             _seedService = seedService;
+            _grassMixtrueService = grassMixtrueService;
         }
 
         // GET: AdminController
@@ -86,6 +88,7 @@ namespace agrokorm.Controllers
             var SpringSeeds = _seedService.GetAllSpringSeeds().Data;
             var Legumes = _seedService.GetAllLegumes().Data;
             var GrassSeeds = _seedService.GetAllGrassSeeds().Data;
+            var GrassMixture = _grassMixtrueService.GetAllProduct().Data;
 
             var ViewModelForForms = new FormViewModel();
 
@@ -96,6 +99,7 @@ namespace agrokorm.Controllers
             ViewBag.SpringSeeds = SpringSeeds;
             ViewBag.Legumes = Legumes;
             ViewBag.GrassSeeds = GrassSeeds;
+            ViewBag.GrassMixture = GrassMixture;
 
             var formPrice = new PriceChangingFormModel();
 
@@ -114,22 +118,18 @@ namespace agrokorm.Controllers
                 bool IsOk;
                 switch (form.Table)
                 {
-                    case "Membrane":
-                        var MembraneIsChanged = _membraneService.ChangePrice(form.Id, form.Price);
-                        IsOk = MembraneIsChanged.Data;
+                    case "Membrane": 
+                        IsOk = _membraneService.ChangePrice(form.Id, form.Price).Data;
                         break;
                     case "Sunflower":
-                        var SeedIsChanged = _seedService.ChangeSunflowerPrice(form.Id, form.Price);
-                        IsOk = SeedIsChanged.Data;
+                        IsOk = _seedService.ChangeSunflowerPrice(form.Id, form.Price).Data;
                         break;
                     case "Szr":
-                        var SzrIsChanged = _szrService.ChangePrice(form.Id, form.Price);
-                        IsOk = SzrIsChanged.Data;
+                        IsOk = _szrService.ChangePrice(form.Id, form.Price).Data;
                         break;
 
                     case "SpringSeed":
-                        var SpringSeedIsChanged = _seedService.ChangeSpringSeedPrice(form.Id, form.Price);
-                        IsOk = SpringSeedIsChanged.Data;
+                        IsOk = _seedService.ChangeSpringSeedPrice(form.Id, form.Price).Data;
                         break;
                     case "Config":
                         IsOk = false;
@@ -153,22 +153,18 @@ namespace agrokorm.Controllers
                 switch (form.Table)
                 {
                     case "Membrane":
-                        var MembraneIsChanged = _membraneService.ChangeTitle(form.Id, form.TitleOrDescription);
-                        IsOk = MembraneIsChanged.Data;
+                        IsOk = _membraneService.ChangeTitle(form.Id, form.TitleOrDescription).Data;
                         break;
                     case "Sunflower":
-                        var SeedIsChanged = _seedService.ChangeSunflowerTitle(form.Id, form.TitleOrDescription);
-                        IsOk = SeedIsChanged.Data;
+                        IsOk = _seedService.ChangeSunflowerTitle(form.Id, form.TitleOrDescription).Data;
                         break;
 
-                    case "Szr":
-                        var SzrIsChanged = _szrService.ChangeTitle(form.Id, form.TitleOrDescription);
-                        IsOk = SzrIsChanged.Data;
+                    case "Szr":  
+                        IsOk = _szrService.ChangeTitle(form.Id, form.TitleOrDescription).Data;
                         break;
 
                     case "SpringSeed":
-                        var SpringSeedIsChanged = _seedService.ChangeSpringSeedTitle(form.Id, form.TitleOrDescription);
-                        IsOk = SpringSeedIsChanged.Data;
+                        IsOk = _seedService.ChangeSpringSeedTitle(form.Id, form.TitleOrDescription).Data;
                         break;
 
                     case "Config":
@@ -193,8 +189,7 @@ namespace agrokorm.Controllers
                 switch (form.Table)
                 {
                     case "Membrane":
-                        var MembraneIsChanged = _membraneService.ChangeDescription(form.Id, form.TitleOrDescription);
-                        IsOk = MembraneIsChanged.Data;
+                        IsOk = _membraneService.ChangeDescription(form.Id, form.TitleOrDescription).Data;
                         break;
                     case "Seed":
                         IsOk = false;
@@ -314,6 +309,75 @@ namespace agrokorm.Controllers
                 var isCreated = _seedService.CreateNewSpringSeedEntity(springSeedEntity);
                 ViewBag.Error = isCreated.Description;
                 return View("SuccessOrFailure", isCreated.Data);
+            }
+            return View("SuccessOrFailure", false);
+        }
+
+        [HttpPost]
+        public IActionResult CreateNewGrassMixture(GrassMixture grassMixtureEntity)
+        {
+            if (ModelState.IsValid)
+            {
+                var IsCreated = _grassMixtrueService.CreateNewEntity(grassMixtureEntity);
+                ViewBag.Error = IsCreated.Description;
+                return View("SuccessOrFailure", IsCreated.Data);
+            }
+            return View("SuccessOrFailure", false);
+        }
+
+        [HttpPost]
+        public IActionResult CreateNewMembraneConfiguration(MembraneConfiguration membraneConfigurationEntity)
+        {
+            if (ModelState.IsValid)
+            {
+                var IsCreated = _membraneService.CreateNewMembraneConfiguration(membraneConfigurationEntity);
+                ViewBag.Error = IsCreated.Description;
+                return View("SuccessOrFailure", IsCreated.Data);
+            }
+            return View("SuccessOrFailure", false);
+        }
+
+
+        //Deleting
+
+        [HttpPost]
+        public IActionResult Delete(DeletingForm deletingForm)
+        {
+            if (ModelState.IsValid)
+            {
+                bool IsDelete = false;
+                switch (deletingForm.Table)
+                {
+                    case "Membrane":
+                        IsDelete = _membraneService.Delete(deletingForm.Id).Data;
+                        break;
+                    case "Sunflower":
+                        IsDelete = _seedService.DeleteSunflower(deletingForm.Id).Data;
+                        break;
+
+                    case "Szr":
+                        IsDelete = _szrService.Delete(deletingForm.Id).Data;
+                        break;
+                    case "SpringSeed":
+                        IsDelete = _seedService.DeleteSpringSeed(deletingForm.Id).Data;
+                        break;
+                    case "Legume":
+                        IsDelete = _seedService.DeleteLegume(deletingForm.Id).Data;
+                        break;
+                    case "GrassSeed":
+                        IsDelete = _seedService.DeleteGrassSeed(deletingForm.Id).Data;
+                        break;
+                    case "GrassMixture":
+                        IsDelete = _grassMixtrueService.Delete(deletingForm.Id).Data;
+                        break;
+                    case "MembraneConfiguration":
+                        IsDelete = _membraneService.DeleteConfiguration(deletingForm.Id).Data;
+                        break;
+
+                    default:
+                        break;
+                }
+                return View("SuccessOrFailure", IsDelete);
             }
             return View("SuccessOrFailure", false);
         }

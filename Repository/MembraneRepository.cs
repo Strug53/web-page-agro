@@ -71,9 +71,22 @@ namespace agrokorm.Repository
 
         public bool Delete(int id)
         {
-            throw new System.NotImplementedException();
+            var item = Select(id);
+            _db.Membranes.Remove(item);
+            _db.SaveChanges();
+            return true;
         }
-
+        public bool DeleteMembraneConfiguration(int id)
+        {
+            var item = SelectConfiguration(id);
+            _db.MembraneConfigurations.Remove(item);
+            _db.SaveChanges();
+            return true;
+        }
+        public MembraneConfiguration SelectConfiguration(int id)
+        {
+            return _db.MembraneConfigurations.FirstOrDefault(c => c.Id == id);
+        } 
         public List<MembraneConfiguration> GetConfigurations()
         {
             var allConfiguration = _db.MembraneConfigurations.ToList();
@@ -96,6 +109,13 @@ namespace agrokorm.Repository
         {
             var allItems = _db.Membranes.ToList();
             return allItems;
+        }
+
+        public bool CreateNewMembraneConfiguration(MembraneConfiguration config)
+        {
+            _db.MembraneConfigurations.Add(config);
+            _db.SaveChanges();
+            return true;
         }
         
     }
