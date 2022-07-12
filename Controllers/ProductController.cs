@@ -77,5 +77,10 @@ namespace agrokorm.Controllers
         } 
         public IActionResult Gumat7B() { return View(); }
        
+        public IActionResult Seeds()
+        {
+
+            return View();
+        }
     }
 }
