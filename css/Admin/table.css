@@ -2,7 +2,7 @@
     font-family: 'Open Sans', sans-serif;
 }
 
-img{
+.logo{
     position: absolute;
     left:50%;
     transform: translateX(-50%);
