@@ -59,7 +59,7 @@
                         </tr>
                             @foreach(var szr in Model)
                             {
-                                @if(szr.Category == category)
+                                @if(szr.Category == category && szr.IsVisible)
                                 {
                                 <tr>
                                     <td>@szr.Name</td>

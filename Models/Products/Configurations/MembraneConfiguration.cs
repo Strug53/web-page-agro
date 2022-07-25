@@ -18,5 +18,7 @@ namespace agrokorm.Models.Products.Configurations
         public string Type { get; set; }
 
         public int MembraneId { get; set; } 
+        
+        public bool IsVisible { get; set; }
     }
 }

@@ -19,11 +19,9 @@ namespace agrokorm.Service.Interfaces
         public BaseResponse<bool> Delete(int id);
         public BaseResponse<bool> DeleteConfiguration(int id);
 
-        
-
         public BaseResponse<bool> CreateNewMembraneConfiguration(MembraneConfiguration config);
 
-
+        public BaseResponse<bool> ChangeVisibleModeOfMembraneConfiguration(int id);
 
 
 

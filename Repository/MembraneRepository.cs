@@ -117,6 +117,29 @@ namespace agrokorm.Repository
             _db.SaveChanges();
             return true;
         }
+        public bool ChangeVisibleModeOfMembraneConfiguration(int id)
+        {
+            var membrane = SelectConfiguration(id);
+            if (membrane != null)
+            {
+                if (membrane.IsVisible)
+                {
+                    membrane.IsVisible = false;
+                    _db.SaveChanges();
+                    return true;
+                }
+                else
+                {
+                    membrane.IsVisible = true;
+                    _db.SaveChanges();
+                    return true;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
         
     }
 }

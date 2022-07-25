@@ -229,6 +229,27 @@ namespace agrokorm.Controllers
             return View("SuccessOrFailure", IsChanged.Data);
         }
 
+        public IActionResult ChangeVisibleModeInSzrTable(int id)
+        {
+            var IsChanged = _szrService.ChangeVisibleMode(id);
+            return View("SuccessOrFailure", IsChanged.Data);
+        }
+        public IActionResult ChangeVisibleModeInLegumeTable(int id)
+        {
+            return View("SuccessOrFailure", _seedService.ChangeVisibleModeOfLegume(id).Data);
+        }
+        public IActionResult ChangeVisibleModeInGrassSeedTable(int id)
+        {
+            return View("SuccessOrFailure", _seedService.ChangeVisibleModeOfGrassSeed(id).Data);
+        }
+        public IActionResult ChangeVisibleModeInGrassMixtureTable(int id)
+        {
+            return View("SuccessOrFailure", _grassMixtrueService.ChangeVisibleMode(id).Data);
+        }
+        public IActionResult ChangeVisibleModeInMembraneConfTable(int id)
+        {
+            return View("SuccessOrFailure", _membraneService.ChangeVisibleModeOfMembraneConfiguration(id).Data);
+        }
         //Creating new items
         [HttpPost]
         public IActionResult CreateNewMembrane(Membrane membraneEntity)

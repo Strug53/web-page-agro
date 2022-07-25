@@ -14,6 +14,7 @@ namespace agrokorm.Repository.Interfaces
         bool CreateNewMembraneConfiguration(MembraneConfiguration config);
         MembraneConfiguration SelectConfiguration(int id);
         bool DeleteMembraneConfiguration(int id);
+        bool ChangeVisibleModeOfMembraneConfiguration(int id);
 
     }
 }

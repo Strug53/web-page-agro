@@ -11,7 +11,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap" rel="stylesheet">
 
 
-<img src="~/images/Logo.png" />
+
+
+<img class="logo" src="~/images/Logo.png" />
 
 <div class="config">
             <table class="configuration">
@@ -33,6 +35,24 @@
                          <td>@conf.Length</td>
                          <td>@conf.Type</td>
                          <td>@conf.Price</td>
+                         
+                         <td>
+                         @if(@conf.IsVisible)
+                                {
+                                        <a asp-controller="Admin"  asp-action="ChangeVisibleModeInMembraneConfTable"  asp-route-id="@conf.Id">
+                                            <img src="~/images/Admin/icons8-done.svg" alt="yes" height="25px">
+                                        </a>
+                                }
+                         else
+                                {
+                                    <a asp-controller="Admin"  asp-action="ChangeVisibleModeInMembraneConfTable"  asp-route-id="@conf.Id">
+                                        <img src="~/images/Admin/icons8-close.svg" alt="no" height="25px">
+                                    </a>
+                                
+                                }
+                                
+                         </td>
+                         
                        </tr>
                     
                     }
@@ -43,4 +63,4 @@
                         
 </div>
 
-<a asp-controller="Admin" asp-action="Login"><div> <p>Вернуться в админ-панель</p></div></a>
+<a asp-controller="Admin" asp-action="RedirectToAdmin" asp-route-id="1748925468"><div> <p>Вернуться в админ-панель</p></div></a>

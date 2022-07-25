@@ -57,7 +57,7 @@
                         </tr>
                             @foreach(var seed in Model)
                             {
-                                @if(seed.Category == category)
+                                @if(seed.Category == category && seed.IsVisible)
                                 {
                                 <tr>
                                     <td>@seed.Name</td>

@@ -57,32 +57,35 @@
 
     </section>
     <ul class="Products">
-            @foreach(var product in Model){
-            <li>    
-                <div class="Product">
-                    <h2>@product.Name</h2>
-                    <img src=~/images/silosnaya-plenka-black.jpg />
+            @foreach(var product in Model)
+            {
+            if (product.IsVisible)
+            {
+                <li>    
+                    <div class="Product">
+                        <h2>@product.Name</h2>
+                        <img src=~/images/silosnaya-plenka-black.jpg />
 
-                    <ul class="InsideDescription">
-                        <li><p>@product.Description</p>
-                        </li>
-                        <li>
-                            <p>Уникальная технология изготовления пленки для силосных ям обеспечивает:</p>
-                            <ul class="InsideInsideDescription">
-                                <li>прочность и стойкость на разрыв и прокол;</li>
-                                <li>световую изоляцию;</li>
-                                <li>морозостойкость;</li>
-                                <li>ширина пленки до 24 метров и длина до 50 метров, позволяет укрывать силосные ямы и траншеи одним полотном без стыков; </li>
-                                <li>непроницаемость для внешней влаги и внутреннего испарения.</li>  
-                            </ul>
-                        </li>
-                        <li><p>Купить силосную пленку черную (Россия) можно, сделав заказ в форме обратной связи.</p> </li>
-                        <li>
-                        <div class="Price"><p>@product.Price рублей</p></div>
-                        </li>
-                    </ul>
-                    @if (product.MembraneConfigurations.Count != 0)
-                    {
+                        <ul class="InsideDescription">
+                            <li><p>@product.Description</p>
+                            </li>
+                            <li>
+                                <p>Уникальная технология изготовления пленки для силосных ям обеспечивает:</p>
+                                <ul class="InsideInsideDescription">
+                                    <li>прочность и стойкость на разрыв и прокол;</li>
+                                    <li>световую изоляцию;</li>
+                                    <li>морозостойкость;</li>
+                                    <li>ширина пленки до 24 метров и длина до 50 метров, позволяет укрывать силосные ямы и траншеи одним полотном без стыков; </li>
+                                    <li>непроницаемость для внешней влаги и внутреннего испарения.</li>  
+                                </ul>
+                            </li>
+                            <li><p>Купить силосную пленку черную (Россия) можно, сделав заказ в форме обратной связи.</p> </li>
+                            <li>
+                                <div class="Price"><p>@product.Price рублей</p></div>
+                            </li>
+                        </ul>
+                        @if (product.MembraneConfigurations.Count != 0)
+                        {
                             <table>
                                 <tr>
                                     <th>Цвет</th>
@@ -92,24 +95,26 @@
                                     <th>Цена</th>
                                 </tr>
                                 <!-- Foreach -->
-                                
-                                    @foreach (var configuration in product.MembraneConfigurations)
-                                    {
-                                        <tr>
-                                            <td>@configuration.Color</td>
-                                            <td>@configuration.Width</td>
-                                            <td>@configuration.Length</td>
-                                            <td>@configuration.Type</td>
-                                            <td>@configuration.Price</td>
-                                        </tr>
-                                    }
+
+                                @foreach (var configuration in product.MembraneConfigurations)
+                                {
+                                    
+                                    <tr>
+                                        <td>@configuration.Color</td>
+                                        <td>@configuration.Width</td>
+                                        <td>@configuration.Length</td>
+                                        <td>@configuration.Type</td>
+                                        <td>@configuration.Price</td>
+                                    </tr>
+                                }
 
                             </table>
-                     }
-                     
+                        }
+
                     <!--<div class="Price"><p>@product.Price рублей</p></div>-->
                 </div>
             </li>
+            }
             }
             <footer class="bottom" style="background-image: url('/images/bottom.jpg');">
     <section class="bottom_main">

@@ -169,5 +169,16 @@ namespace agrokorm.Service.ProductServices.MembraneService
                 return new BaseResponse<bool> { Data = false, Description = ex.Message };
             }
         }
+
+        public BaseResponse<bool> ChangeVisibleModeOfMembraneConfiguration(int id)
+        {
+            var IsChanged = repository.ChangeVisibleModeOfMembraneConfiguration(id);
+            if (IsChanged)
+            {
+                return new BaseResponse<bool> { Data = true, Description = "Ok" };
+            }
+            else { return new BaseResponse<bool> { Data = false, Description = "Error" }; }
+        }
+
     }
 }
